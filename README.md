@@ -13,3 +13,23 @@ Everything that is in this repo is very much experimental. You have been
  whether they are required or not.
 3. All programs need to have a main method. Why? Having a main method makes it 
 easier to figure out where a program starts.
+
+## Syntax
+
+### Variables
+
+Variables are declared using the `var` keyword.
+
+```
+var x: Integer = 4;
+```
+
+### Types
+
+All variables require types. No exceptions.
+
+var name: String = 'Sammy';
+
+### Semi-colons
+
+Semi-colons are required at the end of statements.
