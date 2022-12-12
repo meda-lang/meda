@@ -16,6 +16,7 @@ class Tree {
  * Prints out the names of trees in a set.
  */
 func printTreeNames(trees: Set<Tree>) {
+  
   for (Tree tree in trees) {
     var treeName = tree.getName();
     print(treeName);
@@ -27,8 +28,10 @@ main() {
   var pine = new Tree('Pine');
   var cypress = new Tree('Cypress');
 
-  var trees: Set<Tree> = new Set();
-  trees.add(palm, pine, cypress);
+  var trees: Set<Tree> = {palm, pine, cypress};
+
+  var dogwood = new Tree('Dogwood');
+  trees.add(dogwood);
 
   printTreeNames(trees);
 }
