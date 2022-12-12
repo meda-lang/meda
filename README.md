@@ -21,15 +21,28 @@ easier to figure out where a program starts.
 Variables are declared using the `var` keyword.
 
 ```
-var x: Integer = 4;
+var x: int = 4;
 ```
 
 ### Types
 
 All variables require types. No exceptions.
 
-var name: String = 'Sammy';
+```
+var name: string = 'Sammy';
+```
+
+These are the primitive types that Meda supports:
+
+* `bool`
+* `string`
+* `char`
+* `int`
 
 ### Semi-colons
 
 Semi-colons are required at the end of statements.
+
+```
+var isTested: bool = false;
+```
