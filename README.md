@@ -20,7 +20,7 @@ easier to figure out where a program starts.
 
 Variables are declared using the `var` keyword.
 
-```
+```rust
 var x: int = 4;
 ```
 
@@ -28,7 +28,7 @@ var x: int = 4;
 
 All variables require types. No exceptions.
 
-```
+```rust
 var name: string = 'Sammy';
 ```
 
@@ -43,6 +43,6 @@ These are the primitive types that Meda supports:
 
 Semi-colons are required at the end of statements.
 
-```
+```rust
 var isTested: bool = false;
 ```
