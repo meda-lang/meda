@@ -46,3 +46,17 @@ Semi-colons are required at the end of statements.
 ```rust
 var isTested: bool = false;
 ```
+
+## History
+
+### The Name
+
+What's the deal with the name? Well I live in Alameda, CA and thought that meda
+sounded kinda cool.
+
+### And the seal as a logo?
+
+Haha, glad you noticed. Well, you see, the first day I moved to Alameda, I was
+on a walking with my family by the SF Bay near my home and I saw a seal! So yeah,
+since there are seals near my house I'm going with a seal as a logo. And I'm
+calling him Sammy. Don't @ me :-)
