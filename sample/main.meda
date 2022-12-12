@@ -16,7 +16,6 @@ class Tree {
  * Prints out the names of trees in a set.
  */
 func printTreeNames(trees: Set<Tree>) {
-  
   for (Tree tree in trees) {
     var treeName = tree.getName();
     print(treeName);
