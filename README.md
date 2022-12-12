@@ -1,4 +1,5 @@
-# meda
+
+# Meda
 
 Meda is a general purpose programming language that is influenced by TypeScript,
 Go, and Rust.
