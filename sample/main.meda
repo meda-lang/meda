@@ -1,0 +1,35 @@
+import {Set} from 'collections';
+
+class Tree {
+  private name: String = '';
+
+  constructor(name: String) {
+    this.name = name;
+  }
+
+  private func getName() -> String {
+    return this.name;
+  }
+}
+
+/**
+ * Prints out the names of trees in a set.
+ */
+func printTreeNames(trees: Set<Tree>) {
+  for (Tree tree in trees) {
+    var treeName = tree.getName();
+    print(treeName);
+  }
+}
+
+main() {
+  var palm = new Tree('Palm');
+  var pine = new Tree('Pine');
+  var cypress = new Tree('Cypress');
+
+  var trees: Set<Tree> = new Set();
+  trees.add(palm, pine, cypress);
+
+  printTreeNames(trees);
+}
+
