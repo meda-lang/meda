@@ -1,8 +1,8 @@
 
 # Meda
 
-Meda is a general purpose programming language that is influenced by TypeScript,
-Go, and Rust.
+Meda is a procedural, general purpose programming language that is influenced by 
+TypeScript, Go, and Rust.
 
 Everything that is in this repo is very much experimental. You have been
  warned :-)
