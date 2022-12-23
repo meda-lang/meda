@@ -13,11 +13,11 @@ class Tree {
     this.name = name;
   }
 
-  public func getName() -> string {
+  public method getName() -> string {
     return this.name;
   }
 
-  public func getType() -> string {
+  public method getType() -> string {
     return this.type;
   }
 }
@@ -36,9 +36,9 @@ func printTreeNames(trees: Set<Tree>) {
 
 // Entry point for application.
 func main() {
-  var palm = new Tree('Palm', TreeTypes.Coniferous);
-  var pine = new Tree('Pine', TreeTypes.Perennial);
-  var cypress = new Tree('Cypress', TreeTypes.Coniferous);
+  var const palm = new Tree('Palm', TreeTypes.Coniferous);
+  var const pine = new Tree('Pine', TreeTypes.Perennial);
+  var const cypress = new Tree('Cypress', TreeTypes.Coniferous);
 
   var trees: Set<Tree> = {palm, pine, cypress};
 
