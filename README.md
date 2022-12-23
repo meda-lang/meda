@@ -1,23 +1,32 @@
 
 # Meda
 
-Meda is a procedural, general purpose programming language that is influenced by 
-TypeScript, Go, and Rust.
+Meda is a procedural, general purpose programming language that is influenced by
+TypeScript, Go, and Rust, with a dash of Ruby and Python.
 
 Everything that is in this repo is very much experimental. You have been
  warned :-)
 
-## Design Ideas
+## Language Design
+
+### Design Prinicpals
+
+1. The programming language should be a joy to use. It should be predictable,
+intuitive, and clear.
+2. The language is opinionated. Developers should spend less time worrying about
+whether or not to use a semi-colon or type and more time on being productive.
+
+### Design Ideas
 
 1. Types are required. Why? Safety, debugging, and scalability.
 2. Semis are required. Why? I don't want people to waste time thinking about
  whether they are required or not.
-3. All programs need to have a main method. Why? Having a main method makes it 
+3. All programs need to have a main method. Why? Having a main method makes it
 easier to figure out where a program starts.
 
-## Syntax
+### Syntax
 
-### Variables
+#### Variables
 
 Variables are declared using the `var` keyword.
 
@@ -25,7 +34,7 @@ Variables are declared using the `var` keyword.
 var x: int = 4;
 ```
 
-### Types
+#### Types
 
 All variables require types. No exceptions.
 
@@ -40,7 +49,7 @@ These are the primitive types that Meda supports:
 * `char`
 * `int`
 
-### Semi-colons
+#### Semi-colons
 
 Semi-colons are required at the end of statements.
 
