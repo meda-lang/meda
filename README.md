@@ -23,8 +23,18 @@ whether or not to use a semi-colon or type and more time on being productive.
  whether they are required or not.
 3. All programs need to have a main method. Why? Having a main method makes it
 easier to figure out where a program starts.
+4. Formatter will be included and code that does not conform to the style guide
+will not compile.
 
 ### Syntax
+
+#### Constants
+
+Constants are declared using the `const` keyword.
+
+```rust
+const planet: string = 'Mars';
+```
 
 #### Variables
 
