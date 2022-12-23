@@ -20,6 +20,10 @@ class Tree {
   public method getType() -> string {
     return this.type;
   }
+
+  public method setName(name: string) {
+    this.name = name;
+  }
 }
 
 // Prints out the names of trees in a set.
