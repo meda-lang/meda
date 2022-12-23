@@ -1,6 +1,5 @@
 import os from 'os';
 import fs from 'fs';
-import path from 'path';
 import readline from 'readline';
 
 import constants from './shared/constants.js';
@@ -62,9 +61,7 @@ export default class Meda {
     });
   }
 
-  static runFile(filePathStr) {
-    const filePath = path.basename(filePathStr);
-
+  static runFile(filePath) {
     try {
       const source = fs.readFileSync(filePath, {
         encoding: constants.DEFAULT_CHAR_SET,
