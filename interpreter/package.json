@@ -1,0 +1,57 @@
+{
+  "name": "meda-lang",
+  "version": "0.1.0",
+  "description": "Meda interpreter",
+  "main": "./lib/index.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack",
+    "build:watch": "./node_modules/.bin/webpack --watch",
+    "lint": "./node_modules/.bin/eslint .",
+    "lint:fix": "./node_modules/.bin/eslint ./src/**/*.* --fix",
+    "start": "node ./lib/main.js",
+    "test": "jest"
+  },
+  "repository": "git+https://github.com/meda-lang/meda.git",
+  "engines": {
+    "node": ">=12"
+  },
+  "keywords": [
+    "Meda",
+    "Meda interpreter",
+    "Meda lang",
+    "Meda language"
+  ],
+  "author": "Jesse Palmer <jesselpalmer@gmail.com> (https://jesselpalmer.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/meda-lang/meda/issues"
+  },
+  "homepage": "https://github.com/meda-lang/meda#readme",
+  "bin": {
+    "meda": "./bin/meda"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.5",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.13.10",
+    "babel-loader": "^9.1.0",
+    "eslint": "^8.29.0",
+    "eslint-config-google": "^0.14.0",
+    "jest": "^29.3.1",
+    "webpack": "^5.27.1",
+    "webpack-cli": "^5.0.0"
+  },
+  "preferGlobal": true,
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "./lib"
+    ]
+  },
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}

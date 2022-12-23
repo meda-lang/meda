@@ -1,0 +1,9 @@
+# node.js dependencies
+node_modules
+
+# build output
+lib
+dist
+
+# nyc coverage output
+coverage
