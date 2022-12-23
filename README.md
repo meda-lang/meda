@@ -13,7 +13,10 @@ Everything that is in this repo is very much experimental. You have been
 
 1. The programming language should be a joy to use. It should be predictable,
 intuitive, and clear.
-2. The language is opinionated. Developers should spend less time worrying about
+2. Related to the above bullet, the programming lanuage adhears to the
+"Don't Make Me Think" design prinicpal. The tradeoff is that the language will be
+more verbose, but that is an acceptable tradeoff.
+3. The language is opinionated. Developers should spend less time worrying about
 whether or not to use a semi-colon or type and more time on being productive.
 
 ### Design Ideas
