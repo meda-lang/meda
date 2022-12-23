@@ -1,0 +1,49 @@
+import {Set} from 'collections';
+
+enum TreeTypes {
+  Coniferous,
+  Deciduous,
+  Perennial,
+}
+
+class Tree {
+  private name: string = '';
+
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  public func getName() -> string {
+    return this.name;
+  }
+
+  public func getType() -> string {
+    return this.type;
+  }
+}
+
+// Prints out the names of trees in a set.
+func printTreeNames(trees: Set<Tree>) {
+  for (Tree tree in trees) {
+    var treeType = tree.getType();
+
+    if (treeType is TreeTypes.Coniferous) {
+      var treeName = tree.getName();
+      print(f'The name of the tree is: ${treeName}');
+    }
+  }
+}
+
+// Entry point for application.
+func main() {
+  var palm = new Tree('Palm', TreeTypes.Coniferous);
+  var pine = new Tree('Pine', TreeTypes.Perennial);
+  var cypress = new Tree('Cypress', TreeTypes.Coniferous);
+
+  var trees: Set<Tree> = {palm, pine, cypress};
+
+  var dogwood = new Tree('Dogwood', TreeTypes.Coniferous);
+  trees.add(dogwood);
+
+  printTreeNames(trees);
+}
