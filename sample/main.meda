@@ -7,48 +7,43 @@ enum TreeTypes {
 }
 
 class Tree {
-  private name: string = '';
+  private var name: string = '';
 
   constructor(name: string) {
     this.name = name;
   }
 
-  public fn getName() -> string {
+  public method getName() -> string {
     return this.name;
   }
 
-  public fn getType() -> string {
+  public method getType() -> string {
     return this.type;
   }
 }
 
-/**
- * Prints out the names of trees in a set.
- */
-fn printTreeNames(trees: Set<Tree>) {
-  for (Tree tree in trees) {
-    var treeType = tree.getType();
+// Prints out the names of trees in a set.
+func printTreeNames(trees: Set<Tree>) {
+  for (var tree: Tree in trees) {
+    const treeType = tree.getType();
 
     if (treeType is TreeTypes.Coniferous) {
-      var treeName = tree.getName();
+      const treeName = tree.getName();
       print(f'The name of the tree is: ${treeName}');
     }
   }
 }
 
-/**
- * Entry point for application.
- */
-main() {
-  var palm = new Tree('Palm', TreeTypes.Coniferous);
-  var pine = new Tree('Pine', TreeTypes.Perennial);
-  var cypress = new Tree('Cypress', TreeTypes.Coniferous);
+// Entry point for application.
+func main() {
+  const palm = new Tree('Palm', TreeTypes.Coniferous);
+  const pine = new Tree('Pine', TreeTypes.Perennial);
+  const cypress = new Tree('Cypress', TreeTypes.Coniferous);
 
-  var trees: Set<Tree> = {palm, pine, cypress};
+  const trees: Set<Tree> = {palm, pine, cypress};
 
-  var dogwood = new Tree('Dogwood', TreeTypes.Coniferous);
+  const dogwood = new Tree('Dogwood', TreeTypes.Coniferous);
   trees.add(dogwood);
 
   printTreeNames(trees);
 }
-
