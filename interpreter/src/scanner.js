@@ -28,6 +28,7 @@ export default class Scanner {
     this.#keywords.set('from', TokenType.FROM);
     this.#keywords.set('func', TokenType.FUNC);
     this.#keywords.set('if', TokenType.IF);
+    this.#keywords.set('in', TokenType.IN);
     this.#keywords.set('int', TokenType.INT);
     this.#keywords.set('import', TokenType.IMPORT);
     this.#keywords.set('main', TokenType.MAIN);
