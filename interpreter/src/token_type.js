@@ -40,6 +40,7 @@ export const TokenType = Object.freeze({
   ENUM: Symbol('ENUM'),
   FALSE: Symbol('FALSE'),
   FLOAT: Symbol('FLOAT'),
+  FROM: Symbol('FROM'),
   FUNC: Symbol('FUNC'),
   FOR: Symbol('FOR'),
   IF: Symbol('IF'),

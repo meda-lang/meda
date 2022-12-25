@@ -25,6 +25,7 @@ export default class Scanner {
     this.#keywords.set('false', TokenType.FALSE);
     this.#keywords.set('float', TokenType.FLOAT);
     this.#keywords.set('for', TokenType.FOR);
+    this.#keywords.set('from', TokenType.FROM);
     this.#keywords.set('func', TokenType.FUNC);
     this.#keywords.set('if', TokenType.IF);
     this.#keywords.set('int', TokenType.INT);
