@@ -35,6 +35,8 @@ export default class Scanner {
     this.#keywords.set('null', TokenType.NULL);
     this.#keywords.set('or', TokenType.OR);
     this.#keywords.set('print', TokenType.PRINT);
+    this.#keywords.set('private', TokenType.PRIVATE);
+    this.#keywords.set('public', TokenType.PUBLIC);
     this.#keywords.set('return', TokenType.RETURN);
     this.#keywords.set('super', TokenType.SUPER);
     this.#keywords.set('this', TokenType.THIS);

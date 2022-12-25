@@ -52,6 +52,8 @@ export const TokenType = Object.freeze({
   NULL: Symbol('NULL'),
   OR: Symbol('OR'),
   PRINT: Symbol('PRINT'),
+  PRIVATE: Symbol('PRIVATE'),
+  PUBLIC: Symbol('PUBLIC'),
   RETURN: Symbol('RETURN'),
   SUPER: Symbol('SUPER'),
   THIS: Symbol('THIS'),
