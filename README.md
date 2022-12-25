@@ -70,6 +70,16 @@ Semi-colons are required at the end of statements.
 var isTested: bool = false;
 ```
 
+#### Loops
+
+```rust
+
+loop (0 to 10, x) {
+  print(x);
+}
+
+```
+
 ## History
 
 ### The Name

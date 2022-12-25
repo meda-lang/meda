@@ -53,6 +53,45 @@ export default class Scanner {
     this.#addToken(TokenType.STRING, value);
   }
 
+  #isDigit(char) {
+    return char >= '0' && char <= '9';
+  }
+
+  #peekNext() {
+    const nextCharPosition = this.#current + 1;
+
+    if (nextCharPosition >= this.source.length) {
+      return '\0';
+    }
+
+    return this.source.charAt(nextCharPosition);
+  }
+
+  #number() {
+    let currentChar = this.#peek();
+
+    while (this.#isDigit(currentChar)) {
+      this.#advance();
+      currentChar = this.#peek();
+    }
+
+    const isFloatingPointNumber = this.#peek() === '.' &&
+                                      this.#isDigit(this.#peekNext());
+
+    if (isFloatingPointNumber) {
+      this.#advance();
+      currentChar = this.#peek();
+
+      while (this.#isDigit(currentChar)) {
+        this.#advance();
+        currentChar = this.#peek();
+      }
+    }
+
+    const numberStr = this.source.substring(this.#start, this.#current);
+    this.#addToken(TokenType.NUMBER, parseFloat(numberStr));
+  }
+
   scanToken() {
     const currentChar = this.#advance();
 
@@ -167,7 +206,11 @@ export default class Scanner {
       }
 
       default: {
-        Meda.error(this.#line, 'Unexpected string.');
+        if (this.#isDigit(currentChar)) {
+          this.#number();
+        } else {
+          Meda.error(this.#line, 'Unexpected string.');
+        }
         break;
       }
     }
