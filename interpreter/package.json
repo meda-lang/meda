@@ -4,6 +4,7 @@
   "description": "Meda interpreter",
   "main": "./lib/index.js",
   "scripts": {
+    "advanced": "../interpreter/bin/meda ../sample/advanced/main.meda",
     "build": "./node_modules/.bin/webpack",
     "build:watch": "./node_modules/.bin/webpack --watch",
     "dev": "npm run build:watch",
