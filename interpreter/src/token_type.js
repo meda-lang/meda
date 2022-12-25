@@ -44,6 +44,7 @@ export const TokenType = Object.freeze({
   IF: Symbol('IF'),
   IS: Symbol('IS'),
   IMPORT: Symbol('IMPORT'),
+  MAIN: Symbol('MAIN'),
   METHOD: Symbol('METHOD'),
   NULL: Symbol('NULL'),
   OR: Symbol('OR'),
