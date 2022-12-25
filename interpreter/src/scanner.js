@@ -16,6 +16,7 @@ export default class Scanner {
     this.source = source;
     this.#keywords.set('and', TokenType.AND);
     this.#keywords.set('bool', TokenType.BOOL);
+    this.#keywords.set('char', TokenType.CHAR);
     this.#keywords.set('class', TokenType.CLASS);
     this.#keywords.set('colon', TokenType.COLON);
     this.#keywords.set('const', TokenType.CONST);

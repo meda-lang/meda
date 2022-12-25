@@ -32,6 +32,7 @@ export const TokenType = Object.freeze({
   // Keywords
   AND: Symbol('AND'),
   BOOL: Symbol('BOOL'),
+  CHAR: Symbol('CHAR'),
   CLASS: Symbol('CLASS'),
   COLON: Symbol('COLON'),
   CONST: Symbol('CONST'),
