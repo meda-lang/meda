@@ -268,7 +268,6 @@ export default class Scanner {
         } else if (this.#isAlpha(currentChar)) {
           this.#identifier();
         } else {
-          console.log(currentChar);
           Meda.error(this.#line, 'Unexpected string.');
         }
         break;
