@@ -11,7 +11,7 @@
     "lint:fix": "./node_modules/.bin/eslint ./src/**/*.* --fix",
     "repl": "../interpreter/bin/meda",
     "start": "node ./lib/main.js",
-    "sample": "../interpreter/bin/meda ../sample/main.meda",
+    "simple": "../interpreter/bin/meda ../sample/simple/main.meda",
     "test": "jest"
   },
   "repository": "git+https://github.com/meda-lang/meda.git",
