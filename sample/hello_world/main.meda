@@ -1,1 +1,3 @@
-print('hello world')
+public func main() {
+  print('hello world');
+}
