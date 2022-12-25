@@ -9,7 +9,7 @@ enum TreeType {
 class Tree {
   private var name: string = '';
 
-  constructor(name: string, type: TreeType = null, avgHeight: double = 0.00) {
+  constructor(name: string, type: TreeType = null, avgHeight: float = 0.00) {
     this.name = name;
     this.type = 
     this.avgHeight = avgHeight;
