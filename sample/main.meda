@@ -1,9 +1,9 @@
 import {Set} from 'collections';
 
 enum TreeType {
-  Coniferous,
-  Deciduous,
-  Perennial,
+  CONIFEROUS,
+  DECIDUOUS,
+  PERENNIAL,
 }
 
 class Tree {
@@ -33,7 +33,7 @@ func printTreeNames(trees: Set<Tree>) {
   for (var tree: Tree in trees) {
     const treeType = tree.getType();
 
-    if (treeType is TreeType.Coniferous) {
+    if (treeType is TreeType.CONIFEROUS) {
       const treeName = tree.getName();
       print(f'The name of the tree is: ${treeName}');
     }
@@ -42,13 +42,13 @@ func printTreeNames(trees: Set<Tree>) {
 
 // Entry point for application.
 func main() {
-  const palm = new Tree('Palm', TreeType.Coniferous, 10.05);
-  const pine = new Tree('Pine', TreeType.Perennial);
-  const cypress = new Tree('Cypress', TreeType.Coniferous);
+  const palm = new Tree('Palm', TreeType.CONIFEROUS, 10.05);
+  const pine = new Tree('Pine', TreeType.PERENNIAL);
+  const cypress = new Tree('Cypress', TreeType.CONIFEROUS);
 
   const trees: Set<Tree> = {palm, pine, cypress};
 
-  const dogwood = new Tree('Dogwood', TreeType.Coniferous);
+  const dogwood = new Tree('Dogwood', TreeType.DECIDUOUS);
   trees.add(dogwood);
 
   printTreeNames(trees);
