@@ -22,6 +22,7 @@ export default class Scanner {
     this.#keywords.set('else', TokenType.ELSE);
     this.#keywords.set('enum', TokenType.ENUM);
     this.#keywords.set('false', TokenType.FALSE);
+    this.#keywords.set('float', TokenType.FLOAT);
     this.#keywords.set('for', TokenType.FOR);
     this.#keywords.set('func', TokenType.FUNC);
     this.#keywords.set('if', TokenType.IF);

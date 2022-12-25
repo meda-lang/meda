@@ -2,7 +2,7 @@
 func main() {
   const numPlanetsInSolarSystem: int = 8;
   const largestPlanet: string = 'Jupiter';
-  const jupiterDistanceFromSun: double = 5.2; // astronomical units
+  const jupiterDistanceFromSun: float = 5.2; // astronomical units
   const isPlutoAPlanet: bool = false;
 
   printTreeNames(isPlutoAPlanet);

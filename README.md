@@ -58,9 +58,10 @@ var name: string = 'Sammy';
 These are the primitive types that Meda supports:
 
 * `bool`
-* `string`
 * `char`
+* `float`
 * `int`
+* `string`
 
 #### Semi-colons
 
