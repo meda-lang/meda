@@ -22,15 +22,13 @@ export default class Meda {
   }
 
   static run(source) {
-    // const tokens = source.split(' ');
-
-    // tokens.forEach((token) => {
-    //   console.log(token);
-    // });
-
     // here for testing
     const s = new Scanner(source);
-    console.log(s.scanTokens());
+    const tokens = s.scanTokens();
+
+    tokens.forEach((token) => {
+      console.log(token);
+    });
   }
 
   static runPrompt() {
