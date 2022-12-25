@@ -10,8 +10,32 @@ export default class Scanner {
   #current = 0;
   #line = 1;
 
+  #keywords = new Map();
+
   constructor(source) {
     this.source = source;
+    this.#keywords.set('and', TokenType.AND);
+    this.#keywords.set('class', TokenType.CLASS);
+    this.#keywords.set('colon', TokenType.COLON);
+    this.#keywords.set('const', TokenType.CONST);
+    this.#keywords.set('constructor', TokenType.CONSTRUCTOR);
+    this.#keywords.set('else', TokenType.ELSE);
+    this.#keywords.set('enum', TokenType.ENUM);
+    this.#keywords.set('false', TokenType.FALSE);
+    this.#keywords.set('for', TokenType.FOR);
+    this.#keywords.set('func', TokenType.FUNC);
+    this.#keywords.set('if', TokenType.IF);
+    this.#keywords.set('import', TokenType.IMPORT);
+    this.#keywords.set('method', TokenType.METHOD);
+    this.#keywords.set('null', TokenType.NULL);
+    this.#keywords.set('or', TokenType.OR);
+    this.#keywords.set('print', TokenType.PRINT);
+    this.#keywords.set('return', TokenType.RETURN);
+    this.#keywords.set('super', TokenType.SUPER);
+    this.#keywords.set('this', TokenType.THIS);
+    this.#keywords.set('true', TokenType.TRUE);
+    this.#keywords.set('var', TokenType.VAR);
+    this.#keywords.set('while', TokenType.WHILE);
   }
 
   #addToken(type, literal = null) {
@@ -92,6 +116,33 @@ export default class Scanner {
     this.#addToken(TokenType.NUMBER, parseFloat(numberStr));
   }
 
+  #isAlpha(char) {
+    const isLowerCaseChar = char >= 'a' && char <= 'z';
+    const isUpperCaseChar = char >= 'A' && char <= 'Z';
+    const isUnderscore = char === '_';
+
+    return (isLowerCaseChar || isUpperCaseChar || isUnderscore);
+  }
+
+  #isAlphaNumeric(char) {
+    return this.#isAlpha(char) || this.#isDigit(char);
+  }
+
+  #identifier() {
+    while (this.#isAlphaNumeric(this.#peek())) {
+      this.#advance();
+    }
+
+    const string = this.source.substring(this.#start, this.#current);
+
+    if (this.#keywords.has(string)) {
+      const type = this.#keywords.get(string);
+      this.#addToken(type);
+    } else {
+      this.#addToken(TokenType.INDENTIFIER);
+    }
+  }
+
   scanToken() {
     const currentChar = this.#advance();
 
@@ -140,6 +191,12 @@ export default class Scanner {
         this.#addToken(TokenType.SEMICOLON);
         break;
       }
+
+      case ':': {
+        this.#addToken(TokenType.COLON);
+        break;
+      }
+
 
       case '*': {
         this.#addToken(TokenType.STAR);
@@ -208,7 +265,10 @@ export default class Scanner {
       default: {
         if (this.#isDigit(currentChar)) {
           this.#number();
+        } else if (this.#isAlpha(currentChar)) {
+          this.#identifier();
         } else {
+          console.log(currentChar);
           Meda.error(this.#line, 'Unexpected string.');
         }
         break;
