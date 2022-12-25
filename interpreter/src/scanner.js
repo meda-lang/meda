@@ -15,6 +15,7 @@ export default class Scanner {
   constructor(source) {
     this.source = source;
     this.#keywords.set('and', TokenType.AND);
+    this.#keywords.set('bool', TokenType.BOOL);
     this.#keywords.set('class', TokenType.CLASS);
     this.#keywords.set('colon', TokenType.COLON);
     this.#keywords.set('const', TokenType.CONST);
@@ -26,6 +27,7 @@ export default class Scanner {
     this.#keywords.set('for', TokenType.FOR);
     this.#keywords.set('func', TokenType.FUNC);
     this.#keywords.set('if', TokenType.IF);
+    this.#keywords.set('int', TokenType.INT);
     this.#keywords.set('import', TokenType.IMPORT);
     this.#keywords.set('main', TokenType.MAIN);
     this.#keywords.set('method', TokenType.METHOD);
