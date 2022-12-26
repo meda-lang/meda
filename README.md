@@ -2,7 +2,7 @@
 # Meda
 
 Meda is a procedural, general purpose programming language that is influenced by
-TypeScript, Go, and Rust, with a dash of Ruby and Python.
+TypeScript, Go, and Rust, with a dash of Python.
 
 Everything that is in this repo is very much experimental. You have been
  warned :-)
@@ -53,12 +53,14 @@ All variables require types. No exceptions.
 var name: str = 'Sammy'
 ```
 
-These are the primitive types that Meda supports:
+These are the primitive data types that Meda supports:
 
 * `bool`
 * `char`
 * `float`
+* `float8`
 * `int`
+* `uint`
 * `str`
 
 #### Loops
