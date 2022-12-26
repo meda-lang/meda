@@ -18,6 +18,10 @@ intuitive, and clear.
 more verbose, but that is an acceptable tradeoff.
 3. The language is opinionated. Developers should spend less time worrying about
 whether or not to use a semi-colon or type and more time on being productive.
+4. The codebase, libraries, tools, language, etc. need to be extensible and
+flexible to accomediate future changes.
+5. All code is open-sourced and the community is encouraged to contribute to the
+evolution of the language.
 
 ### Design Ideas
 
