@@ -1,7 +1,7 @@
 // This is the main entry point for our program
 func main() {
   const numPlanetsInSolarSystem: int = 8;
-  const largestPlanet: string = 'Jupiter';
+  const largestPlanet: str = 'Jupiter';
   const jupiterDistanceFromSun: float = 5.2; // astronomical units
   const isPlutoAPlanet: bool = false;
 

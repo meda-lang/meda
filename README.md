@@ -36,7 +36,7 @@ will not compile.
 Constants are declared using the `const` keyword.
 
 ```rust
-const planet: string = 'Mars';
+const planet: str = 'Mars';
 ```
 
 #### Variables
@@ -52,7 +52,7 @@ var x: int = 4;
 All variables require types. No exceptions.
 
 ```rust
-var name: string = 'Sammy';
+var name: str = 'Sammy';
 ```
 
 These are the primitive types that Meda supports:
@@ -61,7 +61,7 @@ These are the primitive types that Meda supports:
 * `char`
 * `float`
 * `int`
-* `string`
+* `str`
 
 #### Semi-colons
 
@@ -88,7 +88,7 @@ loop (0 to 10, x) {
 ```rust
 
 while (!stack.isEmpty()) {
-  const name = stack.pop();
+  const name: str = stack.pop();
   print(name);
 }
 

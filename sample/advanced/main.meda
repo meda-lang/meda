@@ -7,23 +7,23 @@ enum TreeType {
 }
 
 class Tree {
-  private var name: string = '';
+  private var name: str = '';
 
-  constructor(name: string, type: TreeType = null, avgHeight: float = 0.00) {
+  constructor(name: str, type: TreeType = null, avgHeight: float = 0.00) {
     this.name = name;
     this.type = 
     this.avgHeight = avgHeight;
   }
 
-  public method getName() -> string {
+  public method getName() -> str {
     return this.name;
   }
 
-  public method getType() -> string {
+  public method getType() -> str {
     return this.type;
   }
 
-  public method setName(name: string) {
+  public method setName(name: str) {
     this.name = name;
   }
 }
@@ -31,10 +31,10 @@ class Tree {
 // Prints out the names of trees in a set.
 func printTreeNames(trees: Set<Tree>) {
   for (var tree: Tree in trees) {
-    const treeType = tree.getType();
+    const treeType: str = tree.getType();
 
     if (treeType is TreeType.CONIFEROUS) {
-      const treeName = tree.getName();
+      const treeName: str = tree.getName();
       print(f'The name of the tree is: ${treeName}');
     }
   }
@@ -42,13 +42,13 @@ func printTreeNames(trees: Set<Tree>) {
 
 // Entry point for application.
 func main() {
-  const palm = new Tree('Palm', TreeType.CONIFEROUS, 10.05);
-  const pine = new Tree('Pine', TreeType.PERENNIAL);
-  const cypress = new Tree('Cypress', TreeType.CONIFEROUS);
+  const palm: Tree = new Tree('Palm', TreeType.CONIFEROUS, 10.05);
+  const pine: Tree = new Tree('Pine', TreeType.PERENNIAL);
+  const cypress: Tree = new Tree('Cypress', TreeType.CONIFEROUS);
 
   const trees: Set<Tree> = {palm, pine, cypress};
 
-  const dogwood = new Tree('Dogwood', TreeType.DECIDUOUS);
+  const dogwood: Tree = new Tree('Dogwood', TreeType.DECIDUOUS);
   trees.add(dogwood);
 
   printTreeNames(trees);
