@@ -13,6 +13,7 @@ export const TokenType = Object.freeze({
   SEMICOLON: Symbol('SEMICOLON'),
   SLASH: Symbol('SLASH'),
   STAR: Symbol('STAR'),
+  STR: Symbol('STR'),
 
   // One or two character tokens.
   ARROW: Symbol('ARROW'),
