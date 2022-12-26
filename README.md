@@ -73,6 +73,8 @@ var isTested: bool = false;
 
 #### Loops
 
+##### loop
+
 ```rust
 
 loop (0 to 10, x) {
@@ -80,6 +82,8 @@ loop (0 to 10, x) {
 }
 
 ```
+
+##### while
 
 ```rust
 
