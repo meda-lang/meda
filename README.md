@@ -81,6 +81,15 @@ loop (0 to 10, x) {
 
 ```
 
+```rust
+
+while (!stack.isEmpty()) {
+  const name = stack.pop();
+  print(name);
+}
+
+```
+
 ## History
 
 ### The Name
