@@ -22,11 +22,9 @@ whether or not to use a semi-colon or type and more time on being productive.
 ### Design Ideas
 
 1. Types are required. Why? Safety, debugging, and scalability.
-2. Semis are required. Why? I don't want people to waste time thinking about
- whether they are required or not.
-3. All programs need to have a main method. Why? Having a main method makes it
+2. All programs need to have a main method. Why? Having a main method makes it
 easier to figure out where a program starts.
-4. Formatter will be included and code that does not conform to the style guide
+3. Formatter will be included and code that does not conform to the style guide
 will not compile.
 
 ### Syntax
@@ -36,7 +34,7 @@ will not compile.
 Constants are declared using the `const` keyword.
 
 ```rust
-const planet: str = 'Mars';
+const planet: str = 'Mars'
 ```
 
 #### Variables
@@ -44,7 +42,7 @@ const planet: str = 'Mars';
 Variables are declared using the `var` keyword.
 
 ```rust
-var x: int = 4;
+var x: int = 4
 ```
 
 #### Types
@@ -52,7 +50,7 @@ var x: int = 4;
 All variables require types. No exceptions.
 
 ```rust
-var name: str = 'Sammy';
+var name: str = 'Sammy'
 ```
 
 These are the primitive types that Meda supports:
@@ -63,14 +61,6 @@ These are the primitive types that Meda supports:
 * `int`
 * `str`
 
-#### Semi-colons
-
-Semi-colons are required at the end of statements.
-
-```rust
-var isTested: bool = false;
-```
-
 #### Loops
 
 ##### loop
@@ -78,7 +68,7 @@ var isTested: bool = false;
 ```rust
 
 loop (0 to 10, x) {
-  print(x);
+  print(x)
 }
 
 ```
@@ -88,8 +78,8 @@ loop (0 to 10, x) {
 ```rust
 
 while (!stack.isEmpty()) {
-  const name: str = stack.pop();
-  print(name);
+  const name: str = stack.pop()
+  print(name)
 }
 
 ```

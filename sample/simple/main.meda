@@ -1,9 +1,9 @@
 // This is the main entry point for our program
 func main() {
-  const numPlanetsInSolarSystem: int = 8;
-  const largestPlanet: str = 'Jupiter';
-  const jupiterDistanceFromSun: float = 5.2; // astronomical units
-  const isPlutoAPlanet: bool = false;
+  const numPlanetsInSolarSystem: int = 8
+  const largestPlanet: str = 'Jupiter'
+  const jupiterDistanceFromSun: float = 5.2 // astronomical units
+  const isPlutoAPlanet: bool = false
 
-  printTreeNames(isPlutoAPlanet);
+  printTreeNames(isPlutoAPlanet)
 }
