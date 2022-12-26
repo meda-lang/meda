@@ -15,6 +15,7 @@ export const TokenType = Object.freeze({
   STAR: Symbol('STAR'),
 
   // One or two character tokens.
+  ARROW: Symbol('ARROW'),
   BANG: Symbol('BANG'),
   BANG_EQUAL: Symbol('BANG_EQUAL'),
   EQUAL: Symbol('EQUAL'),
@@ -51,6 +52,7 @@ export const TokenType = Object.freeze({
   IMPORT: Symbol('IMPORT'),
   MAIN: Symbol('MAIN'),
   METHOD: Symbol('METHOD'),
+  NEW: Symbol('NEW'),
   NULL: Symbol('NULL'),
   OR: Symbol('OR'),
   PRINT: Symbol('PRINT'),

@@ -29,11 +29,13 @@ export default class Scanner {
     this.#keywords.set('from', TokenType.FROM);
     this.#keywords.set('func', TokenType.FUNC);
     this.#keywords.set('if', TokenType.IF);
+    this.#keywords.set('is', TokenType.IS);
     this.#keywords.set('in', TokenType.IN);
     this.#keywords.set('int', TokenType.INT);
     this.#keywords.set('import', TokenType.IMPORT);
     this.#keywords.set('main', TokenType.MAIN);
     this.#keywords.set('method', TokenType.METHOD);
+    this.#keywords.set('new', TokenType.NEW);
     this.#keywords.set('null', TokenType.NULL);
     this.#keywords.set('or', TokenType.OR);
     this.#keywords.set('print', TokenType.PRINT);
@@ -187,7 +189,9 @@ export default class Scanner {
       }
 
       case '-': {
-        this.#addToken(TokenType.MINUS);
+        const newToken = this.#match('>') ?
+            TokenType.ARROW : TokenType.MINUS;
+        this.#addToken(newToken);
         break;
       }
 
