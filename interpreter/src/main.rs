@@ -1,3 +1,6 @@
 fn main() {
-    println!("Hello, world!");
+    let args: Vec<String> = std::env::args().collect();
+    dbg!(args);
+
+    // println!("Hello, world!");
 }
