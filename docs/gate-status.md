@@ -4,7 +4,9 @@ Updated October 25, 2026. Gate A/B baseline repository: `6d01d7a1ff77f2fd04d0b71
 
 Draft 2.1 and its interoperability amendment specify the next bounded experiment.
 The pure research implementation and shared-runtime comparison are executable.
-The full Gate B controlled model study and the real-protocol D0 workflow have not run.
+The real-protocol D0 TypeScript reference now runs against official SDK peers;
+its full acceptance remains open. The full Gate B controlled model study and
+effectful Meda protocol arm have not run.
 
 | Work | Status and evidence |
 | --- | --- |
@@ -31,12 +33,13 @@ and the [deferred cases](../experiments/gates/corpus/deferred.json) define the b
 
 ## Next acceptance gates
 
-1. Freeze the [D0 protocol profile and acceptance artifacts](interop-workflow.md)
-   under work packet D0-01 in the [roadmap](interop-roadmap.md).
-2. Build the shared real-protocol host/adapters and strict TypeScript reference,
-   then the minimum checked effectful Meda profile. Preserve direct host probes
-   and independent expected outcomes; passing integration does not establish
-   language value.
+1. Resolve the [reference candidate's remaining acceptance and scope](interop-reference-results.md)
+   under D0-01/02/03 in the [roadmap](interop-roadmap.md). Exact dependencies,
+   protocol artifacts and a 111-case inventory now exist.
+2. Close acceptance for the shared real-protocol host/adapters and strict
+   TypeScript reference, then implement the minimum checked effectful Meda
+   profile. Preserve direct host probes and independent expected outcomes;
+   passing integration does not establish language value.
 3. Admit the [maintenance pilot and held-out screen](interop-evaluation.md) only
    after matching edit facilities, protected workers, a named model driver and
    enforced budgets exist. Preserve failed attempts and all-attempt costs.
@@ -60,16 +63,20 @@ uncontrolled repair demonstrations, not the full Gate B model comparison.
 The result supports prioritizing reusable host/adapters with a first-class
 TypeScript client. It leaves Meda's incremental language value unproven. The
 custom loopback wire fixtures do not establish MCP/A2A conformance or complete
-Gate D0; the effectful runtime, actual protocol peers and binding-drift work remain
+Gate D0. The separate real-SDK reference candidate now supplies actual peers
+and binding-drift probes; its acceptance and the effectful Meda runtime remain
 open. Existing Gate A/B implementation and pass counts are unchanged.
 
-## Planned interoperability profile
+## Interoperability profile and reference candidate
 
 `meda-interop-d0/1` now has a workflow specification, twelve acceptance families,
-a paired evaluation plan and seven dependency-ordered work packets. These are
-planned acceptance requirements, not executed cases. Protocol pins are MCP
-2026-07-28 Streamable HTTP and A2A 1.0.0 JSON-RPC; exact SDK/schema/build pins must
-be frozen before execution. The profile requires real checked direct host calls,
+a paired evaluation plan and seven dependency-ordered work packets. Its
+111-case inventory preserves planned status separately from observed pilot
+receipts. Protocol pins are MCP 2026-07-28 Streamable HTTP and A2A 1.0.0 JSON-RPC;
+SDK, schema and build pins are recorded in the executable candidate. The profile
+requires real checked direct host calls,
 one-package modules/visibility, opaque references, monomorphic effect checking
 and bounded root cleanup. The current pure interpreter implements none of those
-new mechanisms yet. No existing gate is marked complete by this amendment.
+new mechanisms yet. The [real-protocol reference results](interop-reference-results.md)
+record implementation, adversarial repairs, evidence and remaining acceptance
+gaps. No existing gate is marked complete by this work.

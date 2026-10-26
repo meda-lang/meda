@@ -1,7 +1,9 @@
 # Bounded interoperability roadmap
 
-Updated October 25, 2026. Status: specification and implementation backlog;
-the real-protocol workflow and effectful Meda profile are not implemented.
+Updated October 25, 2026. Status: the common real-protocol host and TypeScript
+reference candidate are implemented and exercised; acceptance remains open.
+The effectful Meda profile is not implemented. See the
+[reference implementation results](interop-reference-results.md).
 
 The next milestone tests one evidence-read and delegated-task workflow through
 the same host and adapters in strict TypeScript and Meda. The
@@ -59,6 +61,9 @@ selected composition and host-integration mechanisms. D0-05 does not close Gates
 B, C, D or E. General composition, live model usefulness, concurrency and edition
 readiness retain their original unmet acceptance obligations.
 
-The immediate implementation task is D0-01: freeze the executable protocol,
-dependency and acceptance artifacts. Model trials start only after their
-admission controls and resource budget are fixed.
+The D0-01 candidate now pins the protocol, exact SDK dependencies, descriptors,
+resource limits and 111 independent acceptance cases. D0-02/03 have executable
+implementations and retained observations, but incomplete acceptance evidence
+prevents closing them. The next task is the scope/feasibility decision and
+remaining reference acceptance work described in the results. Model trials start
+only after their admission controls and resource budget are fixed.

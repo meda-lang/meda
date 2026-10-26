@@ -15,11 +15,13 @@ strict TypeScript clients over the same host/adapters. Both pass the implemented
 screen; language-specific value remains unproven. See its
 [reproduction instructions](experiments/interop_compare/README.md).
 
-Next is the planned [bounded MCP and A2A workflow](docs/interop-workflow.md),
+The [bounded MCP and A2A workflow](docs/interop-workflow.md) now has a
+[real-SDK TypeScript reference candidate](docs/interop-reference-results.md),
 governed by the [design amendment](docs/interop-design-amendment.md),
 [comparison plan](docs/interop-evaluation.md) and [work packets](docs/interop-roadmap.md).
-It requires actual effectful source calls and a matched TypeScript reference;
-the new profile is specified but not implemented.
+Its common host, adapters and reference client run; full acceptance remains open.
+The new effectful Meda arm and controlled maintenance study are not implemented.
+See the [candidate's reproduction instructions](experiments/interop_d0/README.md).
 
 ```sh
 python3 -m unittest discover -s experiments/gates/tests -v

@@ -1,0 +1,147 @@
+{
+  "acceptanceClosed": false,
+  "agentCardTemplate": {
+    "capabilities": {
+      "pushNotifications": false,
+      "streaming": false
+    },
+    "defaultInputModes": [
+      "application/json"
+    ],
+    "defaultOutputModes": [
+      "application/json"
+    ],
+    "description": "Select supplied evidence facts without a model.",
+    "name": "Meda D0 deterministic report agent",
+    "securityRequirements": [
+      {
+        "schemes": {
+          "fixtureBearer": {}
+        }
+      }
+    ],
+    "securitySchemes": {
+      "fixtureBearer": {
+        "httpAuthSecurityScheme": {
+          "scheme": "bearer"
+        }
+      }
+    },
+    "skills": [
+      {
+        "description": "Return the selected evidence in request order.",
+        "id": "evidence-report",
+        "name": "Evidence report",
+        "tags": [
+          "fixture"
+        ]
+      }
+    ],
+    "supportedInterfaces": [
+      {
+        "protocolBinding": "JSONRPC",
+        "protocolVersion": "1.0",
+        "url": "https://127.0.0.1:443/a2a"
+      }
+    ],
+    "version": "1.0.0"
+  },
+  "agentCardTemplateSha256": "bfeeeb44cb217b155d79187233bd1a4f15d76bf43497baa0788d3de4baca9be9",
+  "artifactSha256": {
+    "acceptance.json": "724e5626054ced2ac444fcf759371fca43f5f91d1efcff09b2e67d205b2d9a8d",
+    "dependency-provenance.json": "e165882ed7a34c18f11699c81008d935f37809ec2f91deea5dea12d5ca2c1015",
+    "package-lock.json": "f4e844a493a50d8abc19154854ab3c2c3ea897eea8f045a3bfeac4cfb892e8c3",
+    "requirements.lock": "bfd9796a42c87a2d9ca2c87713e2a5dafedad32a12ba39a94990f0e3e9fd6c6b",
+    "specification-sources.json": "70e2cf4b584bb2ea2ad28e148b3f92cd33eae24c97208f1da216c5ece64fe818"
+  },
+  "endpointRule": "Each run substitutes its allocated loopback TLS endpoint and records the resulting card digest.",
+  "freezeKind": "development_candidate",
+  "limits": {
+    "cleanup_requests": 2,
+    "cleanup_seconds": 1,
+    "max_depth": 16,
+    "max_event_bytes": 16384,
+    "max_events": 16,
+    "max_inbound_bytes": 262144,
+    "max_pages": 2,
+    "max_polls": 3,
+    "max_request_bytes": 65536,
+    "max_requests": 16,
+    "max_response_bytes": 65536,
+    "poll_interval": 0.1,
+    "request_seconds": 2,
+    "root_seconds": 15
+  },
+  "node": "v24.22.1",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.39",
+  "profile": "meda-interop-d0/1",
+  "python": "3.12.14",
+  "scope": "Pinned reference implementation candidate; does not certify protocol conformance or close D0-01/02/03 acceptance.",
+  "toolDescriptor": {
+    "description": "Read the fixed synthetic evidence document.",
+    "inputSchema": {
+      "properties": {
+        "documentId": {
+          "title": "Documentid",
+          "type": "string",
+          "x-mcp-header": "DocumentId"
+        }
+      },
+      "required": [
+        "documentId"
+      ],
+      "title": "evidence_readArguments",
+      "type": "object"
+    },
+    "name": "evidence.read",
+    "outputSchema": {
+      "$defs": {
+        "Fact": {
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "title": "Id",
+              "type": "string"
+            },
+            "value": {
+              "title": "Value",
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "value"
+          ],
+          "title": "Fact",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "documentId": {
+          "title": "Documentid",
+          "type": "string"
+        },
+        "facts": {
+          "items": {
+            "$ref": "#/$defs/Fact"
+          },
+          "title": "Facts",
+          "type": "array"
+        },
+        "revision": {
+          "title": "Revision",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "documentId",
+        "revision",
+        "facts"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    }
+  },
+  "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+}
