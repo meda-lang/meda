@@ -108,5 +108,6 @@ protections or a small tie.
 GitHub publication through its API may assign different commit IDs. The published
 stage trees must match the corresponding local Git trees byte for byte; the
 [publication record](research-publication.md) records the verified mapping.
-Research is preserved on a branch pending
-review rather than silently changing the default branch.
+The research archive was merged in [PR #12](https://github.com/meda-lang/meda/pull/12).
+The [wiring walkthrough](wiring-walkthrough.md) was added in
+[PR #13](https://github.com/meda-lang/meda/pull/13).
