@@ -15,6 +15,12 @@ strict TypeScript clients over the same host/adapters. Both pass the implemented
 screen; language-specific value remains unproven. See its
 [reproduction instructions](experiments/interop_compare/README.md).
 
+Next is the planned [bounded MCP and A2A workflow](docs/interop-workflow.md),
+governed by the [design amendment](docs/interop-design-amendment.md),
+[comparison plan](docs/interop-evaluation.md) and [work packets](docs/interop-roadmap.md).
+It requires actual effectful source calls and a matched TypeScript reference;
+the new profile is specified but not implemented.
+
 ```sh
 python3 -m unittest discover -s experiments/gates/tests -v
 python3 experiments/gates/benchmark.py --smoke --output /tmp/meda-smoke.json

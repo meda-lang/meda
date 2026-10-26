@@ -1,5 +1,7 @@
 **Draft 2.1. Proposed target: Meda Edition 1.**
 
+The October 25 interoperability amendment prioritizes the reusable host and strict TypeScript reference, with Meda's incremental value treated as a testable hypothesis. See the [design amendment](interop-design-amendment.md), [bounded workflow](interop-workflow.md), [evaluation plan](interop-evaluation.md) and [implementation roadmap](interop-roadmap.md). These specify planned work; the existing pure profile and its results remain unchanged.
+
 This focused amendment incorporates the [second adversarial review](https://chatgpt.com/space/page_96ab977aba3c81919ecb319a9ac7342c). It preserves the core architecture while specifying executable contract protection, cancellation ownership, callable compatibility, and the Gate A/B acceptance boundaries.
 
 Meda is a programming language for AI-authored and AI-maintained software, including programs that use large language models. Its primary objective is a correct behavioral change with limited surrounding context, supported by explicit types, effects, domain invariants, and compiler-checked edit boundaries.
@@ -301,7 +303,7 @@ The host grants allowed resources and destinations. Checks occur on every host a
 
 Credentials remain opaque authentication references used only by their owning adapters. Application code cannot print or serialize them. Ordinary files and non-secret environment text can still contain sensitive data; opacity of credential handles does not provide general information-flow protection.
 
-Registry bindings can use existing host SDKs without exposing arbitrary FFI to Meda code. The target includes a Rust host interface and one generated TypeScript or Python client. Host code outside the Meda boundary does not inherit Meda's guarantees.
+Registry bindings can use existing host SDKs without exposing arbitrary FFI to Meda code. The target includes a Rust host interface and a first-class strict TypeScript client over the same host/adapters; additional generated clients may follow. Host code outside the Meda boundary does not inherit Meda's guarantees. The interoperability amendment defines the next bounded experimental profile.
 
 # 10 Modules packages and entry points
 
@@ -1055,7 +1057,7 @@ Begin with 12–20 maintenance tasks across several modules as a screening corpu
 
 First check that each task is solvable from the context the compiler proposes to supply. If an unstated convention elsewhere determines correctness, strengthen the interface or count the extra context. Do not attribute hidden requirements to model failure.
 
-Compare compact and sectioned frontends over the same checked semantics. Compare ordinary text editing with compiler-supported changes. Include an existing-language control with comparable compiler context, scoped edits, independent tests, and runtime facilities where feasible. Explicitly report any guarantee the control cannot match.
+Compare compact and sectioned frontends over the same checked semantics. Compare ordinary text editing with compiler-supported changes. Include an existing-language control with comparable compiler context, scoped edits, independent tests, and runtime facilities where feasible. Explicitly report any guarantee the control cannot match. The next interoperability comparison requires strict TypeScript with the same host/adapters, runtime validation and comparable edit safeguards. Shared runtime protection and any additional early static rejection must be attributed separately. The prior pure comparison is a screening result, not evidence that the proposed effectful language is superior.
 
 Protect acceptance tests and task scope from the editing agent. Track completed correct changes, regressions, retrieved context, prompt/tool/repair/output tokens, elapsed time, validation work, and reviewer effort. Syntax errors remain in total repair cost even when reported separately. Use multiple models and repeated trials.
 
@@ -1078,6 +1080,7 @@ The target semantics and first implementation are intentionally different scopes
 | A Semantic corpus | Exact core rules, parser fixtures, representative programs, edit request/diagnostic schemas, and benchmark task definitions. | Resolve contradictions that alter accepted programs or claimed guarantees. |
 | B Pure change loop | Bool/Int/Text/Unit, records/enums, built-in containers, named operations, loops/match, restricted contracts, formatter, describe, guarded body replacement, check/test. | Does the full AI maintenance loop improve useful outcomes under matched tools and budgets? |
 | C Composition variants | Named pure references, opaque records, reusable eligible predicates; then limited effect generics and effectful callbacks. | Which mechanisms improve locality/correctness enough to retain? Test additions separately where practical. |
+| D0 Bounded interoperability comparison | One MCP evidence read and one A2A delegated task through shared adapters, a strict TypeScript reference, and the minimum direct-effect/module/opaque Meda profile. | Does real protocol integration work, and is any additional Meda benefit worth further controlled maintenance evaluation? This exploratory slice closes none of B, C, D or E. |
 | D One model component | Typed host boundary, one adapter, shared policy, full local validation, explicit projection, local/root outcomes, mocks, and one generated host client. | Does native integration add value independently of the source-language experiment? |
 | E Real workflow | Bounded maps, one audited remote read if required, scoped tools, detailed accounting and transition tests. | Can the intended workflow run without application-specific compiler changes or authority bypass? |
 | F Replay and broader editing | Complete event identities/journal, strict replay, cache policy, interface edits/rename, recoverable multi-file commit. | Do the stated replay/edit guarantees survive adverse interleavings and interrupted publication? |
@@ -1089,7 +1092,7 @@ Gate B evaluates the compiler-assisted change protocol and implemented pure subs
 
 Gate C must occur before freezing a general-purpose edition. A pure callback experiment does not settle reusable effectful workflows. Likewise, a successful literal-data model demo does not establish integration quality or model usefulness.
 
-The roadmap does not require implementing every review suggestion immediately. It does require testing the differentiating change loop before most runtime investment and specifying each guarantee before exposing it to users. Full provider/schema/versioned interface tables are generated for implemented surfaces as they enter their gates.
+The roadmap prioritizes the reusable host/adapters and strict TypeScript reference. A bounded portion of Gate C and exploratory D0 may precede broader model-runtime work to test a real effectful boundary. This exception does not waive the existing maintenance, composition, model-quality or edition gates. D0 excludes general concurrency, effect polymorphism, durable recovery, replay and unrelated language expansion. Additional scope requires a recorded blocking case and revised experiment boundary.
 
 The executable acceptance work begins with a versioned Gate A corpus and Gate B protocol schemas. A corpus case records source, invocation or edit, expected phase/code/value, permitted effects, and the earliest supporting profile. Unsupported cases remain deferred and visible; they do not count as passes. Gate B maintenance tasks map to available edit operations: existing-body repairs use replace_body; extraction, new declarations, schema changes, and multi-file changes are excluded until their authorized staged edit path exists. Fixture/smoke execution is not an AI comparison. A Gate B decision requires independent acceptance checks, a matched existing-language control, named models, repeated trials, and measured whole-change cost under the preregistered protocol.
 
