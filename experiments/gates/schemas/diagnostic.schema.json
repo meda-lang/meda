@@ -1,0 +1,75 @@
+{
+  "type": "object",
+  "properties": {
+    "code": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    },
+    "phase": {
+      "type": "string"
+    },
+    "severity": {
+      "const": "error"
+    },
+    "sourceUri": {
+      "type": "string"
+    },
+    "span": {
+      "type": "object",
+      "properties": {
+        "startByte": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "endByte": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "startByte",
+        "endByte"
+      ],
+      "additionalProperties": false
+    },
+    "editor": {
+      "type": "object",
+      "properties": {
+        "line": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "character": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "line",
+        "character"
+      ],
+      "additionalProperties": false
+    },
+    "revision": {
+      "type": "string"
+    },
+    "profile": {
+      "const": "meda-pure-b0/1"
+    }
+  },
+  "required": [
+    "code",
+    "message",
+    "phase",
+    "severity",
+    "sourceUri",
+    "span",
+    "editor",
+    "revision",
+    "profile"
+  ],
+  "additionalProperties": false,
+  "$schema": "https://json-schema.org/draft/2020-12/schema"
+}

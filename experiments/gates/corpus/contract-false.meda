@@ -1,0 +1,5 @@
+operation main() -> Int effects []
+  ensure result > 0
+{
+  return 0
+}

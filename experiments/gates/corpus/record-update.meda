@@ -1,0 +1,6 @@
+record Item { count: Int, }
+operation main() -> Int effects [] {
+  let first = Item { count: 1 }
+  let second = first with { count: 5 }
+  return first.count + second.count
+}

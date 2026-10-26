@@ -1,0 +1,17 @@
+{
+  "profile": "shared-host-decision-comparison/1",
+  "cases": [
+    {"id":"normal", "mode":"normal", "expected":{"terminal":"report:evidence:42","actions":["read","submit","poll"],"created":1}},
+    {"id":"input_missing", "mode":"needs_input", "expected":{"terminal":"input_required","actions":["read","submit"],"created":1}},
+    {"id":"input_supplied", "mode":"needs_input", "input":"approved answer", "expected":{"terminal":"report:evidence:42","actions":["read","submit","continue"],"created":1,"continuationInput":"approved answer"}},
+    {"id":"lost_submission", "mode":"lost_submit", "expected":{"terminal":"unknown","actions":["read","submit"],"created":1}},
+    {"id":"malformed_reply", "mode":"malformed", "expected":{"terminal":"invalid","actions":["read"],"created":0}},
+    {"id":"oversized_reply", "mode":"oversized", "expected":{"terminal":"invalid","actions":["read"],"created":0}},
+    {"id":"wrong_reply_type", "mode":"wrong_type", "expected":{"terminal":"invalid","actions":["read"],"created":0}},
+    {"id":"wrong_request_id", "mode":"wrong_id", "expected":{"terminal":"invalid","actions":["read"],"created":0}},
+    {"id":"zero_allowance", "mode":"normal", "max_calls":0, "expected":{"terminal":"budget","actions":[],"created":0}},
+    {"id":"pending_exhaustion", "mode":"pending", "max_calls":3, "expected":{"terminal":"budget","actions":["read","submit","poll"],"created":1}},
+    {"id":"completion_at_limit", "mode":"normal", "max_calls":3, "expected":{"terminal":"report:evidence:42","actions":["read","submit","poll"],"created":1}},
+    {"id":"read_denied", "mode":"normal", "allowed_ops":["submit","poll"], "expected":{"terminal":"denied","actions":[],"created":0}}
+  ]
+}

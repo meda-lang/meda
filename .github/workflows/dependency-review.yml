@@ -7,14 +7,21 @@
 name: 'Dependency Review'
 on: [pull_request]
 
+# Requires Dependency graph to be enabled in repository security settings.
+# https://github.com/meda-lang/meda/settings/security_analysis
+
 permissions:
   contents: read
 
 jobs:
   dependency-review:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: 'Checkout Repository'
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
       - name: 'Dependency Review'
-        uses: actions/dependency-review-action@v2
+        uses: actions/dependency-review-action@v5
+        with:
+          fail-on-severity: low
+          fail-on-scopes: runtime

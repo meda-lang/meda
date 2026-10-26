@@ -1,0 +1,6 @@
+record A { x: Int, }
+record B { x: Int, }
+operation main() -> Int effects [] {
+  let x: A = B { x: 1 }
+  return x.x
+}

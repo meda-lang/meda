@@ -1,0 +1,3 @@
+operation main(value: Int) -> Int effects [] {
+  return value
+}

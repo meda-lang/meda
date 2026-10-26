@@ -1,0 +1,13 @@
+{
+  "name": "meda-interop-d0-experiment",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Pinned TypeScript tooling for the bounded Meda interoperability experiment",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3"
+  }
+}

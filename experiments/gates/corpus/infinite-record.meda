@@ -1,0 +1,4 @@
+record Item { child: Item, }
+operation main() -> Int effects [] {
+  return 0
+}

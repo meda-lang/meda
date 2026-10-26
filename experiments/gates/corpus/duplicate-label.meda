@@ -1,0 +1,6 @@
+operation main() -> Int effects [] {
+  return other(x: 1, x: 2)
+}
+operation other(x: Int) -> Int effects [] {
+  return x
+}

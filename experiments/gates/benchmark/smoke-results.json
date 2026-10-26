@@ -1,0 +1,201 @@
+{
+  "kind": "oracle_smoke",
+  "modelTrials": 0,
+  "gateBDecision": "not_evaluated",
+  "interpretation": "Checks the corpus and harness only; reference repairs are not independent AI trials.",
+  "rows": [
+    {
+      "task": "clamp",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0032136280060512945
+    },
+    {
+      "task": "clamp",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.24469450800097547
+    },
+    {
+      "task": "absolute-distance",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.004079409998666961
+    },
+    {
+      "task": "absolute-distance",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23672514200006844
+    },
+    {
+      "task": "positive-sum",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.003318600996863097
+    },
+    {
+      "task": "positive-sum",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23792207299993606
+    },
+    {
+      "task": "threshold-count",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.003453498000453692
+    },
+    {
+      "task": "threshold-count",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23133705600048415
+    },
+    {
+      "task": "even-sum",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0037380469948402606
+    },
+    {
+      "task": "even-sum",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.22348449799756054
+    },
+    {
+      "task": "sign",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0031465700012631714
+    },
+    {
+      "task": "sign",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.22545800400257576
+    },
+    {
+      "task": "capped-total",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0032996709996950813
+    },
+    {
+      "task": "capped-total",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.2353545470032259
+    },
+    {
+      "task": "stable-filter",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0036356679993332364
+    },
+    {
+      "task": "stable-filter",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.24423064399888972
+    },
+    {
+      "task": "maximum-default",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.003398806002223864
+    },
+    {
+      "task": "maximum-default",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23897124999348307
+    },
+    {
+      "task": "nonempty-count",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0034575589961605147
+    },
+    {
+      "task": "nonempty-count",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23244198400061578
+    },
+    {
+      "task": "stale-rule",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.0035673240054165944
+    },
+    {
+      "task": "stale-rule",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.2429788160006865
+    },
+    {
+      "task": "report-identity",
+      "language": "meda",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.003818025994405616
+    },
+    {
+      "task": "report-identity",
+      "language": "python",
+      "initialRejected": true,
+      "referenceAccepted": true,
+      "acceptanceCases": 3,
+      "elapsedSeconds": 0.23257002299942542
+    }
+  ],
+  "tasksDigest": "3389c34cc4f82048867b765a33475e20bd8145e81e4a633434c2060f9ebc74b1"
+}

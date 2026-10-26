@@ -1,0 +1,56 @@
+{
+  "id": "uncertain_delivery",
+  "arm": "typescript",
+  "request": "Fix the unknown-delivery handling. Once a submission may have reached the peer, an unknown outcome must stop with payload unknown; it must never resubmit automatically. Preserve known pending polling and every other existing behavior.",
+  "candidate": "candidate.ts",
+  "visible": [
+    {
+      "id": "known_pending",
+      "snapshot": {
+        "stage": "running",
+        "observation": "pending",
+        "taskId": "task-9",
+        "remaining": 1,
+        "evidence": "",
+        "input": ""
+      },
+      "expected": {
+        "action": "poll",
+        "taskId": "task-9",
+        "payload": ""
+      }
+    },
+    {
+      "id": "unknown_delivery",
+      "snapshot": {
+        "stage": "running",
+        "observation": "unknown",
+        "taskId": "",
+        "remaining": 3,
+        "evidence": "",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "",
+        "payload": "unknown"
+      }
+    },
+    {
+      "id": "completed_at_limit",
+      "snapshot": {
+        "stage": "running",
+        "observation": "completed",
+        "taskId": "task-9",
+        "remaining": 0,
+        "evidence": "report:42",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "task-9",
+        "payload": "report:42"
+      }
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+let limit: Int = 10
+operation main() -> Int effects [] {
+  if true {
+    let limit = 2
+  }
+  return limit
+}

@@ -1,0 +1,6 @@
+operation main() -> Int effects [] {
+  if 1 {
+    return 1
+  }
+  return 0
+}

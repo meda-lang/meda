@@ -1,0 +1,7 @@
+operation main() -> Int effects [] {
+  let normalize = 4
+  return normalize + self.normalize(value: 2)
+}
+operation normalize(value: Int) -> Int effects [] {
+  return value
+}

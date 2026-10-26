@@ -1,0 +1,3360 @@
+{
+  "arms": [
+    "typescript",
+    "shared"
+  ],
+  "assessmentCounts": {
+    "failed": 1,
+    "unverified": 4
+  },
+  "compiler": {
+    "compiler": "TypeScript",
+    "dependencyDeclarationChecks": "skipped",
+    "elapsedSeconds": 2.588346636001006,
+    "lib": [
+      "ES2022"
+    ],
+    "passed": true,
+    "peakRssBytesObserved": 191041536,
+    "rssLimitBytes": 268435456,
+    "sourceStrict": true,
+    "v8OldSpaceMiB": 96,
+    "version": "5.9.3",
+    "wallLimitSeconds": 10
+  },
+  "executionCounts": {
+    "executed": 5
+  },
+  "finishedAt": "2026-10-25T18:32:19.830196+00:00",
+  "inventoryCases": 111,
+  "kind": "d0_reference_pilot",
+  "maintenanceMeasured": false,
+  "medaExecuted": false,
+  "profile": "meda-interop-d0/1",
+  "runs": [
+    {
+      "assessment": {
+        "caseId": "W04-explicit-cancel",
+        "checks": [
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "remote_canceled"
+            ],
+            "expected": "remote_canceled",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "receive"
+            ],
+            "expected": "receive",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_task_ledger",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.source_continuation_witness",
+            "reason": "Required independent observation is absent.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.explicit_cancel_live_root",
+            "reason": "The current receipt does not observe enough evidence to prove this invariant.",
+            "status": "unverified"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 1,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "peerTaskCreations": 1,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered",
+            "explicit_cancel_live_root"
+          ]
+        },
+        "normalized": {
+          "categories": [
+            "remote_canceled"
+          ],
+          "code": "RemoteCanceled",
+          "conclusive": true,
+          "layer": "remote_peer",
+          "phases": [
+            "receive"
+          ],
+          "remoteOutcome": null
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "normalized_task_observation",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "worker_exit_witness"
+          ],
+          "missing": [
+            "source_continuation_witness"
+          ]
+        }
+      },
+      "caseId": "W04-explicit-cancel",
+      "elapsedSeconds": 9.739231497998844,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 29,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3569,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 871,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1743,
+              "credentialMatches": 0,
+              "entries": 12,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:42601/a2a",
+          "agentCardSha256": "8fbb55292c339e5d9a7b843a2af2adb492668178e0f8d81856772e34b213f0f0",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:45577/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "CancelTask",
+              "operation": "cancel",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "canceled",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 73,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 116,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "RemoteCanceled"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.917061304999152,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.883583421998992,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.865592168998774,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.849775865999618,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.836565704999884,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "CancelTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.823135751999871,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "CancelTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 116,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3107,
+            "method": "CancelTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Canceled"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "RemoteCanceled",
+            "sequence": 22,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "RemoteCanceled"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "id": 3,
+              "kind": "Task",
+              "operation": "cancel",
+              "state": "Canceled"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.19855155000004743,
+          "finishFrames": 1,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26853376,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "a2aStates": [
+          "WORKING",
+          "CANCELED"
+        ],
+        "applicationAction": "cancel",
+        "cancelResponse": "acknowledged"
+      },
+      "surface": "workflow"
+    },
+    {
+      "assessment": {
+        "caseId": "W04-explicit-cancel-terminal-refusal",
+        "checks": [
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "cancel_refused"
+            ],
+            "expected": "cancel_refused",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "receive"
+            ],
+            "expected": "receive",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "failed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_task_ledger",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.source_continuation_witness",
+            "reason": "Required independent observation is absent.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.explicit_cancel_live_root",
+            "reason": "The current receipt does not observe enough evidence to prove this invariant.",
+            "status": "unverified"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 1,
+            "cleanupCancel": 1,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "peerTaskCreations": 1,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered",
+            "explicit_cancel_live_root"
+          ]
+        },
+        "normalized": {
+          "categories": [
+            "cancel_refused"
+          ],
+          "code": "TaskNotCancelable",
+          "conclusive": true,
+          "layer": "remote_peer",
+          "phases": [
+            "receive"
+          ],
+          "remoteOutcome": "Completed"
+        },
+        "passed": false,
+        "status": "failed",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "normalized_task_observation",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "worker_exit_witness"
+          ],
+          "missing": [
+            "source_continuation_witness"
+          ]
+        }
+      },
+      "caseId": "W04-explicit-cancel-terminal-refusal",
+      "elapsedSeconds": 6.392006977999699,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 78,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 4659,
+              "credentialMatches": 0,
+              "entries": 29,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1197,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 2323,
+              "credentialMatches": 0,
+              "entries": 16,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:44103/a2a",
+          "agentCardSha256": "f00b6e35e35111d6840aabe51ab3baa0833686b4e66c2ec9560c0d03d81df214",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:38837/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [
+          {
+            "outcome": "TaskNotCancelable",
+            "remoteOutcome": "Completed"
+          }
+        ],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "CancelTask",
+              "operation": "cancel",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "completed_before_cancel",
+              "taskId": "task-1"
+            },
+            {
+              "event": "cancel_refused",
+              "taskId": "task-1"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "CancelTask",
+              "operation": "cancel",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "cancel_refused",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 73,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 221,
+              "rpcResult": false,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 5,
+              "requestBytes": 0,
+              "sequence": 8
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 5,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 9,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 6,
+              "requestBytes": 73,
+              "sequence": 10
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "cancel",
+              "protocol": "a2a",
+              "request": 6,
+              "responseBytes": 221,
+              "rpcResult": false,
+              "sequence": 11,
+              "status": 200
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "fatal": false,
+          "outcome": "TaskNotCancelable",
+          "remoteOutcome": "Completed"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.910531360001187,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.88396503200056,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.85937149900019,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.838527556999907,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.823074544001429,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "CancelTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.805877775001136,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "CancelTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 221,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3212,
+            "method": "CancelTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "code": "TaskNotCancelable",
+            "event": "call_rejected",
+            "operation": "cancel",
+            "sequence": 20
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "cleanup": true,
+            "cleanupCount": 1,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 258932,
+            "remainingNormal": 8,
+            "request": 7,
+            "rootRemainingSeconds": 14.783373109001332,
+            "sequence": 22,
+            "totalRequests": 7
+          },
+          {
+            "cleanup": true,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 7,
+            "sequence": 23
+          },
+          {
+            "bytes": 669,
+            "cleanup": true,
+            "event": "received",
+            "inboundBytes": 3881,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 7,
+            "sequence": 24
+          },
+          {
+            "cleanup": true,
+            "cleanupCount": 2,
+            "event": "admitted",
+            "method": "CancelTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 258263,
+            "remainingNormal": 8,
+            "request": 8,
+            "rootRemainingSeconds": 14.772252971000853,
+            "sequence": 25,
+            "totalRequests": 8
+          },
+          {
+            "cleanup": true,
+            "event": "dispatch",
+            "method": "CancelTask",
+            "protocol": "a2a",
+            "request": 8,
+            "sequence": 26
+          },
+          {
+            "bytes": 221,
+            "cleanup": true,
+            "event": "received",
+            "inboundBytes": 4102,
+            "method": "CancelTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 8,
+            "sequence": 27
+          },
+          {
+            "event": "publication",
+            "outcome": "TaskNotCancelable",
+            "sequence": 28,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "fatal": false,
+            "outcome": "TaskNotCancelable",
+            "remoteOutcome": "Completed"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "code": "TaskNotCancelable",
+              "fatal": false,
+              "id": 3,
+              "kind": "Error",
+              "operation": "cancel",
+              "remoteOutcome": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.23875161800060596,
+          "finishFrames": 1,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26849280,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "a2aStates": [
+          "WORKING",
+          "COMPLETED"
+        ],
+        "applicationAction": "cancel",
+        "cancelResponse": "TaskNotCancelableError",
+        "returnAfterCancel": true
+      },
+      "surface": "workflow"
+    },
+    {
+      "assessment": {
+        "caseId": "W05-wrong-rpc-id",
+        "checks": [
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "protocol_rejected"
+            ],
+            "expected": "protocol_rejected",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "receive"
+            ],
+            "expected": "receive",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.fault_proxy_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.protocol_correlation",
+            "reason": "The current receipt does not observe enough evidence to prove this invariant.",
+            "status": "unverified"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 0
+          },
+          "peerTaskCreations": 0,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered",
+            "protocol_correlation"
+          ]
+        },
+        "normalized": {
+          "categories": [
+            "protocol_rejected"
+          ],
+          "code": "ProtocolRejected",
+          "conclusive": true,
+          "layer": "shared_adapter",
+          "phases": [
+            "receive"
+          ],
+          "remoteOutcome": "Unknown"
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "worker_exit_witness"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W05-wrong-rpc-id",
+      "elapsedSeconds": 6.192382045999693,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 75,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1348,
+              "credentialMatches": 0,
+              "entries": 10,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 285,
+              "credentialMatches": 0,
+              "entries": 3,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 732,
+              "credentialMatches": 0,
+              "entries": 5,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 0
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:52931/a2a",
+          "agentCardSha256": "f9f667e84e2984da9404e6b1c5a63e4c3f31c9a093db5934122e062ab917c874",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:44629/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "evidence_response_id",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 4
+            }
+          ]
+        },
+        "result": {
+          "fatal": false,
+          "outcome": "ProtocolRejected",
+          "remoteOutcome": "Unknown"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.889500106000924,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.864816598001198,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 561,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1542,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "code": "ProtocolRejected",
+            "event": "call_rejected",
+            "operation": "readEvidence",
+            "sequence": 7
+          },
+          {
+            "event": "root_close",
+            "sequence": 8
+          },
+          {
+            "event": "publication",
+            "outcome": "ProtocolRejected",
+            "sequence": 9,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "fatal": false,
+            "outcome": "ProtocolRejected",
+            "remoteOutcome": "Unknown"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "code": "ProtocolRejected",
+              "fatal": false,
+              "id": 1,
+              "kind": "Error",
+              "operation": "readEvidence",
+              "remoteOutcome": "Unknown"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.18910602100004326,
+          "finishFrames": 1,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26812416,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "wireMutation": "evidence_response_id"
+      },
+      "surface": "workflow"
+    },
+    {
+      "assessment": {
+        "caseId": "W08-evidence-duplicate_fact_id",
+        "checks": [
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "evidence_rejected"
+            ],
+            "expected": "evidence_rejected",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "validation"
+            ],
+            "expected": "validation",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_wire_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_task_ledger",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 0
+          },
+          "peerTaskCreations": 0,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered"
+          ]
+        },
+        "normalized": {
+          "categories": [
+            "evidence_rejected"
+          ],
+          "code": "ProtocolRejected",
+          "conclusive": true,
+          "layer": "shared_adapter",
+          "phases": [
+            "validation"
+          ],
+          "remoteOutcome": "Completed"
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "worker_exit_witness"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W08-evidence-duplicate_fact_id",
+      "elapsedSeconds": 9.916086920000453,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 77,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1348,
+              "credentialMatches": 0,
+              "entries": 10,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 285,
+              "credentialMatches": 0,
+              "entries": 3,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 729,
+              "credentialMatches": 0,
+              "entries": 5,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 0
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:57479/a2a",
+          "agentCardSha256": "c7b68cc05f26d13add16c236120e5a7cf9b76cf0273fc7e6ef75b6433a6e20ca",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:56061/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "duplicate_fact_id",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 4
+            }
+          ]
+        },
+        "result": {
+          "fatal": false,
+          "outcome": "ProtocolRejected",
+          "remoteOutcome": "Completed"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.901092108999364,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.839386547000686,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "code": "ProtocolRejected",
+            "event": "call_rejected",
+            "operation": "readEvidence",
+            "sequence": 7
+          },
+          {
+            "event": "root_close",
+            "sequence": 8
+          },
+          {
+            "event": "publication",
+            "outcome": "ProtocolRejected",
+            "sequence": 9,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "fatal": false,
+            "outcome": "ProtocolRejected",
+            "remoteOutcome": "Completed"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "code": "ProtocolRejected",
+              "fatal": false,
+              "id": 1,
+              "kind": "Error",
+              "operation": "readEvidence",
+              "remoteOutcome": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.8849383349988784,
+          "finishFrames": 1,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 27074560,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "evidenceMutation": "duplicate_fact_id"
+      },
+      "surface": "workflow"
+    },
+    {
+      "assessment": {
+        "caseId": "W10-host-foreign_peer",
+        "checks": [
+          {
+            "actual": [
+              "admission_denied"
+            ],
+            "expected": "admission_denied",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "pre_dispatch"
+            ],
+            "expected": "pre_dispatch",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_admission_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_wire_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_authority_roundtrip",
+            "reason": "The current receipt does not observe enough evidence to prove this invariant.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.counts_exclude_setup",
+            "reason": "Explicit half-open offsets delimit observed setup from measured host/peer/proxy ledgers.",
+            "status": "passed"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 0,
+            "submit": 0
+          },
+          "peerTaskCreations": 0,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded",
+            "counts_exclude_setup"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered",
+            "no_authority_roundtrip"
+          ]
+        },
+        "normalized": {
+          "categories": [
+            "admission_denied"
+          ],
+          "code": "InvalidReference",
+          "conclusive": true,
+          "layer": "shared_host",
+          "phases": [
+            "pre_dispatch"
+          ],
+          "remoteOutcome": null
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W10-host-foreign_peer",
+      "elapsedSeconds": 17.271956868000416,
+      "executionStatus": "executed",
+      "receipt": {
+        "cleanup": [
+          {
+            "outcome": "BindingChanged",
+            "remoteOutcome": "Completed"
+          }
+        ],
+        "credentialLeakDetected": false,
+        "measuredWindow": {
+          "peers": {
+            "a2a": {
+              "end": 3,
+              "start": 3
+            },
+            "mcp": {
+              "end": 3,
+              "start": 3
+            }
+          },
+          "proxy": {
+            "a2a": {
+              "end": 4,
+              "start": 4
+            },
+            "mcp": {
+              "end": 4,
+              "start": 4
+            }
+          },
+          "trace": {
+            "end": 15,
+            "start": 14
+          }
+        },
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "probeCalls": [
+          {
+            "operation": "observe",
+            "result": {
+              "code": "InvalidReference",
+              "fatal": false,
+              "kind": "Error",
+              "remoteOutcome": "NotStarted"
+            }
+          }
+        ],
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "InvalidReference"
+        },
+        "setupCalls": [
+          {
+            "operation": "readEvidence",
+            "result": {
+              "kind": "Evidence",
+              "value": {
+                "documentId": "evidence-42",
+                "facts": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ],
+                "revision": 1
+              }
+            }
+          },
+          {
+            "operation": "submit",
+            "result": {
+              "kind": "Task",
+              "state": "Working"
+            }
+          }
+        ],
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.999511459000132,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.96234658299909,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.942048949998934,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.923728783000115,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "code": "InvalidReference",
+            "event": "call_rejected",
+            "operation": "observe",
+            "sequence": 14
+          },
+          {
+            "event": "root_close",
+            "sequence": 15
+          },
+          {
+            "cleanup": true,
+            "cleanupCount": 1,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 10,
+            "request": 5,
+            "rootRemainingSeconds": 14.896518503999687,
+            "sequence": 16,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": true,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 17
+          },
+          {
+            "bytes": 669,
+            "cleanup": true,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 18
+          },
+          {
+            "event": "publication",
+            "outcome": "InvalidReference",
+            "sequence": 19,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true
+      },
+      "scenario": {
+        "operation": "observe",
+        "referenceMutation": "foreign_peer",
+        "setup": "owned_reference_if_needed"
+      },
+      "surface": "host_probe"
+    }
+  ],
+  "selectedCases": 5,
+  "sourceSha256": {
+    ".gitignore": "5d894134adc1ee0216042533cddc6128acd0fca8be98821324ef05e87b4ab2a2",
+    "CONTRACT.md": "6e74e92d5f5821d3687d96b1e086e22e918c891d236aa11b0397b0ae2e3c5fdb",
+    "README.md": "9931032eefc2a7f0ffa3813d6a0e034c82a2a07cf94a8475dce169e13ed78c0e",
+    "acceptance.json": "724e5626054ced2ac444fcf759371fca43f5f91d1efcff09b2e67d205b2d9a8d",
+    "acceptance_adapters.py": "4f5a3c83dbaed9eadcb05d9ebd0f004b3c3be59e496f2a4e969c1959cd803096",
+    "acceptance_host.py": "e2f7a896916398488287e6a4755ee9fcd97758f4df20158b02b46cf2b67b0be4",
+    "acceptance_peers.py": "11b314e085b49db91c541dd4e4694f41dae5e776fa052b167612945f0b2ea638",
+    "acceptance_run.py": "6d8fbea73ddc0a23e626f44656ebed3859502d91cdb6119c9d90e53b42096f12",
+    "candidate-manifest.json": "16ad9778c93ab0e30fddd5e62f054a4c27913b52b7bf3b82f9591cbf3ba4f115",
+    "client/bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+    "client/domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+    "client/main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+    "client/workflow.ts": "f8d94942ef447095103ef0550e5f58fceb337d0396ca7dda8d02f867d61f413d",
+    "dependency-provenance.json": "e165882ed7a34c18f11699c81008d935f37809ec2f91deea5dea12d5ca2c1015",
+    "fault_proxy.py": "a782ee5818dd33a7e77e9769d2d6709346b8204a058d75d7d79c2f54eede9753",
+    "freeze.py": "1d46a7af60fda510ce4029483c78ee2ff106491556b2600d0dc2a3e212c1c020",
+    "host.py": "f125338f508b118cdae14e4f081fc37cf95e578bc3b8546b678e730797912002",
+    "oracle.py": "750667540aea97a99f84946989b5a6719c0a84ebd1b6b7ad5d180a55802d5642",
+    "package-lock.json": "f4e844a493a50d8abc19154854ab3c2c3ea897eea8f045a3bfeac4cfb892e8c3",
+    "package.json": "601fa2c5aebfa976a7793a7a3705a064003163eea54c795ed38496a94390a69b",
+    "requirements.lock": "bfd9796a42c87a2d9ca2c87713e2a5dafedad32a12ba39a94990f0e3e9fd6c6b",
+    "runner.py": "9eb90315fb0c095eb4e5072f318e59f0646f16478e9ea0c8d7549adb1d818850",
+    "sdk_peers.py": "a3df09c82b03c60d5fa34a5c7590757cb404f99a2866b45afbfa07a7e0b66f8b",
+    "specification-sources.json": "70e2cf4b584bb2ea2ad28e148b3f92cd33eae24c97208f1da216c5ece64fe818",
+    "support.py": "d517452a7d98ca2d7c2a999ced9adf0bae24d086ef620f2aac40bd413596fec3",
+    "tests/test_acceptance_adapters.py": "b61587518d204b7001b88fb454d8b55dd664a2ec23acd6a477e332f3aaf4a4d8",
+    "tests/test_acceptance_inventory.py": "412df4b03d0fae78a9b2c99d909d172614dc7b66837a52fcddb3e83536baf864",
+    "tests/test_acceptance_peers.py": "99080227f3d8847481902d6a7a630237afc1ab5e4f880f51b17865ebac75ab47",
+    "tests/test_host.py": "59caa9862bf0bfdb2dbdb3c926c518a3f71bd13576bcaec1586bfe21113db368",
+    "tests/test_oracle.py": "3f1224410235d180786ac069188c6f482d6f91ee44f37fc1188893532a84daf5",
+    "tests/test_runner.py": "46af335034042fdc5428d1bf033835f46dfc22591769c4851a14cb12d0c68e8f",
+    "tests/test_sdk_peers.py": "5df89585fcdb6ed6290dbd637d6f86bddef823cc34a7bf6058624fcefc63c6ff",
+    "tests/test_typescript.py": "8179d367740303278e8ede7d70b2e3e668c084e7c611e9a1d34fd400bffe9f49",
+    "transport.py": "2bbd69b7283337c9b03c230fae7538c8255aa62cc183b6660b08b39c180bed3f",
+    "tsconfig.json": "71455dd49751ce5173800ceaa7973748ac3e2f3d05482173af64c1d3d73edfef"
+  },
+  "sourceUnchangedDuringRun": true,
+  "startedAt": "2026-10-25T18:31:30.277547+00:00"
+}

@@ -1,0 +1,5 @@
+record Item { count: Int, }
+operation main() -> Int effects [] {
+  let x = Item {}
+  return x.count
+}

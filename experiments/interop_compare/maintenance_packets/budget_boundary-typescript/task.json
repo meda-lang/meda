@@ -1,0 +1,56 @@
+{
+  "id": "budget_boundary",
+  "arm": "typescript",
+  "request": "Fix the request-budget boundary. Zero remaining allowance must prevent any new request, including a poll, read, submission, or continuation. A completed observation may still publish its result at zero allowance, and terminal errors retain their category. Preserve other behavior.",
+  "candidate": "candidate.ts",
+  "visible": [
+    {
+      "id": "known_pending",
+      "snapshot": {
+        "stage": "running",
+        "observation": "pending",
+        "taskId": "task-9",
+        "remaining": 1,
+        "evidence": "",
+        "input": ""
+      },
+      "expected": {
+        "action": "poll",
+        "taskId": "task-9",
+        "payload": ""
+      }
+    },
+    {
+      "id": "pending_budget_zero",
+      "snapshot": {
+        "stage": "running",
+        "observation": "pending",
+        "taskId": "task-9",
+        "remaining": 0,
+        "evidence": "",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "task-9",
+        "payload": "budget"
+      }
+    },
+    {
+      "id": "completed_at_limit",
+      "snapshot": {
+        "stage": "running",
+        "observation": "completed",
+        "taskId": "task-9",
+        "remaining": 0,
+        "evidence": "report:42",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "task-9",
+        "payload": "report:42"
+      }
+    }
+  ]
+}

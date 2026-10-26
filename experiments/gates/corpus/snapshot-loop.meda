@@ -1,0 +1,10 @@
+import std.list as list
+operation main() -> Int effects [] {
+  var xs = [1, 2]
+  var count = 0
+  for x in xs {
+    xs = list.append(items: xs, value: x)
+    count = count + 1
+  }
+  return count
+}

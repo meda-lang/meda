@@ -1,0 +1,30 @@
+{
+  "profile": "meda-interop-d0/1",
+  "sources": [
+    {
+      "name": "mcp-basic",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/index",
+      "retrievedOn": "2026-10-25",
+      "representation": "HTTP HTML snapshot; presentation may change independently of protocol semantics",
+      "sha256": "e486dc45ddcdf92051e185335b8688cdffb2a309ba2f4d013a41e681df4b2f37",
+      "bytes": 467799
+    },
+    {
+      "name": "mcp-http",
+      "url": "https://modelcontextprotocol.io/specification/2026-07-28/basic/transports/streamable-http",
+      "retrievedOn": "2026-10-25",
+      "representation": "HTTP HTML snapshot; presentation may change independently of protocol semantics",
+      "sha256": "dff26e69aaf4c6845524a277632e73fb6a2ec135f129c523736a8da5cea6b666",
+      "bytes": 577774
+    },
+    {
+      "name": "a2a-spec",
+      "url": "https://a2a-protocol.org/v1.0.0/specification/",
+      "retrievedOn": "2026-10-25",
+      "representation": "HTTP HTML snapshot; presentation may change independently of protocol semantics",
+      "sha256": "f5d15f00006b7e25b8a3a2766b309b661fff36dbd4330933ed61bfc8d435f05b",
+      "bytes": 599272
+    }
+  ],
+  "sourceOfExecutableTypes": "See dependency-provenance.json for exact SDK artifacts and installed schema-file identities."
+}

@@ -1,0 +1,546 @@
+{
+  "version": 1,
+  "profile": "meda-pure-b0/1",
+  "cases": [
+    {
+      "id": "large-integer",
+      "source": "large-integer.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 9007199254740993
+    },
+    {
+      "id": "negative-division",
+      "source": "negative-division.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": -2
+    },
+    {
+      "id": "negative-remainder",
+      "source": "negative-remainder.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": -1
+    },
+    {
+      "id": "positive-remainder",
+      "source": "positive-remainder.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 1
+    },
+    {
+      "id": "division-zero",
+      "source": "division-zero.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "NumericFault",
+      "phase": "runtime"
+    },
+    {
+      "id": "strict-bool",
+      "source": "strict-bool.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "TypeMismatch",
+      "phase": "check"
+    },
+    {
+      "id": "short-circuit",
+      "source": "short-circuit.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": false
+    },
+    {
+      "id": "missing-return",
+      "source": "missing-return.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "MissingReturn",
+      "phase": "check"
+    },
+    {
+      "id": "return-newline",
+      "source": "return-newline.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "TypeMismatch",
+      "phase": "check"
+    },
+    {
+      "id": "semicolon",
+      "source": "semicolon.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "InvalidToken",
+      "phase": "parse"
+    },
+    {
+      "id": "same-line-statements",
+      "source": "same-line-statements.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "StatementBoundary",
+      "phase": "parse"
+    },
+    {
+      "id": "mixed-types",
+      "source": "mixed-types.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "TypeMismatch",
+      "phase": "check"
+    },
+    {
+      "id": "immutable",
+      "source": "immutable.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ImmutableBinding",
+      "phase": "check"
+    },
+    {
+      "id": "unknown-name",
+      "source": "unknown-name.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "UnknownName",
+      "phase": "check"
+    },
+    {
+      "id": "local-shadow",
+      "source": "local-shadow.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ShadowedBinding",
+      "phase": "check"
+    },
+    {
+      "id": "helper-name-locality",
+      "source": "helper-name-locality.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 6
+    },
+    {
+      "id": "local-call-resolution",
+      "source": "local-call-resolution.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "NotCallable",
+      "phase": "check"
+    },
+    {
+      "id": "named-order",
+      "source": "named-order.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 7
+    },
+    {
+      "id": "duplicate-label",
+      "source": "duplicate-label.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "DuplicateLabel",
+      "phase": "parse"
+    },
+    {
+      "id": "missing-label",
+      "source": "missing-label.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ArgumentLabels",
+      "phase": "check"
+    },
+    {
+      "id": "literal-underscores",
+      "source": "literal-underscores.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 1000001
+    },
+    {
+      "id": "bad-underscores",
+      "source": "bad-underscores.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "InvalidInteger",
+      "phase": "parse"
+    },
+    {
+      "id": "text-scalar-count",
+      "source": "text-scalar-count.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 4
+    },
+    {
+      "id": "text-scalar-escape",
+      "source": "text-scalar-escape.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": "\ud83d\ude00"
+    },
+    {
+      "id": "text-surrogate",
+      "source": "text-surrogate.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "InvalidText",
+      "phase": "parse"
+    },
+    {
+      "id": "chained-comparison",
+      "source": "chained-comparison.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ChainedComparison",
+      "phase": "parse"
+    },
+    {
+      "id": "untyped-empty-list",
+      "source": "untyped-empty-list.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "AmbiguousType",
+      "phase": "check"
+    },
+    {
+      "id": "immutable-list",
+      "source": "immutable-list.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 2
+    },
+    {
+      "id": "snapshot-loop",
+      "source": "snapshot-loop.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 2
+    },
+    {
+      "id": "empty-range",
+      "source": "empty-range.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 0
+    },
+    {
+      "id": "descending-range",
+      "source": "descending-range.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 10
+    },
+    {
+      "id": "zero-step",
+      "source": "zero-step.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "NumericFault",
+      "phase": "runtime"
+    },
+    {
+      "id": "loop-control",
+      "source": "loop-control.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "LoopControl",
+      "phase": "check"
+    },
+    {
+      "id": "while-fuel",
+      "source": "while-fuel.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "FuelExhausted",
+      "phase": "runtime",
+      "fuel": 100
+    },
+    {
+      "id": "record-update",
+      "source": "record-update.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 6
+    },
+    {
+      "id": "record-nominal",
+      "source": "record-nominal.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "TypeMismatch",
+      "phase": "check"
+    },
+    {
+      "id": "record-missing-field",
+      "source": "record-missing-field.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ArgumentLabels",
+      "phase": "check"
+    },
+    {
+      "id": "infinite-record",
+      "source": "infinite-record.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "InfiniteRecord",
+      "phase": "check"
+    },
+    {
+      "id": "enum-match",
+      "source": "enum-match.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 4
+    },
+    {
+      "id": "enum-nonexhaustive",
+      "source": "enum-nonexhaustive.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "NonExhaustiveMatch",
+      "phase": "check"
+    },
+    {
+      "id": "bool-match",
+      "source": "bool-match.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 1
+    },
+    {
+      "id": "contract-false",
+      "source": "contract-false.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ContractViolation",
+      "phase": "runtime"
+    },
+    {
+      "id": "contract-evaluation-fault",
+      "source": "contract-evaluation-fault.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ContractEvaluationFault",
+      "phase": "runtime"
+    },
+    {
+      "id": "implicit-contract-cycle",
+      "source": "implicit-contract-cycle.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ContractUnsafe",
+      "phase": "check"
+    },
+    {
+      "id": "contract-while",
+      "source": "contract-while.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ContractUnsafe",
+      "phase": "check"
+    },
+    {
+      "id": "test-isolation",
+      "source": "test-isolation.meda",
+      "command": "test",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": [
+        {
+          "id": "first fails",
+          "status": "fail",
+          "code": "AssertionFailed"
+        },
+        {
+          "id": "second runs",
+          "status": "pass"
+        }
+      ]
+    },
+    {
+      "id": "empty-test-suite",
+      "source": "empty-test-suite.meda",
+      "command": "test",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "TestDiscovery",
+      "phase": "test"
+    },
+    {
+      "id": "effects-rejected",
+      "source": "effects-rejected.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "UnsupportedEffect",
+      "phase": "check"
+    },
+    {
+      "id": "bool-not-int-input",
+      "source": "bool-not-int-input.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {
+        "value": true
+      },
+      "hostEffects": [],
+      "error": "InputType",
+      "phase": "input"
+    },
+    {
+      "id": "crlf",
+      "source": "crlf.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 3
+    },
+    {
+      "id": "nested-module-shadow",
+      "source": "nested-module-shadow.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 10
+    },
+    {
+      "id": "qualified-constant",
+      "source": "qualified-constant.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": 12
+    },
+    {
+      "id": "nested-local-constant-shadow",
+      "source": "nested-local-constant-shadow.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "error": "ShadowedBinding",
+      "phase": "check"
+    },
+    {
+      "id": "literal-backslash-u",
+      "source": "literal-backslash-u.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": "\\u{41}"
+    },
+    {
+      "id": "escaped-quotes",
+      "source": "escaped-quotes.meda",
+      "command": "run",
+      "operation": "main",
+      "arguments": {},
+      "hostEffects": [],
+      "expected": "a\"b"
+    }
+  ]
+}

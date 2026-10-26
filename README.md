@@ -1,6 +1,38 @@
 
 # Meda
 
+## Current design experiment
+
+Start with the [research handoff](docs/research-handoff.md) for the complete
+design/code/results index, current decision, and [tracked next steps](docs/issues/README.md).
+
+[Draft 2.1](docs/design-draft-2.1.md) explores Meda for AI-authored and
+AI-maintained software, including programs that use LLMs. The
+[Gate A corpus and Gate B prototype](experiments/gates/README.md) provide a
+runnable pure-language subset, guarded edits, and a maintenance experiment.
+The legacy language ideas below describe the original prototype; they are not
+the current proposed specification. No stable language edition is released.
+
+The [shared runtime comparison](docs/runtime-comparison.md) runs actual Meda and
+strict TypeScript clients over the same host/adapters. Both pass the implemented
+screen; language-specific value remains unproven. See its
+[reproduction instructions](experiments/interop_compare/README.md).
+
+The [bounded MCP and A2A workflow](docs/interop-workflow.md) now has a
+[real-SDK TypeScript reference candidate](docs/interop-reference-results.md),
+governed by the [design amendment](docs/interop-design-amendment.md),
+[comparison plan](docs/interop-evaluation.md) and [work packets](docs/interop-roadmap.md).
+Its common host, adapters and reference client run; full acceptance remains open.
+The new effectful Meda arm and controlled maintenance study are not implemented.
+See the [candidate's reproduction instructions](experiments/interop_d0/README.md).
+
+```sh
+python3 -m unittest discover -s experiments/gates/tests -v
+python3 experiments/gates/benchmark.py --smoke --output /tmp/meda-smoke.json
+```
+
+## Original prototype
+
 Meda is a procedural, general purpose programming language that is influenced by
 TypeScript, Go, and Rust, with a dash of Python.
 

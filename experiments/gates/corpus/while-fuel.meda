@@ -1,0 +1,6 @@
+operation main() -> Int effects [] {
+  while true {
+    discard 0
+  }
+  return 0
+}

@@ -1,0 +1,3 @@
+operation main() -> Text effects [] {
+  return "\u{1F600}"
+}

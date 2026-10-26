@@ -1,0 +1,2 @@
+# This acceptance fixture deliberately contains CRLF bytes.
+experiments/gates/corpus/crlf.meda -text whitespace=cr-at-eol

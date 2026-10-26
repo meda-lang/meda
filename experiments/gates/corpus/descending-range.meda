@@ -1,0 +1,7 @@
+operation main() -> Int effects [] {
+  var total = 0
+  for i in range(start: 4, end: 0, step: -1) {
+    total = total + i
+  }
+  return total
+}

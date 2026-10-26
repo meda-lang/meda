@@ -1,0 +1,6 @@
+operation main() -> Int effects [] {
+  return subtract(right: 3, left: 10)
+}
+operation subtract(left: Int, right: Int) -> Int effects [] {
+  return left - right
+}

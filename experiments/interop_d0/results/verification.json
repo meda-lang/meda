@@ -1,0 +1,26 @@
+{
+  "runs": [
+    {
+      "command": "experiments/interop_d0/.venv/bin/python -m unittest discover -s experiments/interop_d0/tests -v",
+      "testMethods": 85,
+      "passed": true,
+      "log": "unit-tests.log",
+      "sha256": "73f740e20d35640fb6304c5ca80336909ddebee1424de06b63e1f2d64f528cdc"
+    },
+    {
+      "command": "python -m unittest discover -s experiments/gates/tests -v",
+      "testMethods": 23,
+      "passed": true,
+      "log": "gate-regression.log",
+      "sha256": "19e57c32310218555e93861aaf2601ecec8e4b7d33cd93b3c92c7b7deaeb99a9"
+    },
+    {
+      "command": "MEDA_COMPARE_TSC=/workspace/scratch/bf91ba952a37/meda/experiments/interop_d0/node_modules/typescript/lib/tsc.js python -m unittest discover -s experiments/interop_compare/tests -v",
+      "testMethods": 15,
+      "passed": true,
+      "log": "comparison-regression.log",
+      "sha256": "1975744f85007a858aad1bae5c1524c45397124a8245d22d8178bf9e59299afd"
+    }
+  ],
+  "note": "Test-method counts are separate from acceptance-case counts. The original pure comparison required configuring its documented pinned compiler path; no old experiment code was edited."
+}

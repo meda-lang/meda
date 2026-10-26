@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Meda research editing request v1",
+  "oneOf": [
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "describe"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "symbol": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "symbol"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "begin_edit"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "expectedRevision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "expectedRevision"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "replace_body"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "transaction": {
+              "type": "string"
+            },
+            "symbol": {
+              "type": "string"
+            },
+            "body": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "symbol",
+            "body"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "validate_edit"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "commit_edit"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "transaction": {
+              "type": "string"
+            },
+            "receiptId": {
+              "type": "string"
+            },
+            "expectedRevision": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction",
+            "receiptId",
+            "expectedRevision"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "properties": {
+        "method": {
+          "const": "transaction_status"
+        },
+        "params": {
+          "type": "object",
+          "properties": {
+            "transaction": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "transaction"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "method",
+        "params"
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

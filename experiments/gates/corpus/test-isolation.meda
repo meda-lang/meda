@@ -1,0 +1,9 @@
+operation main() -> Int effects [] {
+  return 0
+}
+test "first fails" {
+  assert false
+}
+test "second runs" {
+  assert true
+}

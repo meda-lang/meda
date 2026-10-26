@@ -1,0 +1,47 @@
+record Snapshot {
+  stage: Text,
+  observation: Text,
+  taskId: Text,
+  remaining: Int,
+  evidence: Text,
+  input: Text,
+}
+
+enum Action { Read, Submit, Poll, Continue, Cancel, Stop }
+
+record Decision {
+  action: Action,
+  taskId: Text,
+  payload: Text,
+}
+
+operation next(snapshot: Snapshot) -> Decision effects [] {
+  if snapshot.observation == "unknown" {
+    return Decision { action: Action.Submit, taskId: "", payload: snapshot.evidence }
+  }
+  if snapshot.observation == "completed" {
+    return Decision { action: Action.Stop, taskId: snapshot.taskId, payload: snapshot.evidence }
+  }
+  if snapshot.observation == "cancelled" or snapshot.observation == "denied" or snapshot.observation == "invalid" or snapshot.observation == "unknown" or snapshot.observation == "budget" {
+    return Decision { action: Action.Stop, taskId: snapshot.taskId, payload: snapshot.observation }
+  }
+  if snapshot.remaining <= 0 {
+    return Decision { action: Action.Stop, taskId: snapshot.taskId, payload: "budget" }
+  }
+  if snapshot.stage == "start" {
+    return Decision { action: Action.Read, taskId: "", payload: "" }
+  }
+  if snapshot.observation == "evidence" {
+    return Decision { action: Action.Submit, taskId: "", payload: snapshot.evidence }
+  }
+  if snapshot.observation == "pending" {
+    return Decision { action: Action.Poll, taskId: snapshot.taskId, payload: "" }
+  }
+  if snapshot.observation == "input_required" {
+    if snapshot.input == "" {
+      return Decision { action: Action.Stop, taskId: snapshot.taskId, payload: "input_required" }
+    }
+    return Decision { action: Action.Continue, taskId: snapshot.taskId, payload: snapshot.input }
+  }
+  return Decision { action: Action.Stop, taskId: snapshot.taskId, payload: "unsupported" }
+}

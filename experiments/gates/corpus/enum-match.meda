@@ -1,0 +1,8 @@
+enum Status { Ready, Waiting { days: Int }, }
+operation main() -> Int effects [] {
+  let status = Status.Waiting(days: 4)
+  match status {
+    Status.Ready => { return 0 }
+    Status.Waiting(days: days) => { return days }
+  }
+}
