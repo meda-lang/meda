@@ -1,0 +1,12 @@
+operation clamp(value: Int, lower: Int, upper: Int) -> Int effects []
+  require lower <= upper
+  ensure result >= lower and result <= upper
+{
+  if value < lower {
+    return lower
+  }
+  if value > upper {
+    return upper
+  }
+  return value
+}
