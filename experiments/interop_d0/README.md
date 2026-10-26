@@ -1,5 +1,8 @@
 # Bounded SDK interoperability experiment
 
+Start with the [wiring walkthrough and runnable example](../../docs/wiring-walkthrough.md)
+to follow an application call through the bindings, shared host and SDK peers.
+
 This directory implements the conventional TypeScript reference workflow and
 common host for `meda-interop-d0/1`. MCP and A2A run through separate official
 SDK server processes over verified local TLS. The independent fault proxy can
