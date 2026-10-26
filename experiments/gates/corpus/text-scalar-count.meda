@@ -1,0 +1,4 @@
+import std.text as text
+operation main() -> Int effects [] {
+  return text.length(value: "A😀é")
+}

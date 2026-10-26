@@ -1,0 +1,153 @@
+{
+  "version": 1,
+  "status": "deferred_not_executed",
+  "cases": [
+    {
+      "id": "callable-label-permutation",
+      "gate": "C",
+      "input": "Callback declaration order differs but unique labels/types/effects match.",
+      "expected": "Accept without forwarding wrapper.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "callable-wrong-label",
+      "gate": "C",
+      "input": "Callback has a renamed label or wider effects than admitted.",
+      "expected": "Reject before application execution.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "opaque-construction",
+      "gate": "C",
+      "input": "A different module constructs or updates a public opaque record.",
+      "expected": "Reject every representation bypass.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "package-nominality",
+      "gate": "C",
+      "input": "Two locked dependencies export models.Report with identical fields.",
+      "expected": "Distinct nodes remain distinct nominal types; repeated aliases of one node unify.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "reserved-roots",
+      "gate": "C",
+      "input": "A package tries to supply std or host.",
+      "expected": "Resolution fails before execution.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "fake-missing",
+      "gate": "D",
+      "input": "An effectful test has no fake for an admitted call.",
+      "expected": "Fail that isolated test; never use live fallback.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "fake-invalid-output",
+      "gate": "D",
+      "input": "A fake returns a value outside the declared result type.",
+      "expected": "Fail that isolated test and continue the suite.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "result-error-is-data",
+      "gate": "C",
+      "input": "A test explicitly matches expected Result.Err.",
+      "expected": "Pass if its assertion matches; Err is not automatically a test fault.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "generation-pure-timeout",
+      "gate": "E",
+      "input": "Generation timeout occurs while a tool is evaluating pure code.",
+      "expected": "Cancel and join local work before Timeout; no local instructions after return.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "generation-nested-timeout",
+      "gate": "E",
+      "input": "Generation timeout interrupts nested tool maps and host reads.",
+      "expected": "Close admission, abandon waits, join local work; remote unknown charges remain.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "generation-fault-race",
+      "gate": "E",
+      "input": "Tool fault is admitted before timeout in terminal event order.",
+      "expected": "Root-fatal outcome takes precedence; reproduce the recorded ordering.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "generation-recovery",
+      "gate": "E",
+      "input": "Caller recovers from Timeout and begins a new generation.",
+      "expected": "Old local continuation cannot execute or terminate the recovered run.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "cleanup-containment",
+      "gate": "E",
+      "input": "Tool cleanup exceeds finite host allowance.",
+      "expected": "Terminate isolated worker with fatal CleanupFailure; never leak live local work behind Timeout.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "wrapper-new-build",
+      "gate": "E",
+      "input": "Transitive wrapper implementation changes with same symbol/schema.",
+      "expected": "Old-build authorization fails unless host policy authorizes new build.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "metadata-markers",
+      "gate": "D",
+      "input": "Unique private markers appear in input, validator errors and provider messages.",
+      "expected": "No markers in metadata-only persistence or default runtime diagnostics.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "invocation-ledgers",
+      "gate": "D",
+      "input": "Concurrent exported calls each request one allowed model invocation.",
+      "expected": "Require an explicit run/session rule before generated clients ship.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "replay-pure-fuel",
+      "gate": "F",
+      "input": "Two pure branches compete for three remaining charges.",
+      "expected": "Logical outcome reproduced independently of physical timing or replay rejected as unsupported.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "replay-allocation",
+      "gate": "F",
+      "input": "Temporary allocations overlap under variable worker timing.",
+      "expected": "Deterministic logical allocation accounting; containment failures distinguished.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "declaration-extraction",
+      "gate": "F",
+      "input": "Maintenance task introduces helper and updates callers.",
+      "expected": "Do not score until an authorized declaration/multi-file edit path is available.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "contract-predicate-composition",
+      "gate": "C",
+      "input": "Recursive tree and reusable collection predicates exercise eligibility.",
+      "expected": "Compare bounded subset variants without claiming purity proves termination.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    },
+    {
+      "id": "continuation-retry",
+      "gate": "E",
+      "input": "A synthesis request fails after one completed read tool.",
+      "expected": "Keep current no-retry rule unless narrow frozen-step retry experiment justifies amendment.",
+      "reason": "Required feature/runtime absent from meda-pure-b0/1."
+    }
+  ]
+}

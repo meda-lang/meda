@@ -1,0 +1,8 @@
+operation helper(value: Int) -> Bool effects []
+  ensure helper(value: value)
+{
+  return true
+}
+operation main() -> Int effects [] {
+  return 0
+}

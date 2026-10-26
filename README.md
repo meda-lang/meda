@@ -1,6 +1,22 @@
 
 # Meda
 
+## Current design experiment
+
+[Draft 2.1](docs/design-draft-2.1.md) explores Meda for AI-authored and
+AI-maintained software, including programs that use LLMs. The
+[Gate A corpus and Gate B prototype](experiments/gates/README.md) provide a
+runnable pure-language subset, guarded edits, and a maintenance experiment.
+The legacy language ideas below describe the original prototype; they are not
+the current proposed specification. No stable language edition is released.
+
+```sh
+python3 -m unittest discover -s experiments/gates/tests -v
+python3 experiments/gates/benchmark.py --smoke --output /tmp/meda-smoke.json
+```
+
+## Original prototype
+
 Meda is a procedural, general purpose programming language that is influenced by
 TypeScript, Go, and Rust, with a dash of Python.
 

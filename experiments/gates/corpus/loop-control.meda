@@ -1,0 +1,4 @@
+operation main() -> Int effects [] {
+  break
+  return 0
+}

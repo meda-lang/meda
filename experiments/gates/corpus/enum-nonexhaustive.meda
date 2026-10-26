@@ -1,0 +1,7 @@
+enum Status { Ready, Waiting, }
+operation main() -> Int effects [] {
+  let status = Status.Ready
+  match status {
+    Status.Ready => { return 0 }
+  }
+}

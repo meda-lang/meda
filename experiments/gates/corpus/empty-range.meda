@@ -1,0 +1,7 @@
+operation main() -> Int effects [] {
+  var count = 0
+  for i in range(start: 4, end: 1, step: 1) {
+    count = count + i
+  }
+  return count
+}

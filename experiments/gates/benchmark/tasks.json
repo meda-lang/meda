@@ -1,0 +1,760 @@
+{
+  "version": 1,
+  "tasks": [
+    {
+      "id": "clamp",
+      "summary": "Return value limited to the inclusive interval [lower, upper]. Inputs satisfy lower <= upper.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(value: Int, lower: Int, upper: Int) -> Int effects [] {\n  return value\n}\n",
+          "solution": "{\n  if value < lower { return lower }\n  if value > upper { return upper }\n  return value\n}"
+        },
+        "python": {
+          "source": "def solve(*, value: int, lower: int, upper: int) -> int:\n    return value\n",
+          "solution": "    if value < lower:\n        return lower\n    if value > upper:\n        return upper\n    return value"
+        }
+      },
+      "visible": [
+        {
+          "id": "clamp-1",
+          "operation": "solve",
+          "arguments": {
+            "value": 4,
+            "lower": 0,
+            "upper": 10
+          },
+          "expected": 4
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "clamp-1",
+          "operation": "solve",
+          "arguments": {
+            "value": -4,
+            "lower": 0,
+            "upper": 10
+          },
+          "expected": 0
+        },
+        {
+          "id": "clamp-2",
+          "operation": "solve",
+          "arguments": {
+            "value": 11,
+            "lower": 0,
+            "upper": 10
+          },
+          "expected": 10
+        },
+        {
+          "id": "clamp-3",
+          "operation": "solve",
+          "arguments": {
+            "value": 8,
+            "lower": 8,
+            "upper": 8
+          },
+          "expected": 8
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "absolute-distance",
+      "summary": "Return the nonnegative absolute difference between left and right.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(left: Int, right: Int) -> Int effects [] {\n  return left - right\n}\n",
+          "solution": "{\n  if left >= right { return left - right }\n  return right - left\n}"
+        },
+        "python": {
+          "source": "def solve(*, left: int, right: int) -> int:\n    return left - right\n",
+          "solution": "    return abs(left - right)"
+        }
+      },
+      "visible": [
+        {
+          "id": "absolute-distance-1",
+          "operation": "solve",
+          "arguments": {
+            "left": 5,
+            "right": 2
+          },
+          "expected": 3
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "absolute-distance-1",
+          "operation": "solve",
+          "arguments": {
+            "left": 2,
+            "right": 5
+          },
+          "expected": 3
+        },
+        {
+          "id": "absolute-distance-2",
+          "operation": "solve",
+          "arguments": {
+            "left": -5,
+            "right": -2
+          },
+          "expected": 3
+        },
+        {
+          "id": "absolute-distance-3",
+          "operation": "solve",
+          "arguments": {
+            "left": 0,
+            "right": 0
+          },
+          "expected": 0
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "positive-sum",
+      "summary": "Sum only strictly positive values; empty input returns 0.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(items: List<Int>) -> Int effects [] {\n  var total = 0\n  for item in items { total = total + item }\n  return total\n}\n",
+          "solution": "{\n  var total = 0\n  for item in items {\n    if item > 0 { total = total + item }\n  }\n  return total\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int]) -> int:\n    return sum(items)\n",
+          "solution": "    total = 0\n    for item in items:\n        if item > 0:\n            total = total + item\n    return total"
+        }
+      },
+      "visible": [
+        {
+          "id": "positive-sum-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              1,
+              2
+            ]
+          },
+          "expected": 3
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "positive-sum-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -2,
+              4,
+              0,
+              -1,
+              3
+            ]
+          },
+          "expected": 7
+        },
+        {
+          "id": "positive-sum-2",
+          "operation": "solve",
+          "arguments": {
+            "items": []
+          },
+          "expected": 0
+        },
+        {
+          "id": "positive-sum-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -2,
+              -1
+            ]
+          },
+          "expected": 0
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "threshold-count",
+      "summary": "Count values greater than or equal to threshold, including ties.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(items: List<Int>, threshold: Int) -> Int effects [] {\n  var count = 0\n  for item in items {\n    if item > threshold { count = count + 1 }\n  }\n  return count\n}\n",
+          "solution": "{\n  var count = 0\n  for item in items {\n    if item >= threshold { count = count + 1 }\n  }\n  return count\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int], threshold: int) -> int:\n    count = 0\n    for item in items:\n        if item > threshold:\n            count += 1\n    return count\n",
+          "solution": "    count = 0\n    for item in items:\n        if item >= threshold:\n            count += 1\n    return count"
+        }
+      },
+      "visible": [
+        {
+          "id": "threshold-count-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              1,
+              4
+            ],
+            "threshold": 3
+          },
+          "expected": 1
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "threshold-count-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              3,
+              3,
+              4
+            ],
+            "threshold": 3
+          },
+          "expected": 3
+        },
+        {
+          "id": "threshold-count-2",
+          "operation": "solve",
+          "arguments": {
+            "items": [],
+            "threshold": 0
+          },
+          "expected": 0
+        },
+        {
+          "id": "threshold-count-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -2,
+              -1,
+              0
+            ],
+            "threshold": -1
+          },
+          "expected": 2
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "even-sum",
+      "summary": "Sum all even integers, including negative even values.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(items: List<Int>) -> Int effects [] {\n  var total = 0\n  for item in items {\n    if item % 2 != 0 { total = total + item }\n  }\n  return total\n}\n",
+          "solution": "{\n  var total = 0\n  for item in items {\n    if item % 2 == 0 { total = total + item }\n  }\n  return total\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int]) -> int:\n    total = 0\n    for item in items:\n        if item % 2 != 0:\n            total += item\n    return total\n",
+          "solution": "    total = 0\n    for item in items:\n        if item % 2 == 0:\n            total += item\n    return total"
+        }
+      },
+      "visible": [
+        {
+          "id": "even-sum-1",
+          "operation": "solve",
+          "arguments": {
+            "items": []
+          },
+          "expected": 0
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "even-sum-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              1,
+              2,
+              3,
+              4
+            ]
+          },
+          "expected": 6
+        },
+        {
+          "id": "even-sum-2",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -4,
+              -2,
+              1
+            ]
+          },
+          "expected": -6
+        },
+        {
+          "id": "even-sum-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              0,
+              7
+            ]
+          },
+          "expected": 0
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "sign",
+      "summary": "Return -1 for negative values, 0 for zero, and 1 for positive values.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(value: Int) -> Int effects [] {\n  if value < 0 { return -1 }\n  return 1\n}\n",
+          "solution": "{\n  if value < 0 { return -1 }\n  if value == 0 { return 0 }\n  return 1\n}"
+        },
+        "python": {
+          "source": "def solve(*, value: int) -> int:\n    if value < 0:\n        return -1\n    return 1\n",
+          "solution": "    if value < 0:\n        return -1\n    if value == 0:\n        return 0\n    return 1"
+        }
+      },
+      "visible": [
+        {
+          "id": "sign-1",
+          "operation": "solve",
+          "arguments": {
+            "value": 3
+          },
+          "expected": 1
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "sign-1",
+          "operation": "solve",
+          "arguments": {
+            "value": 0
+          },
+          "expected": 0
+        },
+        {
+          "id": "sign-2",
+          "operation": "solve",
+          "arguments": {
+            "value": -3
+          },
+          "expected": -1
+        },
+        {
+          "id": "sign-3",
+          "operation": "solve",
+          "arguments": {
+            "value": 9007199254740993
+          },
+          "expected": 1
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "capped-total",
+      "summary": "Sum nonnegative inputs then cap the total at nonnegative cap.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(items: List<Int>, cap: Int) -> Int effects [] {\n  var total = 0\n  for item in items { total = total + item }\n  return total\n}\n",
+          "solution": "{\n  var total = 0\n  for item in items { total = total + item }\n  if total > cap { return cap }\n  return total\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int], cap: int) -> int:\n    return sum(items)\n",
+          "solution": "    return min(sum(items), cap)"
+        }
+      },
+      "visible": [
+        {
+          "id": "capped-total-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              2,
+              3
+            ],
+            "cap": 9
+          },
+          "expected": 5
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "capped-total-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              4,
+              7
+            ],
+            "cap": 6
+          },
+          "expected": 6
+        },
+        {
+          "id": "capped-total-2",
+          "operation": "solve",
+          "arguments": {
+            "items": [],
+            "cap": 0
+          },
+          "expected": 0
+        },
+        {
+          "id": "capped-total-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              2
+            ],
+            "cap": 0
+          },
+          "expected": 0
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "stable-filter",
+      "summary": "Keep values at least threshold, preserving their original order and duplicates.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "import std.list as list\noperation solve(items: List<Int>, threshold: Int) -> List<Int> effects [] {\n  return items\n}\n",
+          "solution": "{\n  var output: List<Int> = []\n  for item in items {\n    if item >= threshold { output = list.append(items: output, value: item) }\n  }\n  return output\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int], threshold: int) -> list[int]:\n    return items\n",
+          "solution": "    output = []\n    for item in items:\n        if item >= threshold:\n            output = output + [item]\n    return output"
+        }
+      },
+      "visible": [
+        {
+          "id": "stable-filter-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              3,
+              4
+            ],
+            "threshold": 2
+          },
+          "expected": [
+            3,
+            4
+          ]
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "stable-filter-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              3,
+              1,
+              3,
+              2
+            ],
+            "threshold": 3
+          },
+          "expected": [
+            3,
+            3
+          ]
+        },
+        {
+          "id": "stable-filter-2",
+          "operation": "solve",
+          "arguments": {
+            "items": [],
+            "threshold": 0
+          },
+          "expected": []
+        },
+        {
+          "id": "stable-filter-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -1,
+              -2,
+              0
+            ],
+            "threshold": -1
+          },
+          "expected": [
+            -1,
+            0
+          ]
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "maximum-default",
+      "summary": "Return the largest item, or fallback only when the list is empty.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(items: List<Int>, fallback: Int) -> Int effects [] {\n  var largest = fallback\n  for item in items {\n    if item > largest { largest = item }\n  }\n  return largest\n}\n",
+          "solution": "{\n  var largest = fallback\n  var first = true\n  for item in items {\n    if first or item > largest { largest = item }\n    first = false\n  }\n  return largest\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[int], fallback: int) -> int:\n    largest = fallback\n    for item in items:\n        if item > largest:\n            largest = item\n    return largest\n",
+          "solution": "    largest = fallback\n    first = True\n    for item in items:\n        if first or item > largest:\n            largest = item\n        first = False\n    return largest"
+        }
+      },
+      "visible": [
+        {
+          "id": "maximum-default-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              3,
+              4
+            ],
+            "fallback": 0
+          },
+          "expected": 4
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "maximum-default-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              -9,
+              -2
+            ],
+            "fallback": 0
+          },
+          "expected": -2
+        },
+        {
+          "id": "maximum-default-2",
+          "operation": "solve",
+          "arguments": {
+            "items": [],
+            "fallback": 8
+          },
+          "expected": 8
+        },
+        {
+          "id": "maximum-default-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              1
+            ],
+            "fallback": 99
+          },
+          "expected": 1
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "nonempty-count",
+      "summary": "Count nonempty text values. Whitespace-only text is nonempty.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "import std.list as list\noperation solve(items: List<Text>) -> Int effects [] {\n  return list.length(items: items)\n}\n",
+          "solution": "{\n  var count = 0\n  for item in items {\n    if item != \"\" { count = count + 1 }\n  }\n  return count\n}"
+        },
+        "python": {
+          "source": "def solve(*, items: list[str]) -> int:\n    return len(items)\n",
+          "solution": "    count = 0\n    for item in items:\n        if item != \"\":\n            count += 1\n    return count"
+        }
+      },
+      "visible": [
+        {
+          "id": "nonempty-count-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              "a",
+              "b"
+            ]
+          },
+          "expected": 2
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "nonempty-count-1",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              "",
+              "a",
+              " ",
+              ""
+            ]
+          },
+          "expected": 2
+        },
+        {
+          "id": "nonempty-count-2",
+          "operation": "solve",
+          "arguments": {
+            "items": []
+          },
+          "expected": 0
+        },
+        {
+          "id": "nonempty-count-3",
+          "operation": "solve",
+          "arguments": {
+            "items": [
+              "\ud83d\ude00",
+              ""
+            ]
+          },
+          "expected": 1
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "stale-rule",
+      "summary": "An experiment is stale exactly when active is true and ageDays is at least threshold.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(active: Bool, ageDays: Int, threshold: Int) -> Bool effects [] {\n  return active or ageDays >= threshold\n}\n",
+          "solution": "{\n  return active and ageDays >= threshold\n}"
+        },
+        "python": {
+          "source": "def solve(*, active: bool, ageDays: int, threshold: int) -> bool:\n    return active or ageDays >= threshold\n",
+          "solution": "    return active and ageDays >= threshold"
+        }
+      },
+      "visible": [
+        {
+          "id": "stale-rule-1",
+          "operation": "solve",
+          "arguments": {
+            "active": true,
+            "ageDays": 40,
+            "threshold": 30
+          },
+          "expected": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "stale-rule-1",
+          "operation": "solve",
+          "arguments": {
+            "active": false,
+            "ageDays": 40,
+            "threshold": 30
+          },
+          "expected": false
+        },
+        {
+          "id": "stale-rule-2",
+          "operation": "solve",
+          "arguments": {
+            "active": true,
+            "ageDays": 10,
+            "threshold": 30
+          },
+          "expected": false
+        },
+        {
+          "id": "stale-rule-3",
+          "operation": "solve",
+          "arguments": {
+            "active": true,
+            "ageDays": 30,
+            "threshold": 30
+          },
+          "expected": true
+        }
+      ],
+      "editKind": "replace_body"
+    },
+    {
+      "id": "report-identity",
+      "summary": "Accept only when actual and expected IDs match, the source is known, and summary is nonempty.",
+      "operation": "solve",
+      "languages": {
+        "meda": {
+          "source": "operation solve(actual: Text, expected: Text, sourceKnown: Bool, summary: Text) -> Bool effects [] {\n  return sourceKnown and summary != \"\"\n}\n",
+          "solution": "{\n  return actual == expected and sourceKnown and summary != \"\"\n}"
+        },
+        "python": {
+          "source": "def solve(*, actual: str, expected: str, sourceKnown: bool, summary: str) -> bool:\n    return sourceKnown and summary != \"\"\n",
+          "solution": "    return actual == expected and sourceKnown and summary != \"\""
+        }
+      },
+      "visible": [
+        {
+          "id": "report-identity-1",
+          "operation": "solve",
+          "arguments": {
+            "actual": "x",
+            "expected": "x",
+            "sourceKnown": true,
+            "summary": "ok"
+          },
+          "expected": true
+        }
+      ],
+      "acceptance": [
+        {
+          "id": "report-identity-1",
+          "operation": "solve",
+          "arguments": {
+            "actual": "y",
+            "expected": "x",
+            "sourceKnown": true,
+            "summary": "ok"
+          },
+          "expected": false
+        },
+        {
+          "id": "report-identity-2",
+          "operation": "solve",
+          "arguments": {
+            "actual": "x",
+            "expected": "x",
+            "sourceKnown": false,
+            "summary": "ok"
+          },
+          "expected": false
+        },
+        {
+          "id": "report-identity-3",
+          "operation": "solve",
+          "arguments": {
+            "actual": "x",
+            "expected": "x",
+            "sourceKnown": true,
+            "summary": ""
+          },
+          "expected": false
+        }
+      ],
+      "editKind": "replace_body"
+    }
+  ]
+}

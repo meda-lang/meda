@@ -1,0 +1,3 @@
+operation main() -> Bool effects [] {
+  return false and (1 / 0 == 0)
+}

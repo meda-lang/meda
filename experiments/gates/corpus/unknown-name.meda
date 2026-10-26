@@ -1,0 +1,3 @@
+operation main() -> Int effects [] {
+  return nowhere
+}

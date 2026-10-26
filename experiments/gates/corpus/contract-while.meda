@@ -1,0 +1,9 @@
+operation helper(value: Int) -> Bool effects [] {
+  while false { discard value }
+  return true
+}
+operation main() -> Int effects []
+  ensure helper(value: result)
+{
+  return 1
+}

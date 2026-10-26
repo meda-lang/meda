@@ -1,0 +1,7 @@
+import std.list as list
+operation main() -> Int effects [] {
+  let original = [1, 2]
+  var changed = original
+  changed = list.append(items: changed, value: 3)
+  return list.length(items: original)
+}

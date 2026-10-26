@@ -1,0 +1,31 @@
+name: Meda semantic gates
+
+on:
+  push:
+    paths:
+      - 'experiments/gates/**'
+      - '.github/workflows/gates.yml'
+  pull_request:
+    paths:
+      - 'experiments/gates/**'
+      - '.github/workflows/gates.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pure-gates:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.11', '3.12', '3.13']
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Unit and outside-in CLI tests
+        run: python -m unittest discover -s experiments/gates/tests -v
+      - name: Check paired task oracles and edit flow
+        run: python experiments/gates/benchmark.py --smoke --output /tmp/meda-smoke.json

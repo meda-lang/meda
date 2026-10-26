@@ -1,0 +1,6 @@
+operation main() -> Int effects [] {
+  match true {
+    true => { return 1 }
+    false => { return 0 }
+  }
+}
