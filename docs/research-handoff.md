@@ -107,5 +107,6 @@ protections or a small tie.
 
 GitHub publication through its API may assign different commit IDs. The published
 stage trees must match the corresponding local Git trees byte for byte; the
-publication PR records the mapping. Research is preserved on a branch pending
+[publication record](research-publication.md) records the verified mapping.
+Research is preserved on a branch pending
 review rather than silently changing the default branch.

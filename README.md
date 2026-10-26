@@ -3,6 +3,9 @@
 
 ## Current design experiment
 
+Start with the [research handoff](docs/research-handoff.md) for the complete
+design/code/results index, current decision, and [tracked next steps](docs/issues/README.md).
+
 [Draft 2.1](docs/design-draft-2.1.md) explores Meda for AI-authored and
 AI-maintained software, including programs that use LLMs. The
 [Gate A corpus and Gate B prototype](experiments/gates/README.md) provide a
