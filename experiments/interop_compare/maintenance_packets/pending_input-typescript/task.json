@@ -1,0 +1,56 @@
+{
+  "id": "pending_input",
+  "arm": "typescript",
+  "request": "Fix missing-input handling. An existing task asking for input must stop with payload input_required when the answer is empty. A provided answer with remaining allowance must continue that same task. Never start a replacement task. Preserve every other existing behavior.",
+  "candidate": "candidate.ts",
+  "visible": [
+    {
+      "id": "input_missing",
+      "snapshot": {
+        "stage": "running",
+        "observation": "input_required",
+        "taskId": "task-9",
+        "remaining": 3,
+        "evidence": "",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "task-9",
+        "payload": "input_required"
+      }
+    },
+    {
+      "id": "input_supplied",
+      "snapshot": {
+        "stage": "running",
+        "observation": "input_required",
+        "taskId": "task-9",
+        "remaining": 1,
+        "evidence": "",
+        "input": "answer-9"
+      },
+      "expected": {
+        "action": "continue",
+        "taskId": "task-9",
+        "payload": "answer-9"
+      }
+    },
+    {
+      "id": "completed_at_limit",
+      "snapshot": {
+        "stage": "running",
+        "observation": "completed",
+        "taskId": "task-9",
+        "remaining": 0,
+        "evidence": "report:42",
+        "input": ""
+      },
+      "expected": {
+        "action": "stop",
+        "taskId": "task-9",
+        "payload": "report:42"
+      }
+    }
+  ]
+}

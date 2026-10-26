@@ -10,6 +10,11 @@ runnable pure-language subset, guarded edits, and a maintenance experiment.
 The legacy language ideas below describe the original prototype; they are not
 the current proposed specification. No stable language edition is released.
 
+The [shared runtime comparison](docs/runtime-comparison.md) runs actual Meda and
+strict TypeScript clients over the same host/adapters. Both pass the implemented
+screen; language-specific value remains unproven. See its
+[reproduction instructions](experiments/interop_compare/README.md).
+
 ```sh
 python3 -m unittest discover -s experiments/gates/tests -v
 python3 experiments/gates/benchmark.py --smoke --output /tmp/meda-smoke.json

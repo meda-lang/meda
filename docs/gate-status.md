@@ -44,3 +44,18 @@ and the [deferred cases](../experiments/gates/corpus/deferred.json) define the b
 
 No broad redesign is needed to execute these steps. Additions should respond to
 failed acceptance cases or measured maintenance friction.
+
+## Shared runtime comparison on October 25
+
+An isolated [Meda and TypeScript comparison](runtime-comparison.md) now executes
+the real pure Meda client and a strict TypeScript client over identical shared
+host/adapters. Both pass 12 workflow cases and reject the same four static defects.
+Direct host tests and client-policy mutants distinguish library enforcement from
+application sequencing. Three fresh-context repairs per arm pass, but these are
+uncontrolled repair demonstrations, not the full Gate B model comparison.
+
+The result supports prioritizing reusable host/adapters with a first-class
+TypeScript client. It leaves Meda's incremental language value unproven. The
+custom loopback wire fixtures do not establish MCP/A2A conformance or complete
+Gate D0; the effectful runtime, actual protocol peers and binding-drift work remain
+open. Existing Gate A/B implementation and pass counts are unchanged.

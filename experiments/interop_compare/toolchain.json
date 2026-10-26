@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "medaProfile": "meda-pure-b0/1",
+  "typescriptVersion": "5.9.3",
+  "typescriptFlags": ["--strict", "--noImplicitReturns", "--noFallthroughCasesInSwitch", "--noUncheckedIndexedAccess", "--exactOptionalPropertyTypes", "--noEmitOnError", "--target", "ES2020", "--module", "commonjs"],
+  "numericDomain": "remaining is an exact JSON integer between 0 and 100000 inclusive in both arms",
+  "compilerLocation": "Set MEDA_COMPARE_TSC to the TypeScript tsc.js path or install the pinned local dependency. No automatic downloads.",
+  "timingScope": "Checker/runtime timings are diagnostics only; Python interpreter versus compiled JavaScript is not a language-performance benchmark."
+}

@@ -1,0 +1,2863 @@
+{
+  "kind": "reference_smoke_not_model_trial",
+  "tasks": 3,
+  "rows": [
+    {
+      "task": "uncertain_delivery",
+      "arm": "meda",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/uncertain_delivery-meda/candidate.meda",
+          "sha256": "2bd72f0c104d1ff6d157a427ab53e31cd561d564de3764eadd5793bb6e1cf2ab",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "input_required",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.meda",
+          "sha256": "2d8c923e7f2dcdcfc177d3273068f72b7ff39f8870e55b269731ea86f162f132",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "input_required",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "task": "uncertain_delivery",
+      "arm": "typescript",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/uncertain_delivery-typescript/candidate.ts",
+          "sha256": "7ff2935cca8b3158dbf9de068150d21bd1f94a65aec27726a59d84c03737b408",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.ts",
+          "sha256": "2fd783aa740db9c73ca3fafb18eda5cfe5d739d16ab6cc99ffd2ebae393921b2",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "task": "pending_input",
+      "arm": "meda",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/pending_input-meda/candidate.meda",
+          "sha256": "a5d30903e4d79bb821342bca860b9665a1024bf7a417722ef274c33f5af7e10b",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.meda",
+          "sha256": "2d8c923e7f2dcdcfc177d3273068f72b7ff39f8870e55b269731ea86f162f132",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "input_required",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "task": "pending_input",
+      "arm": "typescript",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/pending_input-typescript/candidate.ts",
+          "sha256": "aaa27190b50445f4e315c2b38476332de270a60855c959ea3118d47095f491d3",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.ts",
+          "sha256": "2fd783aa740db9c73ca3fafb18eda5cfe5d739d16ab6cc99ffd2ebae393921b2",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "task": "budget_boundary",
+      "arm": "meda",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/budget_boundary-meda/candidate.meda",
+          "sha256": "da109b20acadd4585932d9836a1c71d0e36c2b1dff82ff9fed3b6787df669ca7",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": false
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "input_required",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": false
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "meda",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.meda",
+          "sha256": "2d8c923e7f2dcdcfc177d3273068f72b7ff39f8870e55b269731ea86f162f132",
+          "checker": "meda-pure-b0/1"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "payload": "",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "payload": "evidence:42",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "payload": "",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unknown",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "input_required",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "payload": "answer-9",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:42",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "report:53",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "cancelled",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "denied",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "invalid",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "budget",
+              "taskId": "task-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "payload": "unsupported",
+              "taskId": "task-9"
+            },
+            "passed": true
+          }
+        ]
+      }
+    },
+    {
+      "task": "budget_boundary",
+      "arm": "typescript",
+      "startingRejected": true,
+      "referenceAccepted": true,
+      "starting": {
+        "passed": false,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/maintenance_packets/budget_boundary-typescript/candidate.ts",
+          "sha256": "62d4a93db835f9337f5eb1c64ffe9789049a7c3849f702af88b8ffbeb03b5f57",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": false
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": false
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      },
+      "reference": {
+        "passed": true,
+        "provenance": {
+          "arm": "typescript",
+          "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.ts",
+          "sha256": "2fd783aa740db9c73ca3fafb18eda5cfe5d739d16ab6cc99ffd2ebae393921b2",
+          "checker": "TypeScript 5.9.3 strict"
+        },
+        "cases": [
+          {
+            "id": "start",
+            "expected": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "actual": {
+              "action": "read",
+              "taskId": "",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "evidence",
+            "expected": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "actual": {
+              "action": "submit",
+              "taskId": "",
+              "payload": "evidence:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "known_pending",
+            "expected": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "actual": {
+              "action": "poll",
+              "taskId": "task-9",
+              "payload": ""
+            },
+            "passed": true
+          },
+          {
+            "id": "pending_budget_zero",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery",
+            "expected": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_delivery_with_id",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unknown"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_missing",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "input_required"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied",
+            "expected": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "actual": {
+              "action": "continue",
+              "taskId": "task-9",
+              "payload": "answer-9"
+            },
+            "passed": true
+          },
+          {
+            "id": "input_supplied_no_allowance",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_at_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:42"
+            },
+            "passed": true
+          },
+          {
+            "id": "completed_above_limit",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "report:53"
+            },
+            "passed": true
+          },
+          {
+            "id": "cancelled",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "cancelled"
+            },
+            "passed": true
+          },
+          {
+            "id": "denied",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "denied"
+            },
+            "passed": true
+          },
+          {
+            "id": "invalid",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "invalid"
+            },
+            "passed": true
+          },
+          {
+            "id": "budget",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "budget"
+            },
+            "passed": true
+          },
+          {
+            "id": "unknown_state",
+            "expected": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "actual": {
+              "action": "stop",
+              "taskId": "task-9",
+              "payload": "unsupported"
+            },
+            "passed": true
+          }
+        ]
+      }
+    }
+  ],
+  "passed": true
+}

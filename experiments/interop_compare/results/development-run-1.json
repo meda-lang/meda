@@ -1,0 +1,2295 @@
+{
+  "kind": "executed_decision_boundary_comparison",
+  "profile": "shared-host-decision-comparison/1",
+  "runAtUtc": "2026-10-25T07:20:38.414863+00:00",
+  "sourceManifest": {
+    "interop_compare/EXPERIMENT.md": "a21870d41f1a7a54fe1765ddc63fe59fa42eca7d1948c1c049d716f7520a9a23",
+    "interop_compare/cases.json": "2b7a54f198629a1be76dc51b479cac73f6d9829f231df1c3e850348e97fa6f2a",
+    "interop_compare/host.py": "7fdc50e0bc113f28956d85fbe944e511febc8b92743471b2f01cda5d2562fcf2",
+    "interop_compare/peer.py": "ade3289beabe1c2238947edb760c3ce6b44d6eab05b042840d8debc08a21f034",
+    "interop_compare/clients.py": "6f2ceb4a0d622c67550720077f6e20520581273ea61d5b839447d8ea3a956e4e",
+    "interop_compare/run.py": "ff180393881a5e5a828e7530c215f0a73881ceae881a1bfadfaeb0f9d37cbf3b",
+    "interop_compare/toolchain.json": "04847af324a92fcfe74a1b45cd8069a59da137261a74815b1e40f2bfdd9ba9b8",
+    "interop_compare/clients/invoke.cjs": "c279f24963a3d9f3dafe6c1b5cd1e0727176e1cf85c6268af148d9916aa2ba4a",
+    "interop_compare/clients/policy.meda": "2d8c923e7f2dcdcfc177d3273068f72b7ff39f8870e55b269731ea86f162f132",
+    "interop_compare/clients/policy.ts": "2fd783aa740db9c73ca3fafb18eda5cfe5d739d16ab6cc99ffd2ebae393921b2",
+    "gates/meda.py": "4ba5164046504cf428557b8a629d3686fcb0d2c108b37bc4c393cc1cf64af9db",
+    "gates/meda_core.py": "cd56f35626932efa638ab746732f0e196afa6271f64f97e10b58a28ca534a30a"
+  },
+  "sourceUnchanged": true,
+  "clientProvenance": {
+    "meda": {
+      "arm": "meda",
+      "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.meda",
+      "sha256": "2d8c923e7f2dcdcfc177d3273068f72b7ff39f8870e55b269731ea86f162f132",
+      "checker": "meda-pure-b0/1"
+    },
+    "typescript": {
+      "arm": "typescript",
+      "source": "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients/policy.ts",
+      "sha256": "2fd783aa740db9c73ca3fafb18eda5cfe5d739d16ab6cc99ffd2ebae393921b2",
+      "checker": "TypeScript 5.9.3 strict"
+    }
+  },
+  "python": "3.12.14",
+  "node": "v24.22.1",
+  "typescript": "5.9.3",
+  "typescriptCompilerSha256": "2cffde0b8c6760dfb0b5b0382bbb7e00ba6a8b2d981b9205b256a700a481d983",
+  "summary": {
+    "scenariosPerArm": 12,
+    "passedByArm": {
+      "meda": 11,
+      "typescript": 11
+    },
+    "equalPairs": 12,
+    "checkerRows": 5,
+    "checkerExpectationsMet": 10,
+    "hostAttributionCases": 9,
+    "hostAttributionPassed": 9,
+    "hostAblations": 2,
+    "hostAblationsDetected": 2
+  },
+  "cases": [
+    {
+      "arm": "meda",
+      "case": "normal",
+      "expected": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "poll",
+          "payload": "",
+          "taskId": "t1"
+        },
+        {
+          "action": "stop",
+          "payload": "report:evidence:42",
+          "taskId": "t1"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "normal",
+      "expected": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "poll",
+          "taskId": "t1",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "t1",
+          "payload": "report:evidence:42"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "input_missing",
+      "expected": {
+        "terminal": "input_required",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "input_required",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "stop",
+          "taskId": "t1",
+          "payload": "input_required"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "input_required",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "input_required",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "input-required"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "input_missing",
+      "expected": {
+        "terminal": "input_required",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "input_required",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "input_required",
+          "taskId": "t1"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "input_required",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "input_required",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "input-required"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "input_supplied",
+      "expected": {
+        "terminal": "report:evidence:42:approved answer",
+        "actions": [
+          "read",
+          "submit",
+          "continue"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "continue"
+        ],
+        "created": 1
+      },
+      "passed": false,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "continue",
+          "payload": "approved answer",
+          "taskId": "t1"
+        },
+        {
+          "action": "stop",
+          "payload": "report:evidence:42",
+          "taskId": "t1"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "input_required",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "input_required",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "continue"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/continue": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "input_supplied",
+      "expected": {
+        "terminal": "report:evidence:42:approved answer",
+        "actions": [
+          "read",
+          "submit",
+          "continue"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "continue"
+        ],
+        "created": 1
+      },
+      "passed": false,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "continue",
+          "taskId": "t1",
+          "payload": "approved answer"
+        },
+        {
+          "action": "stop",
+          "taskId": "t1",
+          "payload": "report:evidence:42"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "input_required",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "input_required",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "continue"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/continue": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "lost_submission",
+      "expected": {
+        "terminal": "unknown",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "unknown",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "unknown"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "unknown",
+          "taskId": "",
+          "value": "",
+          "code": "DeliveryUnknown"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "unknown",
+          "code": "DeliveryUnknown"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "working"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "lost_submission",
+      "expected": {
+        "terminal": "unknown",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "unknown",
+        "actions": [
+          "read",
+          "submit"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "unknown",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "unknown",
+          "taskId": "",
+          "value": "",
+          "code": "DeliveryUnknown"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "unknown",
+          "code": "DeliveryUnknown"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "working"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "malformed_reply",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "invalid",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "MalformedPeerData"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "MalformedPeerData"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "malformed_reply",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "invalid"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "MalformedPeerData"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "MalformedPeerData"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "oversized_reply",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "invalid"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "ResponseLimit"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "ResponseLimit"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "oversized_reply",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "invalid",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "ResponseLimit"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "ResponseLimit"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "wrong_reply_type",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "invalid",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "InvalidPeerData"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "InvalidPeerData"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "wrong_reply_type",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "invalid"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "InvalidPeerData"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "InvalidPeerData"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "wrong_request_id",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "invalid"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "InvalidEnvelope"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "InvalidEnvelope"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "wrong_request_id",
+      "expected": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "invalid",
+        "actions": [
+          "read"
+        ],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "invalid",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "invalid",
+          "taskId": "",
+          "value": "",
+          "code": "InvalidEnvelope"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "invalid",
+          "code": "InvalidEnvelope"
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1
+        },
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "zero_allowance",
+      "expected": {
+        "terminal": "budget",
+        "actions": [],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "budget",
+        "actions": [],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "stop",
+          "payload": "budget",
+          "taskId": ""
+        }
+      ],
+      "observations": [],
+      "hostTrace": [],
+      "peerStats": {
+        "calls": {},
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "zero_allowance",
+      "expected": {
+        "terminal": "budget",
+        "actions": [],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "budget",
+        "actions": [],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "budget"
+        }
+      ],
+      "observations": [],
+      "hostTrace": [],
+      "peerStats": {
+        "calls": {},
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "pending_exhaustion",
+      "expected": {
+        "terminal": "budget",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "budget",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "poll",
+          "taskId": "t1",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "t1",
+          "payload": "budget"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "working"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "pending_exhaustion",
+      "expected": {
+        "terminal": "budget",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "budget",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "poll",
+          "payload": "",
+          "taskId": "t1"
+        },
+        {
+          "action": "stop",
+          "payload": "budget",
+          "taskId": "t1"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "working"
+          }
+        }
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "completion_at_limit",
+      "expected": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "submit",
+          "payload": "evidence:42",
+          "taskId": ""
+        },
+        {
+          "action": "poll",
+          "payload": "",
+          "taskId": "t1"
+        },
+        {
+          "action": "stop",
+          "payload": "report:evidence:42",
+          "taskId": "t1"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "completion_at_limit",
+      "expected": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "actual": {
+        "terminal": "report:evidence:42",
+        "actions": [
+          "read",
+          "submit",
+          "poll"
+        ],
+        "created": 1
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "submit",
+          "taskId": "",
+          "payload": "evidence:42"
+        },
+        {
+          "action": "poll",
+          "taskId": "t1",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "t1",
+          "payload": "report:evidence:42"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "evidence",
+          "taskId": "",
+          "value": "evidence:42",
+          "code": ""
+        },
+        {
+          "kind": "pending",
+          "taskId": "t1",
+          "value": "",
+          "code": ""
+        },
+        {
+          "kind": "completed",
+          "taskId": "t1",
+          "value": "report:evidence:42",
+          "code": ""
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 1,
+          "action": "read"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "evidence",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 2,
+          "action": "submit"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "pending",
+          "code": ""
+        },
+        {
+          "event": "dispatch",
+          "root": "root-1",
+          "request": 3,
+          "action": "poll"
+        },
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "completed",
+          "code": ""
+        }
+      ],
+      "peerStats": {
+        "calls": {
+          "tools/call": 1,
+          "message/send": 1,
+          "tasks/get": 1
+        },
+        "created": 1,
+        "tasks": {
+          "t1": {
+            "principal": "alice",
+            "tenant": "team-a",
+            "input": "evidence:42",
+            "state": "completed"
+          }
+        }
+      }
+    },
+    {
+      "arm": "typescript",
+      "case": "read_denied",
+      "expected": {
+        "terminal": "denied",
+        "actions": [],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "denied",
+        "actions": [],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "taskId": "",
+          "payload": ""
+        },
+        {
+          "action": "stop",
+          "taskId": "",
+          "payload": "denied"
+        }
+      ],
+      "observations": [
+        {
+          "kind": "denied",
+          "taskId": "",
+          "value": "",
+          "code": "AuthorityDenied"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "denied",
+          "code": "AuthorityDenied"
+        }
+      ],
+      "peerStats": {
+        "calls": {},
+        "created": 0,
+        "tasks": {}
+      }
+    },
+    {
+      "arm": "meda",
+      "case": "read_denied",
+      "expected": {
+        "terminal": "denied",
+        "actions": [],
+        "created": 0
+      },
+      "actual": {
+        "terminal": "denied",
+        "actions": [],
+        "created": 0
+      },
+      "passed": true,
+      "decisions": [
+        {
+          "action": "read",
+          "payload": "",
+          "taskId": ""
+        },
+        {
+          "action": "stop",
+          "payload": "denied",
+          "taskId": ""
+        }
+      ],
+      "observations": [
+        {
+          "kind": "denied",
+          "taskId": "",
+          "value": "",
+          "code": "AuthorityDenied"
+        }
+      ],
+      "hostTrace": [
+        {
+          "event": "observation",
+          "root": "root-1",
+          "kind": "denied",
+          "code": "AuthorityDenied"
+        }
+      ],
+      "peerStats": {
+        "calls": {},
+        "created": 0,
+        "tasks": {}
+      }
+    }
+  ],
+  "paired": [
+    {
+      "case": "normal",
+      "equal": true
+    },
+    {
+      "case": "input_missing",
+      "equal": true
+    },
+    {
+      "case": "input_supplied",
+      "equal": true
+    },
+    {
+      "case": "lost_submission",
+      "equal": true
+    },
+    {
+      "case": "malformed_reply",
+      "equal": true
+    },
+    {
+      "case": "oversized_reply",
+      "equal": true
+    },
+    {
+      "case": "wrong_reply_type",
+      "equal": true
+    },
+    {
+      "case": "wrong_request_id",
+      "equal": true
+    },
+    {
+      "case": "zero_allowance",
+      "equal": true
+    },
+    {
+      "case": "pending_exhaustion",
+      "equal": true
+    },
+    {
+      "case": "completion_at_limit",
+      "equal": true
+    },
+    {
+      "case": "read_denied",
+      "equal": true
+    }
+  ],
+  "checkerProbes": [
+    {
+      "id": "wrong_field_type",
+      "expectedAccepted": false,
+      "arms": {
+        "meda": {
+          "accepted": false,
+          "diagnostic": "{\"diagnostic\": {\"code\": \"TypeMismatch\", \"editor\": {\"character\": 53, \"line\": 1}, \"message\": \"Expected Text, found Int.\", \"phase\": \"check\", \"profile\": \"meda-pure-b0/1\", \"revision\": \"b0e4a2b3e69d13c6ba49e43ec1c98f214747214607c976601ad71d6ed4f012eb\", \"severity\": \"error\", \"sourceUri\": \"/tmp/meda-compare-meda-hkvr2j6g/policy.meda\", \"span\": {\"endByte\": 78, \"startByte\": 78}}}"
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostic": "../../../../tmp/meda-compare-typescript-rg_o8gpg/policy.ts(2,37): error TS2322: Type 'number' is not assignable to type 'string'."
+        }
+      }
+    },
+    {
+      "id": "missing_record_field",
+      "expectedAccepted": false,
+      "arms": {
+        "meda": {
+          "accepted": false,
+          "diagnostic": "{\"diagnostic\": {\"code\": \"ArgumentLabels\", \"editor\": {\"character\": 42, \"line\": 1}, \"message\": \"Expected labels ['id', 'value'], found ['value'].\", \"phase\": \"check\", \"profile\": \"meda-pure-b0/1\", \"revision\": \"b9514ee5878bcbd2009b6494afc8d07efe6776e02ff97ce7113fef21e1f7f666\", \"severity\": \"error\", \"sourceUri\": \"/tmp/meda-compare-meda-utqrpeu9/policy.meda\", \"span\": {\"endByte\": 77, \"startByte\": 77}}}"
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostic": "../../../../tmp/meda-compare-typescript-4n3fq3al/policy.ts(2,29): error TS2741: Property 'id' is missing in type '{ value: string; }' but required in type 'Readonly<{ value: string; id: string; }>'."
+        }
+      }
+    },
+    {
+      "id": "missing_enum_case",
+      "expectedAccepted": false,
+      "arms": {
+        "meda": {
+          "accepted": false,
+          "diagnostic": "{\"diagnostic\": {\"code\": \"NonExhaustiveMatch\", \"editor\": {\"character\": 2, \"line\": 2}, \"message\": \"Missing match cases.\", \"phase\": \"check\", \"profile\": \"meda-pure-b0/1\", \"revision\": \"52857df308bff09378e3bccef3088a2444902dab4b11e9d4ec1df351e4b2b503\", \"severity\": \"error\", \"sourceUri\": \"/tmp/meda-compare-meda-4flk9ut2/policy.meda\", \"span\": {\"endByte\": 82, \"startByte\": 82}}}"
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostic": "../../../../tmp/meda-compare-typescript-cc062ajh/policy.ts(2,37): error TS2366: Function lacks ending return statement and return type does not include 'undefined'."
+        }
+      }
+    },
+    {
+      "id": "misspelled_action",
+      "expectedAccepted": false,
+      "arms": {
+        "meda": {
+          "accepted": false,
+          "diagnostic": "{\"diagnostic\": {\"code\": \"InvalidCase\", \"editor\": {\"character\": 47, \"line\": 1}, \"message\": \"Action.Pol\", \"phase\": \"check\", \"profile\": \"meda-pure-b0/1\", \"revision\": \"a53b2c773fa56bd67114fd7d5cb048647f69fe32cec2b36a32ab451e1ddfc808\", \"severity\": \"error\", \"sourceUri\": \"/tmp/meda-compare-meda-pc57nnl9/policy.meda\", \"span\": {\"endByte\": 74, \"startByte\": 74}}}"
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostic": "../../../../tmp/meda-compare-typescript-zlzwdkza/policy.ts(2,34): error TS2820: Type '\"pol\"' is not assignable to type 'Action'. Did you mean '\"poll\"'?"
+        }
+      }
+    },
+    {
+      "id": "complete_enum_cases",
+      "expectedAccepted": true,
+      "arms": {
+        "meda": {
+          "accepted": true,
+          "diagnostic": null,
+          "checker": "meda-pure-b0/1"
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostic": null,
+          "checker": "TypeScript 5.9.3 strict"
+        }
+      }
+    }
+  ],
+  "hostAttribution": [
+    {
+      "id": "wrong_tenant",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "denied",
+        0
+      ],
+      "expected": [
+        "denied",
+        0
+      ],
+      "passed": true
+    },
+    {
+      "id": "ungranted_operation",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "denied",
+        0
+      ],
+      "expected": [
+        "denied",
+        0
+      ],
+      "passed": true
+    },
+    {
+      "id": "endpoint_injection",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "invalid",
+        0
+      ],
+      "expected": [
+        "invalid",
+        0
+      ],
+      "passed": true
+    },
+    {
+      "id": "authorized_control",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "evidence:42",
+        1
+      ],
+      "expected": [
+        "evidence:42",
+        1
+      ],
+      "passed": true
+    },
+    {
+      "id": "client_ignores_quota",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "budget",
+        1
+      ],
+      "expected": [
+        "budget",
+        1
+      ],
+      "passed": true
+    },
+    {
+      "id": "after_root_close",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "denied",
+        1
+      ],
+      "expected": [
+        "denied",
+        1
+      ],
+      "passed": true
+    },
+    {
+      "id": "foreign_principal_reattach",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "denied",
+        ""
+      ],
+      "expected": [
+        "denied",
+        ""
+      ],
+      "passed": true
+    },
+    {
+      "id": "authorized_reattach",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "completed",
+        "report:evidence:42",
+        1
+      ],
+      "expected": [
+        "completed",
+        "report:evidence:42",
+        1
+      ],
+      "passed": true
+    },
+    {
+      "id": "cancel_observed",
+      "layer": "shared_host_or_peer",
+      "actual": [
+        "cancelled",
+        "cancelled",
+        1
+      ],
+      "expected": [
+        "cancelled",
+        "cancelled",
+        1
+      ],
+      "passed": true
+    }
+  ],
+  "hostAblations": [
+    {
+      "id": "removed_call_limit",
+      "originalOracle": [
+        "budget",
+        0
+      ],
+      "mutantActual": [
+        "evidence",
+        1
+      ],
+      "detected": true
+    },
+    {
+      "id": "removed_operation_grant",
+      "originalOracle": [
+        "denied",
+        0
+      ],
+      "mutantActual": [
+        "evidence",
+        1
+      ],
+      "detected": true
+    }
+  ],
+  "notMeasured": [
+    "Meda effect runtime",
+    "official MCP/A2A conformance",
+    "production authentication",
+    "global remote quotas",
+    "durable recovery",
+    "language productivity",
+    "live model cost"
+  ],
+  "passed": false
+}

@@ -1,0 +1,9 @@
+{
+  "name": "meda-interop-comparison",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Strict TypeScript checker dependency for an isolated research comparison",
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}
