@@ -20,6 +20,17 @@ from .freeze import runtime_source_paths
 
 HERE = Path(__file__).resolve().parent
 
+# These labels are deliberately fixed rather than derived from exception text,
+# scenario values, endpoints, or protocol payloads.  They can therefore be
+# retained in a public receipt without exposing credentials or private task
+# references when an unexpected dependency exception escapes a case runner.
+_EXECUTION_STAGES = {
+    "workflow": "workflow_execution",
+    "host_probe": "host_probe_execution",
+    "adapter_probe": "adapter_probe_execution",
+    "peer_probe": "peer_probe_execution",
+}
+
 
 def execute(case):
     surface = case["surface"]
@@ -46,6 +57,28 @@ def source_hashes():
             for path in sorted(paths) if path.is_file()}
 
 
+def execute_case(case):
+    """Execute and assess one case while retaining only safe failure metadata."""
+    start = time.monotonic()
+    row = {"caseId": case["id"], "surface": case["surface"], "scenario": case["scenario"]}
+    stage = _EXECUTION_STAGES.get(case["surface"], "case_dispatch")
+    try:
+        row["receipt"] = execute(case)
+        stage = "oracle_assessment"
+        row["assessment"] = oracle.evaluate_case(case, row["receipt"])
+        row["executionStatus"] = "executed"
+    except runner.UnsupportedScenario as exc:
+        row.update(executionStatus="not_run", reason=str(exc))
+    except Exception as exc:
+        # Never copy exception text: an unexpected library exception can
+        # contain credentials or private reference data.  ``errorStage`` is a
+        # closed, locally-authored label and not data supplied by the peer.
+        row.update(executionStatus="execution_error", errorType=type(exc).__name__,
+                   errorStage=stage)
+    row["elapsedSeconds"] = time.monotonic() - start
+    return row
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--output", required=True, type=Path)
@@ -66,19 +99,7 @@ def main():
               "selectedCases": len(selected), "runs": []}
     args.output.parent.mkdir(parents=True, exist_ok=True)
     for case in selected:
-        start = time.monotonic()
-        row = {"caseId": case["id"], "surface": case["surface"], "scenario": case["scenario"]}
-        try:
-            row["receipt"] = execute(case)
-            row["assessment"] = oracle.evaluate_case(case, row["receipt"])
-            row["executionStatus"] = "executed"
-        except runner.UnsupportedScenario as exc:
-            row.update(executionStatus="not_run", reason=str(exc))
-        except Exception as exc:
-            # Never copy exception text: an unexpected library exception can
-            # contain credentials or private reference data.
-            row.update(executionStatus="execution_error", errorType=type(exc).__name__)
-        row["elapsedSeconds"] = time.monotonic() - start
+        row = execute_case(case)
         output["runs"].append(row)
         output["executionCounts"] = dict(Counter(item["executionStatus"] for item in output["runs"]))
         output["assessmentCounts"] = dict(Counter(item["assessment"]["status"] for item in output["runs"] if "assessment" in item))
