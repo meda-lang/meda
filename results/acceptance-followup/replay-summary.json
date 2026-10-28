@@ -1,0 +1,60 @@
+{
+  "kind": "interop_d0_focused_replay_summary",
+  "profile": "meda-interop-d0/1",
+  "startedAt": "2026-10-28T06:07:48.740219+00:00",
+  "finishedAt": "2026-10-28T06:09:00.824803+00:00",
+  "baselineMerge": "8354d3159ffebe47227eaed7ff4ce7ae59aaff71",
+  "trials": 5,
+  "casesPerTrial": 5,
+  "rows": 25,
+  "executionCounts": {
+    "executed": 25,
+    "execution_error": 0,
+    "not_run": 0
+  },
+  "assessmentCounts": {
+    "unverified": 25,
+    "failed": 0,
+    "passed": 0
+  },
+  "failedFrozenChecks": 0,
+  "sourceUnchangedDuringEveryTrial": true,
+  "sourceSha256": {
+    "acceptance_run.py": "910a03813a2883f0d9faf97fb024158d27abf678e1369b274d24097cb67ab048",
+    "tests/test_acceptance_run.py": "299385ffb7244840280aa8fc33b2e5af647c84639a8c2c503e24e589afeff416"
+  },
+  "outcomes": [
+    {
+      "caseId": "W04-explicit-cancel",
+      "outcome": "RemoteCanceled",
+      "executed": 5,
+      "assessment": "unverified"
+    },
+    {
+      "caseId": "W04-explicit-cancel-terminal-refusal",
+      "outcome": "TaskNotCancelable",
+      "executed": 5,
+      "assessment": "unverified"
+    },
+    {
+      "caseId": "W05-wrong-rpc-id",
+      "outcome": "ProtocolRejected",
+      "executed": 5,
+      "assessment": "unverified"
+    },
+    {
+      "caseId": "W08-evidence-duplicate_fact_id",
+      "outcome": "ProtocolRejected",
+      "executed": 5,
+      "assessment": "unverified"
+    },
+    {
+      "caseId": "W10-host-foreign_peer",
+      "outcome": "InvalidReference",
+      "executed": 5,
+      "assessment": "unverified"
+    }
+  ],
+  "command": "PYTHONPATH=packages/runtime/src:. experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.acceptance_run --output <trial>.json --case W04-explicit-cancel --case W04-explicit-cancel-terminal-refusal --case W05-wrong-rpc-id --case W08-evidence-duplicate_fact_id --case W10-host-foreign_peer",
+  "interpretation": "Focused replay only. Historical receipts are unchanged and the full acceptance gate remains open."
+}

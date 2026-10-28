@@ -7,11 +7,11 @@ plus 38 existing regressions; those counts do not override the acceptance result
 
 ## Backlog
 
-- Investigate execution exceptions in explicit cancellation, duplicate fact ID
-  and foreign-peer probes; preserve their original rows and successful diagnostic
-  reruns separately. Add safe stage attribution to future execution errors.
-- Investigate the first wrong-RPC-ID timeout without assuming the malformed body
-  reached the decoder. A diagnostic rerun produced ProtocolRejected.
+- The explicit-cancellation, duplicate-fact-ID, foreign-peer, cancellation-refusal,
+  and wrong-RPC-ID cases now execute with their expected semantic results in five
+  focused rounds. Safe stage attribution is implemented for future execution
+  errors. Preserve the original rows and the focused follow-up separately; the
+  replay does not turn historically failed or incomplete receipts into passes.
 - Complete independently observed discovery accounting and cleanup timing where
   required. Keep source-continuation and authority-exposure scope explicit.
 - Implement or explicitly defer two missing workflow fixtures, nine Meda source
