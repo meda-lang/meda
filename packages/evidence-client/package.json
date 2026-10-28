@@ -1,0 +1,20 @@
+{
+  "name": "@meda/evidence-client",
+  "version": "0.1.0-alpha.0",
+  "private": true,
+  "description": "Experimental typed client for Meda's bounded evidence/report host profile",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {"types": "./dist/index.d.ts", "require": "./dist/index.js", "default": "./dist/index.js"}
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "engines": {"node": ">=24 <25"},
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test tests/*.test.cjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {"@types/node": "24.10.1", "typescript": "5.9.3"}
+}

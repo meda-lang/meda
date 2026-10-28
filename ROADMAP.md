@@ -13,12 +13,25 @@ The recommendation is **library-first**, with further language expansion paused.
 - [x] Freeze and execute one equivalent maintenance change, preserving all attempts.
 - [x] Publish a decision that counts shared protections and additional language cost.
 
-## Recommended next investment
+## Library-first implementation
 
-Make the shared host and TypeScript client easier to consume independently of
-the experiment. Address the [broader reference acceptance gaps](https://github.com/meda-lang/meda/issues/11)
-before claiming production readiness. Keep the runnable Meda prototype and its
-receipts available for future, specific language hypotheses.
+- [x] Extract installable Python runtime and typed TypeScript client.
+- [x] Add a standalone application with application-owned report validation.
+- [x] Exercise built wheel/tarball artifacts from an external consumer directory.
+- [x] Check package APIs and the installed consumer in CI.
+
+See the [runtime guide](docs/runtime-library.md) and
+[verification record](results/runtime-library/README.md). Packages remain
+experimental and unpublished.
+
+## Next investment
+
+Use the current interface in one concrete application, then address the
+[broader reference acceptance gaps](https://github.com/meda-lang/meda/issues/11)
+that application depends on. Priorities are complete protocol/accounting
+receipts, source-continuation ordering and explicit cleanup timing. Do not widen
+the adapter or language surface until the application establishes a need.
+Keep the runnable Meda prototype and its receipts for specific language hypotheses.
 
 ## Broader language research backlog
 

@@ -1,4 +1,9 @@
-# How the protocol example is wired
+# How the research protocol example is wired
+
+For the new reusable packages and standalone application, start with the
+[runtime guide](runtime-library.md) and [example](../examples/evidence-report/README.md).
+This page retains the research harness walkthrough; the old Python host and
+transport paths now forward to the canonical runtime package.
 
 The executable example reads evidence from an MCP server, asks an A2A agent to
 select facts, polls the task, validates the returned report, and publishes a
