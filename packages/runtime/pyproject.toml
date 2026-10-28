@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools==84.1.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meda-runtime"
+version = "0.1.0.dev0"
+description = "Experimental bounded host for the Meda evidence-to-report profile"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = []
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["meda_runtime*"]

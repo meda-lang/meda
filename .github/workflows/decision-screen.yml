@@ -6,6 +6,7 @@ on:
       - 'experiments/gates/**'
       - 'experiments/interop_d0/**'
       - 'experiments/decision_screen/**'
+      - 'packages/runtime/**'
       - 'docs/decision-screen-contract.md'
       - '.github/workflows/decision-screen.yml'
   workflow_dispatch:

@@ -1,6 +1,6 @@
 # Meda research handoff
 
-Updated October 27, 2026. This repository preserves the design, executable work,
+Updated October 28, 2026. This repository preserves the design, executable work,
 reviews, results and remaining questions from the research thread. Start here
 when resuming; external ChatGPT Pages and downloadable patches are supplementary.
 
@@ -22,6 +22,7 @@ conventional client. The broader production and acceptance backlog remains open.
 
 | Work | Canonical repository location | Observed status |
 | --- | --- | --- |
+| Runtime packages and standalone application | [Guide](runtime-library.md), [example](../examples/evidence-report/README.md), [verification](../results/runtime-library/README.md) | Python wheel and TypeScript tarball, installed external-consumer checks; experimental fixed profile |
 | Language proposal | [Design Draft 2.1](design-draft-2.1.md) | Proposed design, broader than the implemented language |
 | Gate A and Gate B | [Status](gate-status.md), [implementation](../experiments/gates/README.md) | 55-case pure corpus; maintenance harness and reference smoke, controlled model study outstanding |
 | Pure Meda versus TypeScript | [Results](runtime-comparison.md), [reproduction](../experiments/interop_compare/README.md) | Both 12/12 workflows and four matched static rejections; three uncontrolled repairs per arm |
@@ -75,12 +76,14 @@ endpoints. Credentials are local test credentials, not production OAuth.
 The cancellation-refusal repair, prospective shutdown contract, direct-call Meda
 profile, paired workflow screen, and frozen maintenance demonstration are now
 implemented and recorded in [the decision report](decision-screen-results.md).
-The current verification passes 141 test methods. The original pilot's failed
+The decision milestone verification passed 141 test methods. The original pilot's failed
 and unverified rows remain untouched; the smaller screen does not close full D0.
 
-Next, make the existing shared host/client usable independently of the language
-experiment and retain [issue #11](https://github.com/meda-lang/meda/issues/11) for
-broader acceptance work. Reopen language investment only around a specific
+The shared host/client now have installable packages and a standalone TypeScript
+application. Their [verification record](../results/runtime-library/README.md)
+checks built artifacts outside the repository. Next, apply that interface to one
+concrete application and retain [issue #11](https://github.com/meda-lang/meda/issues/11)
+for broader acceptance work. Reopen language investment only around a specific
 claimed benefit and an equally equipped conventional control. One small
 maintenance tie cannot establish general productivity equivalence.
 

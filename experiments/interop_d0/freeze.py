@@ -7,12 +7,28 @@ import platform
 import subprocess
 
 from .host import Limits, digest
-from .sdk_peers import build_agent_card, build_tool_descriptor
 
 HERE = Path(__file__).resolve().parent
+ROOT = HERE.parents[1]
+
+
+def runtime_source_paths(root=ROOT):
+    """Canonical implementation inputs, excluding build/cache outputs."""
+    package = root / "packages/runtime"
+    return [package / "pyproject.toml", *sorted((package / "src/meda_runtime").rglob("*.py"))]
+
+
+def source_snapshot():
+    paths = set(runtime_source_paths(ROOT))
+    for pattern in ("*.py", "client/*.ts", "tsconfig.json"):
+        paths.update(HERE.glob(pattern))
+    return {str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths) if path.is_file()}
 
 
 def main():
+    from .sdk_peers import build_agent_card, build_tool_descriptor
+
     files = ["acceptance.json", "requirements.lock", "package-lock.json",
              "dependency-provenance.json", "specification-sources.json"]
     descriptor = build_tool_descriptor()
@@ -22,6 +38,7 @@ def main():
               "node": subprocess.check_output(["node", "--version"], text=True).strip(),
               "platform": platform.platform(), "limits": asdict(Limits()),
               "artifactSha256": {name: hashlib.sha256((HERE / name).read_bytes()).hexdigest() for name in files},
+              "sourceSha256": source_snapshot(),
               "toolDescriptor": descriptor, "toolDescriptorSha256": digest(descriptor),
               "agentCardTemplate": card, "agentCardTemplateSha256": digest(card),
               "endpointRule": "Each run substitutes its allocated loopback TLS endpoint and records the resulting card digest.",

@@ -1,70 +1,104 @@
 # Meda
 
-**Meda is an experimental programming language for software that AI agents write
-and maintain.**
+**Meda's current focus is an experimental runtime for TypeScript applications
+that call MCP tools and A2A agents.** It owns credentials, checks permissions
+and budgets, and supervises the application process through completion and
+cleanup.
 
-The goal is to let a coding agent make a correct change with limited surrounding
-context. The design combines explicit operation types and effects with
-behavioral contracts. Editing tools restrict which code an
-agent may change and check that it preserves protected contracts and interfaces.
-The intended language supports ordinary application code as well as programs
-that call LLMs, tools, and other agents.
+Meda began as a programming-language experiment. We built that prototype and
+[compared it with TypeScript using the same host](docs/decision-screen-results.md).
+Both passed the same small workflow and maintenance screen. Most demonstrated
+protections came from their shared runtime. We are pursuing that runtime first;
+further language expansion is paused.
 
-**Today, this is a research prototype.** Both Meda and TypeScript now run the
-same small MCP and agent-to-agent workflow through a shared host. Meda supports
-a pure subset plus a narrow direct-call profile; there is no stable release.
+There is no stable release. The first packages support one small **evidence-to-report
+workflow**, with five typed operations and evidence revision 1. They are not a
+general MCP or A2A SDK, and the broader acceptance work remains open.
 
-## Why build a language?
+## Start with the runnable application
 
-That is the question we are testing. We compare Meda with a conventional strict
-TypeScript client using the same runtime and protocol adapters. Protections
-supplied by that shared runtime are useful to either language.
+The [TypeScript example](examples/evidence-report/README.md) reads facts from an
+MCP server, asks an A2A agent to select them, handles task states, and checks the
+returned report. Its entry point is:
 
-The [direct-call comparison](docs/decision-screen-results.md) produced matching
-outcomes in all 11 paired scenarios. Both languages also passed the same small
-maintenance change. Meda adds declared-effect checking, but this screen does
-not establish enough benefit to justify expanding the language. **Our current
-recommendation is library-first:** prioritize the shared runtime and TypeScript
-client, and retain Meda as a research prototype.
+```typescript
+import {runWorker} from "@meda/evidence-client";
+import {decodeInput, runWorkflow} from "./workflow";
 
-## What exists today
-
-| Part | Implemented | Still proposed or unproven |
-| --- | --- | --- |
-| Meda language | A parser, checker and evaluator; pure contracts; a narrow profile with five direct host calls, declared effects and opaque task references. | The full language design, general modules and broader effect support. |
-| Editing tools | Guarded single-file edits for the pure profile, with protected contracts and validation before publication. | Effectful guarded edits and better AI maintenance outcomes than conventional tools. |
-| Protocol runtime | A shared Python host, Meda and strict TypeScript applications, and official MCP/A2A SDK test peers. | Full acceptance and production readiness. |
-
-The [pure profile](experiments/gates/PROFILE.md) and
-[direct-call example](experiments/decision_screen/README.md) define what runs. [Design Draft 2.1](docs/design-draft-2.1.md) describes the larger
-proposal; its examples are not all executable yet.
-
-## Try actual Meda code
-
-This [complete example](examples/clamp.meda) runs with the current interpreter:
-
-```meda
-operation clamp(value: Int, lower: Int, upper: Int) -> Int effects []
-  require lower <= upper
-  ensure result >= lower and result <= upper
-{
-  if value < lower {
-    return lower
-  }
-  if value > upper {
-    return upper
-  }
-  return value
-}
+void runWorker(decodeInput, runWorkflow);
 ```
 
-`operation` declares a typed function. `effects []` means it is pure; this
-standalone pure interpreter only supports pure operations. `require` checks a condition before
-the body runs, and `ensure` checks the result afterward. These contracts run on
-each invocation; they are not a proof that the implementation is correct.
+The workflow calls `host.readEvidence`, `host.submit`, `host.observe`,
+`host.provideInput`, and `host.cancel`. The application's
+[domain validator](examples/evidence-report/domain.ts) decides whether a report
+is correct. The runtime controls the calls and process lifecycle; it cannot
+establish that an application's business logic is correct.
 
-From the repository root, using Python 3.11 or later, with no packages or API
-keys to install:
+```mermaid
+flowchart TD
+  App["Your TypeScript workflow and validator"] --> Client["@meda/evidence-client"]
+  Client <-->|"Bounded JSON frames"| Runtime["meda-runtime: Python host and supervisor"]
+  Runtime <-->|"HTTPS + host credentials"| MCP["MCP evidence server"]
+  Runtime <-->|"HTTPS + host credentials"| A2A["A2A report agent"]
+```
+
+The runtime launches the Node application with a scrubbed environment. The Python
+parent supplies network credentials, excluding them from the child's environment
+and initial input. Task references are private binding objects,
+and uncertain delivery is reported explicitly so the application can avoid
+blindly resubmitting a task.
+
+## Run it locally
+
+Use Linux, Python 3.12, Node 24, npm and OpenSSL. From the repository root:
+
+```sh
+python3 -m venv experiments/interop_d0/.venv
+experiments/interop_d0/.venv/bin/python -m pip install \
+  --require-hashes --only-binary=:all: -r experiments/interop_d0/requirements.lock
+npm ci --ignore-scripts --prefix packages/evidence-client
+experiments/interop_d0/.venv/bin/python tools/runtime-demo/verify.py \
+  --output results/runtime-library/generated/my-run.json
+```
+
+This builds a Python wheel and npm tarball, installs them into a fresh directory
+outside the repository, compiles the example, and runs seven scenarios against
+local peers using the official protocol SDKs. It checks successful reports,
+required input, uncertain delivery, malformed responses, invalid reports,
+reordered reports, and cancellation refusal. It makes no model-provider calls
+and needs no API keys. Choose a new output filename when rerunning.
+
+For the public Python API, CLI configuration, and connecting compatible peers,
+see the [runtime guide](docs/runtime-library.md). For the code itself:
+
+| Part | Location | Responsibility |
+| --- | --- | --- |
+| Application | [examples/evidence-report](examples/evidence-report/README.md) | Workflow and report validation |
+| TypeScript package | [packages/evidence-client](packages/evidence-client/README.md) | Typed operations, private task references, bounded worker protocol |
+| Python package | [packages/runtime](packages/runtime/README.md) | Authority, credentials, protocol adapters, budgets, process supervision and cleanup |
+| Installed-package evidence | [Verification record](results/runtime-library/README.md) | Artifact isolation and seven end-to-end checks |
+
+## What remains unproven
+
+The packages are experimental, installed from this repository, and have no
+published registry release. Current evidence uses local deterministic peers and
+numeric loopback endpoints. Process-group retirement and sampled RSS limits do
+not make an OS security sandbox. New protocols and broader MCP/A2A features
+require their own adapters and compatibility checks.
+
+The [remaining acceptance gaps](https://github.com/meda-lang/meda/issues/11)
+are still open. The next step is to choose a concrete application for this
+interface and close the relevant acceptance gaps before widening the API.
+See the [roadmap](ROADMAP.md) and [research handoff](docs/research-handoff.md).
+
+## The language prototype
+
+The Meda language remains available for research: a pure interpreter with
+contracts, guarded pure edits, and a narrow direct-call profile. The larger
+[Design Draft 2.1](docs/design-draft-2.1.md) is a proposal.
+
+This [small pure example](examples/clamp.meda) runs with Python 3.11+ and no
+external packages:
 
 ```sh
 python3 experiments/gates/meda.py check examples/clamp.meda
@@ -72,55 +106,9 @@ python3 experiments/gates/meda.py run examples/clamp.meda \
   --operation clamp --arguments '{"value": 12, "lower": 0, "upper": 10}'
 ```
 
-The second command returns `{"profile": "meda-pure-b0/1", "value": 10}`.
-For the language and editing checks:
-
-```sh
-python3 -m unittest discover -s experiments/gates/tests -v
-```
-
-## How MCP, other agents, and Meda fit together
-
-Applications use typed operations exposed by a shared host. The host owns
-credentials, permissions, budgets, and protocol adapters. MCP (Model Context
-Protocol) connects to tools and data; A2A (Agent2Agent) connects to remote tasks.
-
-```mermaid
-flowchart TD
-  TS["TypeScript application: implemented"] --> Host["Shared host and protocol adapters"]
-  Meda["Meda application: narrow direct-call profile"] --> Host
-  Host --> MCP["MCP tool server"]
-  Host --> A2A["A2A agent"]
-```
-
-Follow the [wiring walkthrough](docs/wiring-walkthrough.md) or start with the
-actual [Meda workflow](experiments/decision_screen/workflow.meda) and
-[TypeScript workflow](experiments/interop_d0/client/workflow.ts). The
-example reads evidence, submits a report task, polls it, and validates the
-result. Its peers use real protocol SDKs with deterministic test behavior;
-there are no LLM provider calls.
-
-The earlier [Meda workflow sample](experiments/interop_compare/clients/policy.meda)
-only computes the next action for a Python controller to execute. It does not
-make direct protocol calls. New protocols will require their own adapters and
-compatibility checks.
-
-## What happens next
-
-The [bounded experiment](docs/decision-screen-results.md) is complete, including
-the cancellation fix, explicit shutdown contract, direct Meda integration, and
-one maintenance demonstration. The recommended next investment is making the
-shared runtime easier to consume from conventional code and addressing its
-[remaining acceptance gaps](https://github.com/meda-lang/meda/issues/11).
-Further language expansion is paused pending evidence for a specific benefit.
-
-For more detail, see the [roadmap](ROADMAP.md),
-[research handoff and evidence index](docs/research-handoff.md), and
-[tracked work](docs/issues/README.md).
-
-## Project history
-
-The [original prototype notes](docs/history/original-prototype.md) preserve the
-earlier syntax ideas and the story of Meda's name and Sammy the seal.
-`sample/`, `interpreter/`, and `interpreter_new/` are legacy work; use the
-example and research implementation linked above for the current project.
+It returns `{"profile": "meda-pure-b0/1", "value": 10}`. For direct protocol
+calls, read the [Meda workflow and paired experiment](experiments/decision_screen/README.md).
+The [historical wiring walkthrough](docs/wiring-walkthrough.md) explains the
+research harness. `sample/`, `interpreter/`, and `interpreter_new/` are legacy
+work; the [original prototype notes](docs/history/original-prototype.md) preserve
+the earlier syntax and the story of Meda's name and Sammy the seal.

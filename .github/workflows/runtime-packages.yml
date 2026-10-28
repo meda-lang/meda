@@ -1,0 +1,39 @@
+name: Runtime packages
+
+on:
+  pull_request:
+    paths:
+      - 'packages/**'
+      - 'examples/evidence-report/**'
+      - 'tools/runtime-demo/**'
+      - 'experiments/interop_d0/**'
+      - '.github/workflows/runtime-packages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  installed-consumer:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install development dependencies
+        run: |
+          python -m venv experiments/interop_d0/.venv
+          experiments/interop_d0/.venv/bin/python -m pip install --require-hashes --only-binary=:all: -r experiments/interop_d0/requirements.lock
+          npm ci --ignore-scripts --prefix packages/evidence-client
+      - name: Verify package APIs
+        run: |
+          PYTHONPATH=packages/runtime/src experiments/interop_d0/.venv/bin/python -m unittest discover -s packages/runtime/tests -v
+          npm test --prefix packages/evidence-client
+      - name: Build and install artifacts outside the repository
+        run: experiments/interop_d0/.venv/bin/python tools/runtime-demo/verify.py --output results/runtime-library/generated/installed-packages.json

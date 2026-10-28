@@ -11,13 +11,14 @@ import time
 ROOT=Path(__file__).resolve().parents[2]
 sys.path.insert(0,str(ROOT))
 from experiments.interop_d0.runner import compile_client,execute_workflow
+from experiments.interop_d0.freeze import runtime_source_paths
 from experiments.decision_screen.language import Program
 from experiments.decision_screen.oracle import load_cases,assess
 HERE=Path(__file__).resolve().parent
 
 
 def source_snapshot():
-    files=set()
+    files=set(runtime_source_paths(ROOT))
     for directory,patterns in [
         (ROOT/'experiments/gates',['*.py']),
         (ROOT/'experiments/interop_d0',['*.py','*.json','requirements.lock','client/*.ts']),

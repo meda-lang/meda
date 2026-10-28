@@ -1,0 +1,7 @@
+{
+  "name": "meda-evidence-report-example", "version": "0.0.0", "private": true,
+  "scripts": {"build": "tsc -p tsconfig.json"},
+  "engines": {"node": ">=24 <25"},
+  "dependencies": {"@meda/evidence-client": "file:../../packages/evidence-client"},
+  "devDependencies": {"typescript": "5.9.3", "@types/node": "24.10.1"}
+}

@@ -11,10 +11,12 @@ from collections import Counter
 from datetime import datetime, timezone
 import hashlib
 import json
+import os
 from pathlib import Path
 import time
 
 from . import oracle, runner
+from .freeze import runtime_source_paths
 
 HERE = Path(__file__).resolve().parent
 
@@ -39,8 +41,9 @@ def source_hashes():
     paths = [path for path in HERE.rglob("*") if path.is_file()
              and not any(part in {".venv", "node_modules", "dist", "__pycache__", "results"}
                          or part.startswith("ts-probe-") for part in path.relative_to(HERE).parts)]
-    return {str(path.relative_to(HERE)): hashlib.sha256(path.read_bytes()).hexdigest()
-            for path in sorted(paths)}
+    paths.extend(runtime_source_paths(HERE.parents[1]))
+    return {os.path.relpath(path, HERE): hashlib.sha256(path.read_bytes()).hexdigest()
+            for path in sorted(paths) if path.is_file()}
 
 
 def main():
