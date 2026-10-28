@@ -10,6 +10,7 @@ import argparse
 import contextlib
 import copy
 from dataclasses import asdict
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -229,12 +230,17 @@ def environment(scenario):
 
 
 def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=None,
-               credential_sentinels=(), private_receipts=None):
-    """Run one actual Node process; return host publication and worker evidence."""
+               credential_sentinels=(), private_receipts=None, worker_command=None):
+    """Run one supervised application process; the default is the Node client.
+
+    worker_command is a trusted controller option, never supplied by the worker.
+    The decision screen uses it to run the actual Meda evaluator through the same
+    frame protocol, Host and lifecycle supervision.
+    """
     if not Path("/proc/self/status").is_file():
         raise RuntimeError("This profile requires Linux RSS supervision")
     worker_path = Path(worker_path or HERE / "dist/main.js")
-    if not worker_path.is_file():
+    if worker_command is None and not worker_path.is_file():
         raise RuntimeError("Compile the TypeScript client before running")
     proxies, scenario = proxies or {}, scenario or {}
     if scenario.get("onMissingInput") == "wait":
@@ -247,14 +253,16 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
                           "abort_with_zero_normal_allowance"}
     if scenario.get("barrier") not in supported_barriers:
         raise UnsupportedScenario("Unsupported ordering barrier")
-    process = subprocess.Popen([_node(), "--max-old-space-size=128", str(worker_path)], cwd=HERE,
+    command = worker_command or [_node(), "--max-old-space-size=128", str(worker_path)]
+    process = subprocess.Popen(command, cwd=HERE,
                                stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
                                env=_safe_environment(), start_new_session=True, bufsize=0)
     os.set_blocking(process.stdin.fileno(), False)
     start = time.monotonic()
     stop = threading.Event()
     guard = threading.Lock()
-    state = {"termination": None, "peakRssBytesObserved": 0, "barriers": []}
+    state = {"termination": None, "peakRssBytesObserved": 0, "barriers": [],
+             "retirementRequestedAt": None}
     rpc_calls, finish_frames, post_fatal_responses = [], 0, 0
     stderr = bytearray()
     unexpected_stdout = bytearray()
@@ -265,6 +273,7 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
         with guard:
             if state["termination"] is not None:
                 return
+            state["retirementRequestedAt"] = time.monotonic()
             state["termination"] = reason
             host.abort("Timeout" if reason == "deadline" else "RootTerminated")
             try:
@@ -392,20 +401,24 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
                     if value.get("kind") == "Task" and isinstance(value.get("ref"), str):
                         internal_refs.add(value["ref"])
                     rpc_calls.append({"id": frame["id"], "operation": operation, "kind": value.get("kind"),
-                                      **{name: value[name] for name in ("state", "code", "fatal", "remoteOutcome") if name in value}})
+                                      **{name: value[name] for name in ("state", "code", "fatal", "remoteOutcome") if name in value},
+                                      **({"artifactSha256": hashlib.sha256(json.dumps(value["artifact"], sort_keys=True,
+                                          separators=(",", ":")).encode()).hexdigest()} if "artifact" in value else {})})
                     barrier = scenario.get("barrier")
                     if operation == "submit" and value.get("kind") == "Task" and barrier in {
                             "abort_after_submit_before_poll", "abort_with_zero_normal_allowance"}:
                         state["barriers"].append("root_closed_after_submit_before_source_response")
                         terminate("root_abort")
                     if value.get("fatal") or host.closed or state["termination"] is not None:
-                        if state["termination"] is None:
-                            # Retire without replacing the host's specific fatal cause.
-                            state["termination"] = "fatal_host_outcome"
-                            try:
-                                os.killpg(process.pid, signal.SIGKILL)
-                            except ProcessLookupError:
-                                pass
+                        with guard:
+                            if state["termination"] is None:
+                                # Retire without replacing the host's specific fatal cause.
+                                state["termination"] = "fatal_host_outcome"
+                                state["retirementRequestedAt"] = time.monotonic()
+                                try:
+                                    os.killpg(process.pid, signal.SIGKILL)
+                                except ProcessLookupError:
+                                    pass
                         break
                     response = json.dumps({"kind": "response", "id": frame["id"], "value": value},
                                           separators=(",", ":")).encode() + b"\n"
@@ -444,12 +457,15 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
     finally:
         stop.set()
         _kill(process)
+        worker_retired_at = time.monotonic()
         watcher.join(timeout=1)
         selector.close()
         for stream in (process.stdin, process.stdout, process.stderr):
             if stream and not stream.closed:
                 stream.close()
+    cleanup_started_at = time.monotonic()
     publication = host.finish(proposed or {"outcome": "RootTerminated", "fatal": True})
+    cleanup_elapsed = time.monotonic() - cleanup_started_at
     if scenario.get("barrier") == "publication_before_abort":
         host.abort("RootTerminated")
         state["barriers"].append("publication_committed_before_late_abort")
@@ -465,6 +481,12 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
               "responsesAfterFatal": post_fatal_responses, "calls": rpc_calls,
               "peakRssBytesObserved": state["peakRssBytesObserved"],
               "elapsedSeconds": time.monotonic() - start, "barriers": state["barriers"],
+              "retirementRequestedAfterStartSeconds": (None if state["retirementRequestedAt"] is None
+                  else state["retirementRequestedAt"] - start),
+              "retirementObservedAfterStartSeconds": worker_retired_at - start,
+              "retirementAfterRequestSeconds": (None if state["retirementRequestedAt"] is None
+                  else worker_retired_at - state["retirementRequestedAt"]),
+              "hostFinishElapsedSeconds": cleanup_elapsed,
               "supervisorJoined": not watcher.is_alive(), "stderrBytes": len(stderr),
               "applicationFinish": proposed, "stderr": application_channels["stderr"],
               "unexpectedStdout": application_channels["unexpectedStdout"], "outputTruncated": truncated,
@@ -506,11 +528,12 @@ def _scrub(value, secrets):
     return value
 
 
-def execute_workflow(scenario):
+def execute_workflow(scenario, *, worker_command=None, worker_path=None):
     with environment(scenario) as env:
         private_receipts = {}
         result = run_client(env["host"], workflow_input(scenario), proxies=env["proxies"], scenario=scenario,
-                            credential_sentinels=env["secrets"], private_receipts=private_receipts)
+                            credential_sentinels=env["secrets"], private_receipts=private_receipts,
+                            worker_command=worker_command, worker_path=worker_path)
         # Observe stream cancellation while the SDK process is still running;
         # its later process shutdown must not manufacture that evidence.
         if env["proxies"]["mcp"].stream_started.is_set():
@@ -539,6 +562,11 @@ def execute_workflow(scenario):
         result["credentialLeakDetected"] = (any(secret in serialized for secret in env["secrets"]) or
             any(row["credentialMatches"] for row in result["applicationChannelScan"]["channels"]))
         result["witnessesCapturedBeforePeerShutdown"] = True
+        if scenario.get("probeAfterClose"):
+            before = sum(row["event"] == "dispatch" for row in env["host"].trace)
+            result["postCloseAdmission"] = env["host"].call("readEvidence", {"documentId": "evidence-42"})
+            after = sum(row["event"] == "dispatch" for row in env["host"].trace)
+            result["postCloseDispatches"] = after - before
         result = _scrub(result, [*env["secrets"], *private_receipts["references"]])
     result["peerProcessesRetired"] = all(process.poll() is not None for process in env["peer_processes"].values())
     return result

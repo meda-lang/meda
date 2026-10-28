@@ -1,0 +1,250 @@
+{
+  "profile": "meda-decision-screen/1",
+  "status": "prospective_expectations_not_execution_results",
+  "cases": [
+    {
+      "id": "S1-success",
+      "kind": "workflow",
+      "scenario": {
+        "mcpResponse": "json",
+        "a2aStates": [
+          "WORKING",
+          "COMPLETED"
+        ]
+      },
+      "expected": {
+        "outcome": "Success",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 1,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1
+      }
+    },
+    {
+      "id": "S2-required-input",
+      "kind": "workflow",
+      "scenario": {
+        "initialIncludeIds": null,
+        "suppliedIncludeIds": [
+          "f1",
+          "f2"
+        ]
+      },
+      "expected": {
+        "outcome": "Success",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 0,
+          "provideInput": 1,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1
+      }
+    },
+    {
+      "id": "S3-uncertain-delivery",
+      "kind": "workflow",
+      "scenario": {
+        "dropResponseAfterPeerCommit": "submit"
+      },
+      "expected": {
+        "outcome": "TransportFailure",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1,
+        "remoteOutcome": "Unknown",
+        "witness": "lost_submit"
+      }
+    },
+    {
+      "id": "S4-malformed-response",
+      "kind": "workflow",
+      "scenario": {
+        "wireMutation": "evidence_response_id"
+      },
+      "expected": {
+        "outcome": "ProtocolRejected",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 0,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 0,
+        "witness": "wrong_rpc_id"
+      }
+    },
+    {
+      "id": "S5-invalid-domain",
+      "kind": "workflow",
+      "scenario": {
+        "reportMutation": "wrong_value"
+      },
+      "expected": {
+        "outcome": "DomainRejected",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 1,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1,
+        "witness": "wrong_value"
+      }
+    },
+    {
+      "id": "P1-no-answer",
+      "kind": "prerequisite",
+      "scenario": {
+        "initialIncludeIds": null,
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "NeedsInput",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 1,
+        "peerTasks": 1
+      }
+    },
+    {
+      "id": "P2-cancel-refusal",
+      "kind": "prerequisite",
+      "scenario": {
+        "applicationAction": "cancel",
+        "cancelResponse": "TaskNotCancelableError",
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "TaskNotCancelable",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 1
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1,
+        "witness": "cancel_refusal"
+      }
+    },
+    {
+      "id": "P3-abort-after-submit",
+      "kind": "prerequisite",
+      "scenario": {
+        "barrier": "abort_after_submit_before_poll",
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "RootTerminated",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 1,
+        "peerTasks": 1,
+        "fatal": true,
+        "witness": "abort_after_submit"
+      }
+    },
+    {
+      "id": "P4-abort-before-response",
+      "kind": "prerequisite",
+      "scenario": {
+        "barrier": "close_before_observation_response",
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "RootTerminated",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 1,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 1,
+        "peerTasks": 1,
+        "fatal": true,
+        "witness": "abort_before_response"
+      }
+    },
+    {
+      "id": "P5-publication-before-abort",
+      "kind": "prerequisite",
+      "scenario": {
+        "barrier": "publication_before_abort",
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "Success",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 1,
+          "observe": 1,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 1,
+        "witness": "publish_before_abort"
+      }
+    },
+    {
+      "id": "P6-root-deadline-progress",
+      "kind": "prerequisite",
+      "scenario": {
+        "mcpResponse": "sse",
+        "resourceFault": "periodic_progress",
+        "barrier": "root_deadline_before_request_deadline",
+        "limits": {
+          "rootWorkMs": 500,
+          "requestMs": 2000,
+          "sseEvents": 64
+        },
+        "progressIntervalMs": 50,
+        "probeAfterClose": true
+      },
+      "expected": {
+        "outcome": "Timeout",
+        "calls": {
+          "readEvidence": 1,
+          "submit": 0,
+          "observe": 0,
+          "provideInput": 0,
+          "cancel": 0
+        },
+        "cleanupCancel": 0,
+        "peerTasks": 0,
+        "fatal": true,
+        "witness": "deadline_progress"
+      }
+    }
+  ]
+}

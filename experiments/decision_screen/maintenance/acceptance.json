@@ -1,0 +1,817 @@
+[
+  {
+    "id": "ordered",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f1",
+          "value": "blue"
+        },
+        {
+          "id": "f2",
+          "value": "square"
+        }
+      ]
+    }
+  },
+  {
+    "id": "reversed",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f1",
+          "value": "blue"
+        },
+        {
+          "id": "f2",
+          "value": "square"
+        }
+      ]
+    }
+  },
+  {
+    "id": "request-reversed",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f2",
+        "f1"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f2",
+          "value": "square"
+        },
+        {
+          "id": "f1",
+          "value": "blue"
+        }
+      ]
+    }
+  },
+  {
+    "id": "three-permuted",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          },
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f3",
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f3",
+          "value": "round"
+        },
+        {
+          "id": "f1",
+          "value": "blue"
+        },
+        {
+          "id": "f2",
+          "value": "square"
+        }
+      ]
+    }
+  },
+  {
+    "id": "subset",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f3"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f3",
+          "value": "round"
+        }
+      ]
+    }
+  },
+  {
+    "id": "empty",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": []
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": []
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": []
+    }
+  },
+  {
+    "id": "duplicate",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "missing",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "extra",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "wrong-value",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "invented"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "unknown-request",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "missing"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "duplicate-request",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f1"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "wrong-document",
+    "arguments": {
+      "value": {
+        "documentId": "other",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "wrong-revision",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 2,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "extra-report-field",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ],
+        "extra": true
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "extra-fact-field",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue",
+            "extra": true
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "wrong-fact-type",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": 1
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  },
+  {
+    "id": "oversized-value",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": null
+  }
+]

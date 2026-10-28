@@ -1,0 +1,149 @@
+{
+  "kind": "uncontrolled_maintenance_demonstration",
+  "createdUnixSeconds": 1793161402.3577657,
+  "arms": [
+    {
+      "arm": "meda",
+      "baselineChecks": [
+        {
+          "id": "ordered",
+          "passed": true,
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reversed",
+          "passed": false,
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "actual": null
+        }
+      ],
+      "candidate": "workflow.meda",
+      "baselineSha256": "ede7b19a58e01b334fb1f833d9547d57810d420bd72b7885ff5a86890fe65af9",
+      "protectedSha256": "4d0a80449d3452b3d54714375d833e00dc31466f3a126d2ad195559aa0001781",
+      "maxVisibleAttempts": 3
+    },
+    {
+      "arm": "typescript",
+      "baselineChecks": [
+        {
+          "id": "ordered",
+          "passed": true,
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          }
+        },
+        {
+          "id": "reversed",
+          "passed": false,
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "actual": null
+        }
+      ],
+      "candidate": "domain.ts",
+      "baselineSha256": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+      "protectedSha256": "fc0c21c0e668574644c7213ca116fa402931496529e0e6624c32b5ad67d09831",
+      "maxVisibleAttempts": 3
+    }
+  ],
+  "files": {
+    "experiments/decision_screen/maintenance/acceptance.json": "ae99ca8ef29dc7a59f8e6778644751aa24e4feaebdf7f91141d5d8d63398e16b",
+    "experiments/decision_screen/maintenance/meda/PROFILE.md": "f11ccad89aa5b1db7e1f0539fb50db922703817acb9d4880b35cef1dad841358",
+    "experiments/decision_screen/maintenance/meda/TASK.md": "231584438e7102f9c072e134f71849db6f35387d711fefe2c4db332d52088b9d",
+    "experiments/decision_screen/maintenance/meda/baseline.meda": "ede7b19a58e01b334fb1f833d9547d57810d420bd72b7885ff5a86890fe65af9",
+    "experiments/decision_screen/maintenance/meda/packet.json": "8d7794e0cc7a7734d9a393ed67545245566cb7239e2e3eff7401e70a12001d7f",
+    "experiments/decision_screen/maintenance/meda/visible.json": "efb557350703f75b3e446348a561c2c922fc213f3e7e4f899072c50ceecf781b",
+    "experiments/decision_screen/maintenance/meda/workflow.meda": "ede7b19a58e01b334fb1f833d9547d57810d420bd72b7885ff5a86890fe65af9",
+    "experiments/decision_screen/maintenance/typescript/PROFILE.md": "360273e0eca002c0361e819b81f9d5615b5ecfa91fd3787744fc429e7102884b",
+    "experiments/decision_screen/maintenance/typescript/TASK.md": "d6b61d25ba087d0699a12c7a8f732d36ddb8253477fbad4ceb1a99926ee62a0f",
+    "experiments/decision_screen/maintenance/typescript/baseline.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+    "experiments/decision_screen/maintenance/typescript/domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+    "experiments/decision_screen/maintenance/typescript/packet.json": "3fb26a801df9695454d3f4be6a2e8008433f4b26a30d915cdc1f40cc4154bb7d",
+    "experiments/decision_screen/maintenance/typescript/visible.json": "efb557350703f75b3e446348a561c2c922fc213f3e7e4f899072c50ceecf781b"
+  },
+  "modelMetadata": {
+    "configuration": "inherited parent configuration for both fresh workers",
+    "exactModelRevision": null,
+    "tokenUsage": null,
+    "reasoningSetting": null
+  },
+  "isolation": "shared filesystem; instruction isolation only",
+  "finalAcceptanceBeforeRepairs": true
+}

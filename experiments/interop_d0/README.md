@@ -1,5 +1,9 @@
 # Bounded SDK interoperability experiment
 
+The [direct-call decision screen](../decision_screen/README.md) now reuses this
+host for both Meda and TypeScript and records the cancellation-refusal repair.
+The original D0 pilot and its broader acceptance gaps are preserved below.
+
 Start with the [wiring walkthrough and runnable example](../../docs/wiring-walkthrough.md)
 to follow an application call through the bindings, shared host and SDK peers.
 
@@ -10,8 +14,8 @@ alter or lose actual SDK responses. The acceptance oracle does not import the
 host, adapters, client, or their validators.
 
 This is a development candidate, not a completed gate or a protocol conformance
-suite. The effectful Meda arm and controlled maintenance study are not implemented
-here. See [the workflow contract](../../docs/interop-workflow.md),
+suite. The narrow Meda arm and one uncontrolled maintenance demonstration live in
+`../decision_screen/`; the controlled maintenance study is still unimplemented. See [the workflow contract](../../docs/interop-workflow.md),
 [roadmap](../../docs/interop-roadmap.md), and
 [execution report](../../docs/interop-reference-results.md).
 

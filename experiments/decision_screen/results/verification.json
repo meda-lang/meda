@@ -1,0 +1,22 @@
+{
+  "python": "3.12.14",
+  "node": "v24.22.1",
+  "testMethods": {
+    "d0": 91,
+    "priorComparison": 15,
+    "pureGates": 23,
+    "directLanguage": 12
+  },
+  "totalTestMethods": 141,
+  "allPassed": true,
+  "logSha256": {
+    "d0-tests.log": "170f4d5d814b88f508404fd70e749700d6107af9bfd9e96382c80958e40c4cc3",
+    "comparison-tests.log": "5d5481afb1fcc6b721937a3dad5e3393c1dc78d274fe54a4432cf8572bc2c79f",
+    "gates-tests.log": "64c9aaa3934a80026c50c3522259d50bcfe50c4f95578d50a4e614d7d0d882e4"
+  },
+  "limitations": [
+    "local Linux process supervision; not an OS security sandbox",
+    "no controlled model productivity study",
+    "official SDK fixtures; no LLM provider calls"
+  ]
+}

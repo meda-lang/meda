@@ -1,0 +1,48 @@
+name: Meda decision screen
+
+on:
+  pull_request:
+    paths:
+      - 'experiments/gates/**'
+      - 'experiments/interop_d0/**'
+      - 'experiments/decision_screen/**'
+      - 'docs/decision-screen-contract.md'
+      - '.github/workflows/decision-screen.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  paired-screen:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      MEDA_COMPARE_TSC: ${{ github.workspace }}/experiments/interop_d0/node_modules/typescript/lib/tsc.js
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install the existing locked dependencies
+        run: |
+          python -m venv experiments/interop_d0/.venv
+          experiments/interop_d0/.venv/bin/python -m pip install --require-hashes --only-binary=:all: -r experiments/interop_d0/requirements.lock
+          npm ci --ignore-scripts --prefix experiments/interop_d0
+      - name: Verify language, host, supervisor, and earlier comparison
+        run: |
+          experiments/interop_d0/.venv/bin/python -m unittest discover -s experiments/gates/tests -v
+          experiments/interop_d0/.venv/bin/python -m unittest discover -s experiments/interop_d0/tests -v
+          experiments/interop_d0/.venv/bin/python -m unittest discover -s experiments/interop_compare/tests -v
+          experiments/interop_d0/.venv/bin/python -m unittest discover -s experiments/decision_screen/tests -v
+      - name: Run paired SDK workflows and checker probes
+        run: |
+          experiments/interop_d0/.venv/bin/python -m experiments.decision_screen.run --output experiments/decision_screen/generated-results/baseline.json
+          experiments/interop_d0/.venv/bin/python -m experiments.decision_screen.static_checks > experiments/decision_screen/generated-results/static-checks.json
+          python -c 'import json; assert json.load(open("experiments/decision_screen/generated-results/static-checks.json"))["passed"]'
+      - name: Verify frozen maintenance candidates
+        run: experiments/interop_d0/.venv/bin/python experiments/decision_screen/maintenance/collect.py --output experiments/decision_screen/generated-results/maintenance.json

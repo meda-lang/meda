@@ -1,5 +1,9 @@
 # Meda semantic gates status
 
+October 27 update: the separate [bounded direct-call decision screen](decision-screen-results.md)
+now runs both languages and recommends library-first. It does not close the
+broader gates below; their October 25 historical criteria and results remain.
+
 Updated October 25, 2026. Gate A/B baseline repository: `6d01d7a1ff77f2fd04d0b7175f0b24bcf14ee19e`.
 
 Draft 2.1 and its interoperability amendment specify the next bounded experiment.

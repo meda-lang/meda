@@ -63,6 +63,7 @@ class Operation:
     start: int
     body_start: int
     body_end: int
+    effects: tuple = ()
 
 
 def lex(source):
@@ -86,8 +87,9 @@ def lex(source):
 
 
 class Parser:
-    def __init__(self, source):
+    def __init__(self, source, *, allowed_effects=()):
         self.source, self.tokens, self.i = source, lex(source), 0
+        self.allowed_effects = frozenset(allowed_effects)
         self.ops, self.records, self.enums, self.constants, self.tests, self.imports = {}, {}, {}, {}, {}, {}
         self.module = "main"
 
@@ -202,8 +204,19 @@ class Parser:
                 self.nl()
                 self.take("effects")
                 self.take("[")
-                if self.tok.text != "]":
-                    raise Diagnostic("UnsupportedEffect", "This executable profile is pure.", self.tok.pos)
+                effects = []
+                self.nl()
+                while self.tok.text != "]":
+                    if self.tok.text not in self.allowed_effects:
+                        raise Diagnostic("UnsupportedEffect", "Effect is not supported by this executable profile.", self.tok.pos)
+                    effect = self.name()
+                    if effect in effects:
+                        raise Diagnostic("DuplicateEffect", effect, self.tok.pos)
+                    effects.append(effect)
+                    self.nl()
+                    if not self.maybe(","):
+                        break
+                    self.nl()
                 self.take("]")
                 self.nl()
                 contracts = []
@@ -214,7 +227,7 @@ class Parser:
                     self.nl()
                 body_start = self.tok.pos
                 body = self.block()
-                self.ops[name] = Operation(name, params, output, contracts, body, t.pos, body_start, self.tokens[self.i-1].end)
+                self.ops[name] = Operation(name, params, output, contracts, body, t.pos, body_start, self.tokens[self.i-1].end, tuple(effects))
             elif t.text == "let":
                 name = self.name()
                 self.take(":")

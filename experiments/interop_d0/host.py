@@ -584,6 +584,12 @@ class Host:
                 parts = artifacts[0].get("parts")
                 if isinstance(parts, list) and len(parts) == 1 and isinstance(parts[0], dict) and isinstance(parts[0].get("data"), dict):
                     result["artifact"] = copy.deepcopy(parts[0]["data"])
+        # Only a fully validated new observation can supersede a prior explicit
+        # cancellation refusal. The refusal itself says nothing about task state.
+        if state not in TERMINAL and "cancel_refusal_sequence" in old:
+            refusal_sequence = old.pop("cancel_refusal_sequence")
+            self._event("cleanup_eligibility_restored", refusalSequence=refusal_sequence,
+                        state=state)
         self._event("task_observed", state=state, reference=len(self.refs))
         return result
 
@@ -681,7 +687,16 @@ class Host:
             self.polls += 1
             self.last_poll = self.clock()
         method = "GetTask" if operation == "observe" else "CancelTask"
-        return self._task(self._request("a2a", method, {"id": ref["task_id"]}), ref)
+        try:
+            value = self._request("a2a", method, {"id": ref["task_id"]})
+        except HostError as exc:
+            if operation == "cancel" and exc.code == "TaskNotCancelable" and exc.remote == "Completed":
+                # _request has validated the response envelope and request ID.
+                # Completed describes the request's delivery, not a terminal task.
+                ref["cancel_refusal_sequence"] = len(self.trace)
+                self._event("explicit_cancel_refused", code=exc.code, state=ref["state"])
+            raise
+        return self._task(value, ref)
 
     def finish(self, application_result):
         # One finisher owns cleanup and publication. Other finishers wait for
@@ -714,6 +729,13 @@ class Host:
             if not joined:
                 break
             if ref["state"] in TERMINAL:
+                continue
+            if "cancel_refusal_sequence" in ref:
+                skipped = {"outcome": "Skipped", "reason": "PriorExplicitRefusal",
+                           "refusalSequence": ref["cancel_refusal_sequence"],
+                           "lastObservedState": ref["state"], "remoteOutcome": "Unknown"}
+                cleanup.append(skipped)
+                self._event("cleanup_skipped", **skipped)
                 continue
             if "cancel" not in self.config.grants:
                 cleanup.append({"outcome": "AuthorityDenied", "remoteOutcome": "Unknown"})
