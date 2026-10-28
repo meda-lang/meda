@@ -1,0 +1,74 @@
+{
+  "attempt": 1,
+  "sourceSha256": "18553463edfb60ecc3d8a24e53c66d995a68d64b428f0bb0002114a7f3119a08",
+  "startedUnixSeconds": 1793161445.2551968,
+  "protectedScopeUnchanged": true,
+  "checks": [
+    {
+      "id": "ordered",
+      "passed": true,
+      "expected": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "actual": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      }
+    },
+    {
+      "id": "reversed",
+      "passed": true,
+      "expected": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "actual": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      }
+    }
+  ],
+  "passed": true,
+  "elapsedSeconds": 0.008001327514648438
+}

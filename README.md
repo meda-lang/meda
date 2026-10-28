@@ -10,9 +10,9 @@ agent may change and check that it preserves protected contracts and interfaces.
 The intended language supports ordinary application code as well as programs
 that call LLMs, tools, and other agents.
 
-**Today, this is a research prototype.** A small, pure subset of Meda runs.
-The working MCP and agent-to-agent integration runs in TypeScript. The Meda
-version of that integration is still missing, and there is no stable release.
+**Today, this is a research prototype.** Both Meda and TypeScript now run the
+same small MCP and agent-to-agent workflow through a shared host. Meda supports
+a pure subset plus a narrow direct-call profile; there is no stable release.
 
 ## Why build a language?
 
@@ -20,23 +20,23 @@ That is the question we are testing. We compare Meda with a conventional strict
 TypeScript client using the same runtime and protocol adapters. Protections
 supplied by that shared runtime are useful to either language.
 
-The [first comparison](docs/runtime-comparison.md) produced the same outcomes in
-both languages. It did not establish a language advantage or a maintenance
-productivity gain. Our current recommendation is to prioritize the reusable
-runtime and keep TypeScript as a first-class client while testing whether Meda
-adds enough value to justify a new language. A library-first direction remains
-a valid outcome.
+The [direct-call comparison](docs/decision-screen-results.md) produced matching
+outcomes in all 11 paired scenarios. Both languages also passed the same small
+maintenance change. Meda adds declared-effect checking, but this screen does
+not establish enough benefit to justify expanding the language. **Our current
+recommendation is library-first:** prioritize the shared runtime and TypeScript
+client, and retain Meda as a research prototype.
 
 ## What exists today
 
 | Part | Implemented | Still proposed or unproven |
 | --- | --- | --- |
-| Meda language | A Python-based parser, type checker, and evaluator for pure operations, records, enums, lists, and runtime-checked contracts. | The full language design, including direct external calls and effect checking. |
-| Editing tools | Guarded single-file edits with revision checks, protected contracts, and validation before publication. | Better AI maintenance outcomes than equally equipped conventional tools. |
-| Protocol runtime | A Python host, strict TypeScript client, and official SDK test peers for MCP and A2A. | Direct Meda integration, full acceptance, and production readiness. |
+| Meda language | A parser, checker and evaluator; pure contracts; a narrow profile with five direct host calls, declared effects and opaque task references. | The full language design, general modules and broader effect support. |
+| Editing tools | Guarded single-file edits for the pure profile, with protected contracts and validation before publication. | Effectful guarded edits and better AI maintenance outcomes than conventional tools. |
+| Protocol runtime | A shared Python host, Meda and strict TypeScript applications, and official MCP/A2A SDK test peers. | Full acceptance and production readiness. |
 
-The [implemented language profile](experiments/gates/PROFILE.md) defines what
-actually runs. [Design Draft 2.1](docs/design-draft-2.1.md) describes the larger
+The [pure profile](experiments/gates/PROFILE.md) and
+[direct-call example](experiments/decision_screen/README.md) define what runs. [Design Draft 2.1](docs/design-draft-2.1.md) describes the larger
 proposal; its examples are not all executable yet.
 
 ## Try actual Meda code
@@ -59,7 +59,7 @@ operation clamp(value: Int, lower: Int, upper: Int) -> Int effects []
 ```
 
 `operation` declares a typed function. `effects []` means it is pure; this
-prototype only supports pure operations. `require` checks a condition before
+standalone pure interpreter only supports pure operations. `require` checks a condition before
 the body runs, and `ensure` checks the result afterward. These contracts run on
 each invocation; they are not a proof that the implementation is correct.
 
@@ -88,13 +88,14 @@ Protocol) connects to tools and data; A2A (Agent2Agent) connects to remote tasks
 ```mermaid
 flowchart TD
   TS["TypeScript application: implemented"] --> Host["Shared host and protocol adapters"]
-  Meda["Meda application: direct calls planned"] -.-> Host
+  Meda["Meda application: narrow direct-call profile"] --> Host
   Host --> MCP["MCP tool server"]
   Host --> A2A["A2A agent"]
 ```
 
 Follow the [wiring walkthrough](docs/wiring-walkthrough.md) or start with the
-actual [TypeScript workflow](experiments/interop_d0/client/workflow.ts). The
+actual [Meda workflow](experiments/decision_screen/workflow.meda) and
+[TypeScript workflow](experiments/interop_d0/client/workflow.ts). The
 example reads evidence, submits a report task, polls it, and validates the
 result. Its peers use real protocol SDKs with deterministic test behavior;
 there are no LLM provider calls.
@@ -106,12 +107,12 @@ compatibility checks.
 
 ## What happens next
 
-The next milestone is [one bounded Meda versus TypeScript experiment](https://github.com/meda-lang/meda/issues/10):
-implement the minimum Meda support for direct host calls, run both clients
-through the same workflow, and attempt one equivalent maintenance change.
-Fix the defects that block that comparison, then make an explicit decision to
-continue the language, focus on the library, or stop. The broader language
-design is not a commitment to implement every proposed feature first.
+The [bounded experiment](docs/decision-screen-results.md) is complete, including
+the cancellation fix, explicit shutdown contract, direct Meda integration, and
+one maintenance demonstration. The recommended next investment is making the
+shared runtime easier to consume from conventional code and addressing its
+[remaining acceptance gaps](https://github.com/meda-lang/meda/issues/11).
+Further language expansion is paused pending evidence for a specific benefit.
 
 For more detail, see the [roadmap](ROADMAP.md),
 [research handoff and evidence index](docs/research-handoff.md), and

@@ -1,0 +1,28 @@
+test_driver_receives_no_acceptance_or_solution (test_benchmark.BenchmarkTests.test_driver_receives_no_acceptance_or_solution) ... ok
+test_oracle_does_not_coerce_nested_types (test_benchmark.BenchmarkTests.test_oracle_does_not_coerce_nested_types) ... ok
+test_python_scope_escape (test_benchmark.BenchmarkTests.test_python_scope_escape) ... ok
+test_python_worker_enforces_deadline (test_benchmark.BenchmarkTests.test_python_worker_enforces_deadline) ... ok
+test_byte_and_editor_diagnostics (test_gates.CorpusTests.test_byte_and_editor_diagnostics) ... ok
+test_cli_corpus (test_gates.CorpusTests.test_cli_corpus) ... ok
+test_formatter_preserves_comments_and_meaning (test_gates.CorpusTests.test_formatter_preserves_comments_and_meaning) ... ok
+test_constant_and_added_dependency_are_in_closure (test_gates.EditTests.test_constant_and_added_dependency_are_in_closure) ... ok
+test_edited_check_file (test_gates.EditTests.test_edited_check_file) ... ok
+test_edited_grant (test_gates.EditTests.test_edited_grant) ... ok
+test_empty_acceptance_rejected (test_gates.EditTests.test_empty_acceptance_rejected) ... ok
+test_false_acceptance_prevents_receipt (test_gates.EditTests.test_false_acceptance_prevents_receipt) ... ok
+test_intentional_spec_change_requires_grant (test_gates.EditTests.test_intentional_spec_change_requires_grant) ... ok
+test_json_protocol_from_outside (test_gates.EditTests.test_json_protocol_from_outside) ... ok
+test_qualified_constant_dependency_is_protected (test_gates.EditTests.test_qualified_constant_dependency_is_protected) ... ok
+test_scope_escape_payload_rejected (test_gates.EditTests.test_scope_escape_payload_rejected) ... ok
+test_selective_helper_weakening_is_spec_change (test_gates.EditTests.test_selective_helper_weakening_is_spec_change) ... ok
+test_stale_receipt (test_gates.EditTests.test_stale_receipt) ... ok
+test_stale_revision (test_gates.EditTests.test_stale_revision) ... ok
+test_transitive_helper_weakening_is_spec_change (test_gates.EditTests.test_transitive_helper_weakening_is_spec_change) ... ok
+test_type_error_can_be_repaired_in_same_transaction (test_gates.EditTests.test_type_error_can_be_repaired_in_same_transaction) ... ok
+test_ungranted_target (test_gates.EditTests.test_ungranted_target) ... ok
+test_unrelated_helper_can_commit (test_gates.EditTests.test_unrelated_helper_can_commit) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 4.498s
+
+OK

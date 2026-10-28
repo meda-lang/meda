@@ -1,0 +1,112 @@
+[
+  {
+    "id": "ordered",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f1",
+          "value": "blue"
+        },
+        {
+          "id": "f2",
+          "value": "square"
+        }
+      ]
+    }
+  },
+  {
+    "id": "reversed",
+    "arguments": {
+      "value": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "selected": [
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f1",
+            "value": "blue"
+          }
+        ]
+      },
+      "evidence": {
+        "documentId": "evidence-42",
+        "revision": 1,
+        "facts": [
+          {
+            "id": "f1",
+            "value": "blue"
+          },
+          {
+            "id": "f2",
+            "value": "square"
+          },
+          {
+            "id": "f3",
+            "value": "round"
+          }
+        ]
+      },
+      "includeIds": [
+        "f1",
+        "f2"
+      ]
+    },
+    "expected": {
+      "documentId": "evidence-42",
+      "revision": 1,
+      "selected": [
+        {
+          "id": "f1",
+          "value": "blue"
+        },
+        {
+          "id": "f2",
+          "value": "square"
+        }
+      ]
+    }
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "frozenUnixSeconds": 1793161480.7418303,
+  "candidates": {
+    "experiments/decision_screen/maintenance/meda/workflow.meda": "18553463edfb60ecc3d8a24e53c66d995a68d64b428f0bb0002114a7f3119a08",
+    "experiments/decision_screen/maintenance/typescript/domain.ts": "ce49ced52ad884ea04411002f4539d089b67ffe0dcd9550aaff1ad6a3f238f16"
+  },
+  "parentInterventions": [],
+  "agents": [
+    {
+      "arm": "meda",
+      "task": "maintenance_meda",
+      "visibleAttempts": 1
+    },
+    {
+      "arm": "typescript",
+      "task": "maintenance_typescript",
+      "visibleAttempts": 1
+    }
+  ],
+  "finalAcceptanceFeedbackGivenToAgents": false
+}

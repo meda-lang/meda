@@ -1,0 +1,141 @@
+import std.list as list
+
+record WorkflowInput {
+  documentId: Text,
+  includeIds: List<Text>,
+  requestClarification: Bool,
+  suppliedInput: Selection,
+  cancelAfterSubmit: Bool,
+}
+
+enum ApplicationResult {
+  Success { report: Report },
+  Stopped { outcome: Text },
+  Error { error: HostError },
+}
+
+// Only application-domain relationships belong here. The binding checks shape.
+operation validateReport(value: Report, evidence: Evidence, includeIds: List<Text>) -> Artifact effects [] {
+  if value.documentId != evidence.documentId or value.revision != evidence.revision {
+    return Artifact.Invalid
+  }
+  if list.length(items: value.selected) != list.length(items: includeIds) {
+    return Artifact.Invalid
+  }
+  var expected: List<Fact> = []
+  var seen: List<Text> = []
+  for wanted in includeIds {
+    for previous in seen {
+      if previous == wanted {
+        return Artifact.Invalid
+      }
+    }
+    seen = list.append(items: seen, value: wanted)
+    var evidenceMatches = 0
+    for fact in evidence.facts {
+      if fact.id == wanted {
+        evidenceMatches = evidenceMatches + 1
+        var selectedMatches = 0
+        for selectedFact in value.selected {
+          if selectedFact.id == wanted {
+            if selectedFact != fact {
+              return Artifact.Invalid
+            }
+            selectedMatches = selectedMatches + 1
+          }
+        }
+        if selectedMatches != 1 {
+          return Artifact.Invalid
+        }
+        expected = list.append(items: expected, value: fact)
+      }
+    }
+    if evidenceMatches != 1 {
+      return Artifact.Invalid
+    }
+  }
+  return Artifact.Value(report: value with { selected: expected })
+}
+
+operation complete(artifact: Artifact, evidence: Evidence, includeIds: List<Text>) -> ApplicationResult effects [] {
+  match artifact {
+    Artifact.Missing => { return ApplicationResult.Stopped(outcome: "DomainRejected") }
+    Artifact.Invalid => { return ApplicationResult.Stopped(outcome: "DomainRejected") }
+    Artifact.Value(report: report) => {
+      let checked = validateReport(value: report, evidence: evidence, includeIds: includeIds)
+      match checked {
+        Artifact.Missing => { return ApplicationResult.Stopped(outcome: "DomainRejected") }
+        Artifact.Invalid => { return ApplicationResult.Stopped(outcome: "DomainRejected") }
+        Artifact.Value(report: valid) => { return ApplicationResult.Success(report: valid) }
+      }
+    }
+  }
+}
+
+operation runTask(evidence: Evidence, input: WorkflowInput) -> ApplicationResult effects [SubmitTask, ObserveTask, ProvideInput, CancelTask] {
+  var selectedIds = input.includeIds
+  var selection = Selection.Included(ids: selectedIds)
+  if input.requestClarification {
+    selection = Selection.Omitted
+  }
+  var response = host.submit(evidence: evidence, selection: selection)
+  var polls = 0
+  var continued = false
+  var cancelRequested = false
+  while true {
+    match response {
+      TaskResult.Error(error: error) => { return ApplicationResult.Error(error: error) }
+      TaskResult.DirectReply => { return ApplicationResult.Stopped(outcome: "UnsupportedReply") }
+      TaskResult.Value(task: task) => {
+        if input.cancelAfterSubmit and !cancelRequested and (task.state == TaskState.Submitted or task.state == TaskState.Working or task.state == TaskState.InputRequired or task.state == TaskState.AuthRequired) {
+          cancelRequested = true
+          response = host.cancel(ref: task.ref)
+          continue
+        }
+        match task.state {
+          TaskState.Completed => { return complete(artifact: task.artifact, evidence: evidence, includeIds: selectedIds) }
+          TaskState.Failed => { return ApplicationResult.Stopped(outcome: "RemoteFailed") }
+          TaskState.Canceled => { return ApplicationResult.Stopped(outcome: "RemoteCanceled") }
+          TaskState.Rejected => { return ApplicationResult.Stopped(outcome: "RemoteRejected") }
+          TaskState.AuthRequired => { return ApplicationResult.Stopped(outcome: "AuthorizationRequired") }
+          TaskState.InputRequired => {
+            if continued {
+              return ApplicationResult.Stopped(outcome: "NeedsInput")
+            }
+            match input.suppliedInput {
+              Selection.Omitted => { return ApplicationResult.Stopped(outcome: "NeedsInput") }
+              Selection.Included(ids: ids) => {
+                continued = true
+                selectedIds = ids
+                response = host.provideInput(ref: task.ref, includeIds: selectedIds)
+              }
+            }
+          }
+          TaskState.Submitted => {
+            if polls >= 3 {
+              return ApplicationResult.Stopped(outcome: "PollLimit")
+            }
+            polls = polls + 1
+            response = host.observe(ref: task.ref)
+          }
+          TaskState.Working => {
+            if polls >= 3 {
+              return ApplicationResult.Stopped(outcome: "PollLimit")
+            }
+            polls = polls + 1
+            response = host.observe(ref: task.ref)
+          }
+        }
+      }
+    }
+  }
+  return ApplicationResult.Stopped(outcome: "PollLimit")
+}
+
+operation runWorkflow(input: WorkflowInput) -> ApplicationResult effects [ReadEvidence, SubmitTask, ObserveTask, ProvideInput, CancelTask] {
+  let response = host.readEvidence(documentId: input.documentId)
+  match response {
+    EvidenceResult.Error(error: error) => { return ApplicationResult.Error(error: error) }
+    EvidenceResult.Value(value: evidence) => { return runTask(evidence: evidence, input: input) }
+  }
+}

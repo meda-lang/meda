@@ -1,0 +1,7 @@
+{
+  "arm": "meda",
+  "candidate": "workflow.meda",
+  "baselineSha256": "ede7b19a58e01b334fb1f833d9547d57810d420bd72b7885ff5a86890fe65af9",
+  "protectedSha256": "4d0a80449d3452b3d54714375d833e00dc31466f3a126d2ad195559aa0001781",
+  "maxVisibleAttempts": 3
+}

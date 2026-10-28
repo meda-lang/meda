@@ -1,29 +1,29 @@
 # Meda experimental roadmap
 
-The current candidate is [Draft 2.1](docs/design-draft-2.1.md). The next decision
-is whether a language adds enough value beyond strict TypeScript using the same
-runtime and adapters. The [research handoff](docs/research-handoff.md) records the
-current recommendation and evidence; detailed language gate status remains in
-[gate-status.md](docs/gate-status.md).
+The [bounded comparison](docs/decision-screen-results.md) is complete. Both
+real applications pass the same protocol workflow and maintenance screen.
+The recommendation is **library-first**, with further language expansion paused.
+[Draft 2.1](docs/design-draft-2.1.md) remains a proposal rather than a release plan.
 
-## Next milestone: decide whether to continue the language
+## Completed decision milestone
 
-1. Fix the [cancellation-refusal cleanup defect](https://github.com/meda-lang/meda/issues/8)
-   and define the [shutdown guarantees](https://github.com/meda-lang/meda/issues/9)
-   needed for a reliable comparison.
-2. Run the [minimum effectful Meda versus TypeScript experiment](https://github.com/meda-lang/meda/issues/10)
-   through the same host and adapters, including one equivalent maintenance change.
-3. Publish a continue-Meda, library-first, or stop decision, counting both benefits
-   and the cost of the additional language implementation.
+- [x] Repair cancellation-refusal cleanup and retain a separate repair receipt.
+- [x] Define and measure the narrower shutdown contract for both applications.
+- [x] Run real direct-call Meda and TypeScript through the same host and adapters.
+- [x] Freeze and execute one equivalent maintenance change, preserving all attempts.
+- [x] Publish a decision that counts shared protections and additional language cost.
 
-Broader [reference acceptance gaps](https://github.com/meda-lang/meda/issues/11)
-remain tracked. This smaller experiment will not close those gates or establish
-a general productivity advantage by itself.
+## Recommended next investment
+
+Make the shared host and TypeScript client easier to consume independently of
+the experiment. Address the [broader reference acceptance gaps](https://github.com/meda-lang/meda/issues/11)
+before claiming production readiness. Keep the runnable Meda prototype and its
+receipts available for future, specific language hypotheses.
 
 ## Broader language research backlog
 
-These earlier gates remain recorded; they are not prerequisites to finish in
-full before the next product decision.
+These earlier gates remain recorded as deferred language research. The small
+decision screen does not complete them.
 
 - [x] Amend the second review's contract protection and timeout ownership gaps.
 - [x] Define callable label compatibility and narrow lexical shadowing.

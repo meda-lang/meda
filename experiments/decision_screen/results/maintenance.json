@@ -1,0 +1,3883 @@
+{
+  "acceptanceSha256": "ae99ca8ef29dc7a59f8e6778644751aa24e4feaebdf7f91141d5d8d63398e16b",
+  "arms": [
+    {
+      "arm": "meda",
+      "candidateSha256": "18553463edfb60ecc3d8a24e53c66d995a68d64b428f0bb0002114a7f3119a08",
+      "checks": [
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "ordered",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "reversed",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f2",
+                "value": "square"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f2",
+                "value": "square"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              }
+            ]
+          },
+          "id": "request-reversed",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "three-permuted",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              }
+            ]
+          },
+          "id": "subset",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": []
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": []
+          },
+          "id": "empty",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "duplicate",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "missing",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-value",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "unknown-request",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "duplicate-request",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-document",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-revision",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra-report-field",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra-fact-field",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-fact-type",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "oversized-value",
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "protectedScopeUnchanged": true,
+      "visibleAttempts": [
+        {
+          "attempt": 1,
+          "checks": [
+            {
+              "actual": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "expected": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "id": "ordered",
+              "passed": true
+            },
+            {
+              "actual": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "expected": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "id": "reversed",
+              "passed": true
+            }
+          ],
+          "elapsedSeconds": 0.008001327514648438,
+          "passed": true,
+          "protectedScopeUnchanged": true,
+          "sourceSha256": "18553463edfb60ecc3d8a24e53c66d995a68d64b428f0bb0002114a7f3119a08",
+          "startedUnixSeconds": 1793161445.2551968
+        }
+      ]
+    },
+    {
+      "arm": "typescript",
+      "candidateSha256": "ce49ced52ad884ea04411002f4539d089b67ffe0dcd9550aaff1ad6a3f238f16",
+      "checks": [
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "ordered",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "reversed",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f2",
+                "value": "square"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f2",
+                "value": "square"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              }
+            ]
+          },
+          "id": "request-reversed",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              },
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          },
+          "id": "three-permuted",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              }
+            ]
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f3",
+                "value": "round"
+              }
+            ]
+          },
+          "id": "subset",
+          "passed": true
+        },
+        {
+          "actual": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": []
+          },
+          "expected": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": []
+          },
+          "id": "empty",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "duplicate",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "missing",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-value",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "unknown-request",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "duplicate-request",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-document",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-revision",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra-report-field",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "extra-fact-field",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "wrong-fact-type",
+          "passed": true
+        },
+        {
+          "actual": null,
+          "expected": null,
+          "id": "oversized-value",
+          "passed": true
+        }
+      ],
+      "passed": true,
+      "protectedScopeUnchanged": true,
+      "visibleAttempts": [
+        {
+          "attempt": 1,
+          "checks": [
+            {
+              "actual": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "expected": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "id": "ordered",
+              "passed": true
+            },
+            {
+              "actual": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "expected": {
+                "documentId": "evidence-42",
+                "revision": 1,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "id": "reversed",
+              "passed": true
+            }
+          ],
+          "elapsedSeconds": 0.8775911331176758,
+          "passed": true,
+          "protectedScopeUnchanged": true,
+          "sourceSha256": "ce49ced52ad884ea04411002f4539d089b67ffe0dcd9550aaff1ad6a3f238f16",
+          "startedUnixSeconds": 1793161444.8421154
+        }
+      ]
+    }
+  ],
+  "candidatesUnchanged": true,
+  "finalFreezeSha256": "6016b2285bb064a9c2a92087b34bca5eab11682a1c54e90933b662795210bb39",
+  "finishedUnixSeconds": 1793161555.0378761,
+  "integration": [
+    {
+      "arm": "meda",
+      "assessment": {
+        "actualCalls": {
+          "observe": 1,
+          "readEvidence": 1,
+          "submit": 1
+        },
+        "caseId": "maintenance-baseline-reordered",
+        "checks": [
+          {
+            "actual": null,
+            "expected": null,
+            "name": "receipt_shapes",
+            "passed": true
+          },
+          {
+            "actual": "DomainRejected",
+            "expected": "DomainRejected",
+            "name": "outcome",
+            "passed": true
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "name": "fatal",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": "absent",
+            "name": "report",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "one_publication",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "publication_result",
+            "passed": true
+          },
+          {
+            "actual": {
+              "observe": 1,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "application_calls",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "call_ids",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "cleanup_cancels",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "cleanup_scope",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "peer_task_creations",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "peer_continuations",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "same_task",
+            "passed": true
+          },
+          {
+            "actual": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "proxy_business_forwards",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "evidence_peer",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_supervisorJoined",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "peers_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "witnesses_before_peer_shutdown",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_output_truncation",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_unexpected_stdout",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_post_fatal_responses",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "finish_frames",
+            "passed": true
+          },
+          {
+            "actual": 0.0002301360000274144,
+            "expected": "0..1.0 seconds",
+            "name": "cleanup_time",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "complete_channel_scan",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_channel_secrets",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "ordered_trace",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_late_application_dispatch",
+            "passed": true
+          }
+        ],
+        "failedChecks": [],
+        "passed": true,
+        "scope": "bounded_screen_not_full_D0_acceptance"
+      },
+      "case": {
+        "expected": {
+          "calls": {
+            "cancel": 0,
+            "observe": 1,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "cleanupCancel": 0,
+          "outcome": "DomainRejected",
+          "peerTasks": 1
+        },
+        "id": "maintenance-baseline-reordered",
+        "kind": "workflow",
+        "scenario": {
+          "reportMutation": "reordered_ids"
+        }
+      },
+      "passed": true,
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 29,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3560,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 902,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1875,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:57393/a2a",
+          "agentCardSha256": "d07c3181542f0332f4edc1b4cb6abeb13a8ce1e9a1ccddce9071d8cfa1e3611a",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:53797/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GetTask",
+              "operation": "observe",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "observed",
+              "state": "TASK_STATE_COMPLETED",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 70,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 289,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "reordered_ids",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 8
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "DomainRejected"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.955119805999857,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.945111070999701,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.937310567998793,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.931482132000383,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.92619819399988,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "GetTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.921210182001232,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "GetTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 289,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3280,
+            "method": "GetTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "DomainRejected",
+            "sequence": 22,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "DomainRejected"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "artifactSha256": "0b1c8ab356e20309f7121bd1793595aee6e0aa2cfc789b24c4215eeb768a508d",
+              "id": 3,
+              "kind": "Task",
+              "operation": "observe",
+              "state": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.09985269900062121,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.0002301360000274144,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 13127680,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.09955067400005646,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "reorderMutationObserved": true,
+      "stage": "baseline"
+    },
+    {
+      "arm": "typescript",
+      "assessment": {
+        "actualCalls": {
+          "observe": 1,
+          "readEvidence": 1,
+          "submit": 1
+        },
+        "caseId": "maintenance-baseline-reordered",
+        "checks": [
+          {
+            "actual": null,
+            "expected": null,
+            "name": "receipt_shapes",
+            "passed": true
+          },
+          {
+            "actual": "DomainRejected",
+            "expected": "DomainRejected",
+            "name": "outcome",
+            "passed": true
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "name": "fatal",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": "absent",
+            "name": "report",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "one_publication",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "publication_result",
+            "passed": true
+          },
+          {
+            "actual": {
+              "observe": 1,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "application_calls",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "call_ids",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "cleanup_cancels",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "cleanup_scope",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "peer_task_creations",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "peer_continuations",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "same_task",
+            "passed": true
+          },
+          {
+            "actual": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "proxy_business_forwards",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "evidence_peer",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_supervisorJoined",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "peers_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "witnesses_before_peer_shutdown",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_output_truncation",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_unexpected_stdout",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_post_fatal_responses",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "finish_frames",
+            "passed": true
+          },
+          {
+            "actual": 0.0002847280011337716,
+            "expected": "0..1.0 seconds",
+            "name": "cleanup_time",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "complete_channel_scan",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_channel_secrets",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "ordered_trace",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_late_application_dispatch",
+            "passed": true
+          }
+        ],
+        "failedChecks": [],
+        "passed": true,
+        "scope": "bounded_screen_not_full_D0_acceptance"
+      },
+      "case": {
+        "expected": {
+          "calls": {
+            "cancel": 0,
+            "observe": 1,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "cleanupCancel": 0,
+          "outcome": "DomainRejected",
+          "peerTasks": 1
+        },
+        "id": "maintenance-baseline-reordered",
+        "kind": "workflow",
+        "scenario": {
+          "reportMutation": "reordered_ids"
+        }
+      },
+      "passed": true,
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 29,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3559,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 902,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1875,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:56497/a2a",
+          "agentCardSha256": "65c06dd0bc86867021a66235d427f482f293efac018874a8c678753cb3cb0a69",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:57377/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GetTask",
+              "operation": "observe",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "observed",
+              "state": "TASK_STATE_COMPLETED",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 70,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 289,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "reordered_ids",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 8
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "DomainRejected"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.973281131999101,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.964582839998911,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.958679542000027,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.95199227500052,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.946012876996974,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "GetTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.94079842499923,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "GetTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 289,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3280,
+            "method": "GetTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "DomainRejected",
+            "sequence": 22,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "DomainRejected"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "artifactSha256": "0b1c8ab356e20309f7121bd1793595aee6e0aa2cfc789b24c4215eeb768a508d",
+              "id": 3,
+              "kind": "Task",
+              "operation": "observe",
+              "state": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.07342762099870015,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.0002847280011337716,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26853376,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.07131320099870209,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "reorderMutationObserved": true,
+      "stage": "baseline"
+    },
+    {
+      "arm": "meda",
+      "assessment": {
+        "actualCalls": {
+          "observe": 1,
+          "readEvidence": 1,
+          "submit": 1
+        },
+        "caseId": "maintenance-candidate-reordered",
+        "checks": [
+          {
+            "actual": null,
+            "expected": null,
+            "name": "receipt_shapes",
+            "passed": true
+          },
+          {
+            "actual": "Success",
+            "expected": "Success",
+            "name": "outcome",
+            "passed": true
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "name": "fatal",
+            "passed": true
+          },
+          {
+            "actual": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            },
+            "expected": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            },
+            "name": "report",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "one_publication",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "publication_result",
+            "passed": true
+          },
+          {
+            "actual": {
+              "observe": 1,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "application_calls",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "call_ids",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "cleanup_cancels",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "cleanup_scope",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "peer_task_creations",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "peer_continuations",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "same_task",
+            "passed": true
+          },
+          {
+            "actual": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "proxy_business_forwards",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "evidence_peer",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_supervisorJoined",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "peers_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "witnesses_before_peer_shutdown",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_output_truncation",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_unexpected_stdout",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_post_fatal_responses",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "finish_frames",
+            "passed": true
+          },
+          {
+            "actual": 0.00033573499968042597,
+            "expected": "0..1.0 seconds",
+            "name": "cleanup_time",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "complete_channel_scan",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_channel_secrets",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "ordered_trace",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_late_application_dispatch",
+            "passed": true
+          }
+        ],
+        "failedChecks": [],
+        "passed": true,
+        "scope": "bounded_screen_not_full_D0_acceptance"
+      },
+      "case": {
+        "expected": {
+          "calls": {
+            "cancel": 0,
+            "observe": 1,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "cleanupCancel": 0,
+          "outcome": "Success",
+          "peerTasks": 1
+        },
+        "id": "maintenance-candidate-reordered",
+        "kind": "workflow",
+        "scenario": {
+          "reportMutation": "reordered_ids"
+        }
+      },
+      "passed": true,
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 156,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3553,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 902,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1875,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:51423/a2a",
+          "agentCardSha256": "96c5e9a2d39727521d4dd6dccee6e35174d8927a931b028c1b5a3e7dda805185",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:36921/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GetTask",
+              "operation": "observe",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "observed",
+              "state": "TASK_STATE_COMPLETED",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 70,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 289,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "reordered_ids",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 8
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "Success",
+          "report": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          }
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.961566582001979,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.948985227001685,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.941952212000615,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.935612190001848,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.929891004001547,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "GetTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.924545758000022,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "GetTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 289,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3280,
+            "method": "GetTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "Success",
+            "sequence": 22,
+            "success": true
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "Success",
+            "report": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            }
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "artifactSha256": "0b1c8ab356e20309f7121bd1793595aee6e0aa2cfc789b24c4215eeb768a508d",
+              "id": 3,
+              "kind": "Task",
+              "operation": "observe",
+              "state": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.09942543100260082,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.00033573499968042597,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 13152256,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.09902633000092464,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "reorderMutationObserved": true,
+      "stage": "candidate"
+    },
+    {
+      "arm": "typescript",
+      "assessment": {
+        "actualCalls": {
+          "observe": 1,
+          "readEvidence": 1,
+          "submit": 1
+        },
+        "caseId": "maintenance-candidate-reordered",
+        "checks": [
+          {
+            "actual": null,
+            "expected": null,
+            "name": "receipt_shapes",
+            "passed": true
+          },
+          {
+            "actual": "Success",
+            "expected": "Success",
+            "name": "outcome",
+            "passed": true
+          },
+          {
+            "actual": false,
+            "expected": false,
+            "name": "fatal",
+            "passed": true
+          },
+          {
+            "actual": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            },
+            "expected": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            },
+            "name": "report",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "one_publication",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "publication_result",
+            "passed": true
+          },
+          {
+            "actual": {
+              "observe": 1,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "application_calls",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "call_ids",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "cleanup_cancels",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "cleanup_scope",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "peer_task_creations",
+            "passed": true
+          },
+          {
+            "actual": 0,
+            "expected": 0,
+            "name": "peer_continuations",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "same_task",
+            "passed": true
+          },
+          {
+            "actual": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "expected": {
+              "cancel": 0,
+              "observe": 1,
+              "provideInput": 0,
+              "readEvidence": 1,
+              "submit": 1
+            },
+            "name": "proxy_business_forwards",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "evidence_peer",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "worker_supervisorJoined",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "peers_retired",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "witnesses_before_peer_shutdown",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_output_truncation",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_unexpected_stdout",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_post_fatal_responses",
+            "passed": true
+          },
+          {
+            "actual": 1,
+            "expected": 1,
+            "name": "finish_frames",
+            "passed": true
+          },
+          {
+            "actual": 0.0002058099998976104,
+            "expected": "0..1.0 seconds",
+            "name": "cleanup_time",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "complete_channel_scan",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_channel_secrets",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "ordered_trace",
+            "passed": true
+          },
+          {
+            "actual": null,
+            "expected": null,
+            "name": "no_late_application_dispatch",
+            "passed": true
+          }
+        ],
+        "failedChecks": [],
+        "passed": true,
+        "scope": "bounded_screen_not_full_D0_acceptance"
+      },
+      "case": {
+        "expected": {
+          "calls": {
+            "cancel": 0,
+            "observe": 1,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "cleanupCancel": 0,
+          "outcome": "Success",
+          "peerTasks": 1
+        },
+        "id": "maintenance-candidate-reordered",
+        "kind": "workflow",
+        "scenario": {
+          "reportMutation": "reordered_ids"
+        }
+      },
+      "passed": true,
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 156,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3553,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 902,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1875,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:33979/a2a",
+          "agentCardSha256": "6a5f27c40e65da18ba72345d7180617841560630d84a73975b4a99ce86e591df",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:32895/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GetTask",
+              "operation": "observe",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "observed",
+              "state": "TASK_STATE_COMPLETED",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 70,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 289,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "reordered_ids",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 8
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "Success",
+          "report": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "blue"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          }
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.973318275002384,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.964709726002184,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.958546775000286,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.952340007999737,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.946709408999595,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "GetTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.941996729001403,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "GetTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 289,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3280,
+            "method": "GetTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "Success",
+            "sequence": 22,
+            "success": true
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "Success",
+            "report": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "blue"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            }
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "artifactSha256": "0b1c8ab356e20309f7121bd1793595aee6e0aa2cfc789b24c4215eeb768a508d",
+              "id": 3,
+              "kind": "Task",
+              "operation": "observe",
+              "state": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.07077254400064703,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.0002058099998976104,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26763264,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.07048046500131022,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "reorderMutationObserved": true,
+      "stage": "candidate"
+    }
+  ],
+  "isolation": "shared filesystem; instruction isolation only",
+  "kind": "uncontrolled_maintenance_demonstration",
+  "modelMetadata": {
+    "configuration": "inherited parent configuration for both fresh workers",
+    "exactModelRevision": null,
+    "reasoningSetting": null,
+    "tokenUsage": null
+  },
+  "packetFreezeSha256": "3e6cd9a98373804676f5fc6cd5e3ac04f0b21f965132279cdf964d1be4934dc5",
+  "parentInterventions": [],
+  "passed": true,
+  "productivityConclusion": null,
+  "startedUnixSeconds": 1793161544.0088434
+}

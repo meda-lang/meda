@@ -2,8 +2,10 @@
 
 The executable example reads evidence from an MCP server, asks an A2A agent to
 select facts, polls the task, validates the returned report, and publishes a
-result. The application currently runs in TypeScript. The effectful Meda version
-that calls this same host is still to be implemented.
+result. Both the TypeScript application and a narrow direct-call Meda application now
+run through this host. This walkthrough follows the TypeScript path; the
+[Meda example and paired commands](../experiments/decision_screen/README.md) show
+the new path.
 
 ## Start with the application
 
@@ -123,10 +125,14 @@ The [existing Meda policy sample](../experiments/interop_compare/clients/policy.
 is executable in the earlier pure comparison. It receives a Snapshot and returns
 a Decision such as Read, Submit or Poll. Python orchestration performs that action.
 
-The next Meda arm must execute host calls and continue handling typed results
-inside the real Meda evaluator. It should reuse the common host, protocol adapters
-and peer fixtures shown above. Those direct-call bindings and effectful evaluator
-integration are the missing connection, tracked in
-[#10](https://github.com/meda-lang/meda/issues/10). A complete effectful Meda sample
-does not exist yet; the [profile](interop-design-amendment.md) describes proposed
-semantics rather than an implemented example.
+The new [workflow.meda](../experiments/decision_screen/workflow.meda) executes
+`host.readEvidence`, `host.submit`, `host.observe`, `host.provideInput`, and
+`host.cancel` directly inside the real evaluator. Its
+[worker](../experiments/decision_screen/worker.py) uses the same JSONL protocol
+as the TypeScript worker; the same controller owns credentials and the same host
+performs protocol calls. The binding checks shape, while Meda source controls
+sequencing and report-domain validation.
+
+This is a fixed, monomorphic profile, not the full proposed language. Follow the
+[runnable paired example](../experiments/decision_screen/README.md) and
+[results and product recommendation](decision-screen-results.md).

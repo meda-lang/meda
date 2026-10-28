@@ -1,0 +1,7 @@
+{
+  "arm": "typescript",
+  "candidate": "domain.ts",
+  "baselineSha256": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+  "protectedSha256": "fc0c21c0e668574644c7213ca116fa402931496529e0e6624c32b5ad67d09831",
+  "maxVisibleAttempts": 3
+}

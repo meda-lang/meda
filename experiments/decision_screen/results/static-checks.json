@@ -1,0 +1,456 @@
+{
+  "baselineControls": {
+    "meda": {
+      "accepted": true,
+      "diagnostics": []
+    },
+    "typescript": {
+      "accepted": true,
+      "diagnostics": [],
+      "diagnosticsTruncated": false,
+      "exitCode": 0
+    }
+  },
+  "baselineSourceHashes": {
+    "experiments/decision_screen/language.py": "43fdacc4543253aeb9e393974fe6a852d513c8ccadf1fa71fd2afb8fb599b0f3",
+    "experiments/decision_screen/workflow.meda": "ede7b19a58e01b334fb1f833d9547d57810d420bd72b7885ff5a86890fe65af9",
+    "experiments/gates/meda_core.py": "35e44defe8f9e124a40f0aad0e4160e2675501b8a50abc45f9fe45fed549e492",
+    "experiments/interop_d0/client/bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+    "experiments/interop_d0/client/domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+    "experiments/interop_d0/client/main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+    "experiments/interop_d0/client/workflow.ts": "f8d94942ef447095103ef0550e5f58fceb337d0396ca7dda8d02f867d61f413d",
+    "experiments/interop_d0/package-lock.json": "f4e844a493a50d8abc19154854ab3c2c3ea897eea8f045a3bfeac4cfb892e8c3",
+    "experiments/interop_d0/tsconfig.json": "71455dd49751ce5173800ceaa7973748ac3e2f3d05482173af64c1d3d73edfef"
+  },
+  "baselineUnchangedDuringChecks": true,
+  "cases": [
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": false,
+        "typescript": false
+      },
+      "group": "matched",
+      "id": "wrong_host_argument_type",
+      "mutations": {
+        "meda": {
+          "accepted": false,
+          "diagnostics": [
+            {
+              "code": "TypeMismatch",
+              "message": "Expected Text, found Int.",
+              "offset": 100,
+              "phase": "check"
+            }
+          ]
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(3,28): error TS2345: Argument of type 'number' is not assignable to parameter of type 'string'."
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe() -> EvidenceResult effects [ReadEvidence] {\n  return host.readEvidence(documentId: \"evidence-42\")\n}\n",
+          "controlSha256": "dc5b1cbf65ce51dde3f286e09214aaf0409ebb89208b393d10d790acc46f15bd",
+          "mutation": "operation probe() -> EvidenceResult effects [ReadEvidence] {\n  return host.readEvidence(documentId: 7)\n}\n",
+          "mutationSha256": "914ff2cdd370db9b03acbcc58447be43ea210ffd352f23f55a48c0c0cd45c33d",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type HostApi, type EvidenceResult} from \"./bindings\";\nexport async function probe(host: HostApi): Promise<EvidenceResult> {\n  return host.readEvidence(\"evidence-42\");\n}\n",
+          "controlSha256": "d1e7585b1194fde200eba5ec6bbb719c35bed32d8f4cd2d468cb20386a4b4b0e",
+          "mutation": "import {type HostApi, type EvidenceResult} from \"./bindings\";\nexport async function probe(host: HostApi): Promise<EvidenceResult> {\n  return host.readEvidence(7);\n}\n",
+          "mutationSha256": "dcb2b7c3bee4f6fc38326c90e49a3060cd16a79204adf1dc7fd63555a4ebe8b4"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": false,
+        "typescript": false
+      },
+      "group": "matched",
+      "id": "missing_required_record_field",
+      "mutations": {
+        "meda": {
+          "accepted": false,
+          "diagnostics": [
+            {
+              "code": "ArgumentLabels",
+              "message": "Expected labels ['id', 'value'], found ['id'].",
+              "offset": 46,
+              "phase": "check"
+            }
+          ]
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(2,33): error TS2741: Property 'value' is missing in type '{ id: string; }' but required in type 'Fact'."
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe() -> Fact effects [] { return Fact { id: \"f1\", value: \"blue\" } }\n",
+          "controlSha256": "7aa02f1aec2e76b4891afdd20bbb8fee3fd498f45c4a2c87a227688c0918a9c4",
+          "mutation": "operation probe() -> Fact effects [] { return Fact { id: \"f1\" } }\n",
+          "mutationSha256": "fe6fd93cd168f60c8226dffddf681ee4b233a9fdc7d985303b320087f80c458a",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type Fact} from \"./domain\";\nexport function probe(): Fact { return {id: \"f1\", value: \"blue\"}; }\n",
+          "controlSha256": "3861705444ce8be9cef72c6911191ac2d4a2a7e3f01574e7a868b240cac36724",
+          "mutation": "import {type Fact} from \"./domain\";\nexport function probe(): Fact { return {id: \"f1\"}; }\n",
+          "mutationSha256": "81f6a3e9caa0f5d1a79052aef331d0023ceed006469376afccb69d9cc6aa4579"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": false,
+        "typescript": false
+      },
+      "group": "matched",
+      "id": "misspelled_task_state",
+      "mutations": {
+        "meda": {
+          "accepted": false,
+          "diagnostics": [
+            {
+              "code": "InvalidCase",
+              "message": "TaskState.Workng",
+              "offset": 51,
+              "phase": "check"
+            }
+          ]
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(2,38): error TS2820: Type '\"Workng\"' is not assignable to type 'TaskState'. Did you mean '\"Working\"'?"
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe() -> TaskState effects [] { return TaskState.Working }\n",
+          "controlSha256": "7d566b7241ee3ac85f31a90291d678ebe03aa3fe3133bd4177de6eda484a3ae7",
+          "mutation": "operation probe() -> TaskState effects [] { return TaskState.Workng }\n",
+          "mutationSha256": "db82deeb27afd11046651a57259d52affe8a8a041bc879a42437f88947a84ad3",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type TaskState} from \"./bindings\";\nexport function probe(): TaskState { return \"Working\"; }\n",
+          "controlSha256": "fd338bcbde432dbfab0f88b21deff14d581ddfd88801e0e016ff9a9c252d9f31",
+          "mutation": "import {type TaskState} from \"./bindings\";\nexport function probe(): TaskState { return \"Workng\"; }\n",
+          "mutationSha256": "583d15dca311942667f44e4254c9fda0a5a4150f388c5a2014c1956fbec9a86d"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": false,
+        "typescript": false
+      },
+      "group": "matched",
+      "id": "nonexhaustive_task_state",
+      "mutations": {
+        "meda": {
+          "accepted": false,
+          "diagnostics": [
+            {
+              "code": "NonExhaustiveMatch",
+              "message": "Missing match cases.",
+              "offset": 57,
+              "phase": "check"
+            }
+          ]
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(12,33): error TS2345: Argument of type '\"Rejected\"' is not assignable to parameter of type 'never'."
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe(state: TaskState) -> Text effects [] {\n  match state {\n    TaskState.Submitted => { return \"Submitted\" }\n    TaskState.Working => { return \"Working\" }\n    TaskState.InputRequired => { return \"InputRequired\" }\n    TaskState.AuthRequired => { return \"AuthRequired\" }\n    TaskState.Completed => { return \"Completed\" }\n    TaskState.Failed => { return \"Failed\" }\n    TaskState.Canceled => { return \"Canceled\" }\n    TaskState.Rejected => { return \"Rejected\" }\n  }\n}\n",
+          "controlSha256": "70b84c364c05e2b3feccc152672b1da201339fa058037a7c23c2cc7d1e7244df",
+          "mutation": "operation probe(state: TaskState) -> Text effects [] {\n  match state {\n    TaskState.Submitted => { return \"Submitted\" }\n    TaskState.Working => { return \"Working\" }\n    TaskState.InputRequired => { return \"InputRequired\" }\n    TaskState.AuthRequired => { return \"AuthRequired\" }\n    TaskState.Completed => { return \"Completed\" }\n    TaskState.Failed => { return \"Failed\" }\n    TaskState.Canceled => { return \"Canceled\" }\n  }\n}\n",
+          "mutationSha256": "7ae8ca1c566eb1b00491f7743143a978a070aa904533b547e175ac71c4f1656e",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type TaskState} from \"./bindings\";\nfunction unreachable(value: never): never { throw new Error(\"unexpected state\"); }\nexport function probe(state: TaskState): string {\n  switch (state) {\n    case \"Submitted\": return \"Submitted\";\n    case \"Working\": return \"Working\";\n    case \"InputRequired\": return \"InputRequired\";\n    case \"AuthRequired\": return \"AuthRequired\";\n    case \"Completed\": return \"Completed\";\n    case \"Failed\": return \"Failed\";\n    case \"Canceled\": return \"Canceled\";\n    case \"Rejected\": return \"Rejected\";\n    default: return unreachable(state);\n  }\n}\n",
+          "controlSha256": "0b07387c4b6c156393324555e25a185eaed696705f19c5f45951c90458779352",
+          "mutation": "import {type TaskState} from \"./bindings\";\nfunction unreachable(value: never): never { throw new Error(\"unexpected state\"); }\nexport function probe(state: TaskState): string {\n  switch (state) {\n    case \"Submitted\": return \"Submitted\";\n    case \"Working\": return \"Working\";\n    case \"InputRequired\": return \"InputRequired\";\n    case \"AuthRequired\": return \"AuthRequired\";\n    case \"Completed\": return \"Completed\";\n    case \"Failed\": return \"Failed\";\n    case \"Canceled\": return \"Canceled\";\n    default: return unreachable(state);\n  }\n}\n",
+          "mutationSha256": "119b5b1a9a3f4f5a4dab336113fff3d6ee5a35af7d2b03f64871cb403bf5bbff"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": false,
+        "typescript": true
+      },
+      "group": "asymmetry",
+      "id": "omitted_effect_bound",
+      "interpretation": "Meda checks its explicit effect bound. TypeScript has no corresponding declaration here; its source is unchanged and valid. This is a profile-specific check, not a claim that conventional tooling cannot enforce effect policies.",
+      "mutations": {
+        "meda": {
+          "accepted": false,
+          "diagnostics": [
+            {
+              "code": "EffectViolation",
+              "message": "probe does not permit ReadEvidence.",
+              "offset": 58,
+              "phase": "check"
+            }
+          ]
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe() -> EvidenceResult effects [ReadEvidence] {\n  return host.readEvidence(documentId: \"evidence-42\")\n}\n",
+          "controlSha256": "dc5b1cbf65ce51dde3f286e09214aaf0409ebb89208b393d10d790acc46f15bd",
+          "mutation": "operation probe() -> EvidenceResult effects [] {\n  return host.readEvidence(documentId: \"evidence-42\")\n}\n",
+          "mutationSha256": "fe977ca4004a1f8c9d56378f1351f887f91c91928f9a91413f714549dfb209a1",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type HostApi, type EvidenceResult} from \"./bindings\";\nexport async function probe(host: HostApi): Promise<EvidenceResult> {\n  return host.readEvidence(\"evidence-42\");\n}\n",
+          "controlSha256": "d1e7585b1194fde200eba5ec6bbb719c35bed32d8f4cd2d468cb20386a4b4b0e",
+          "mutation": "import {type HostApi, type EvidenceResult} from \"./bindings\";\nexport async function probe(host: HostApi): Promise<EvidenceResult> {\n  return host.readEvidence(\"evidence-42\");\n}\n",
+          "mutationSha256": "d1e7585b1194fde200eba5ec6bbb719c35bed32d8f4cd2d468cb20386a4b4b0e"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": true,
+        "typescript": false
+      },
+      "group": "asymmetry",
+      "id": "misspelled_application_outcome",
+      "interpretation": "The current Meda ApplicationResult.Stopped payload is Text; the conventional ApplicationResult uses a finite outcome union. Meda accepts this typo and TypeScript rejects it.",
+      "mutations": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(2,54): error TS2820: Type '\"DomainRejectd\"' is not assignable to type 'ApplicationOutcome'. Did you mean '\"DomainRejected\"'?"
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation staticOutcomeProbe() -> ApplicationResult effects [] { return ApplicationResult.Stopped(outcome: \"DomainRejected\") }\n",
+          "controlSha256": "e22c9f296ce0d8838063637c24ddf9b22de0176d59ac0dac60e65da6dc532b7c",
+          "mutation": "operation staticOutcomeProbe() -> ApplicationResult effects [] { return ApplicationResult.Stopped(outcome: \"DomainRejectd\") }\n",
+          "mutationSha256": "8becc1ffeaca304d1c00ec552c30e19baf2b71ff84a11040bc1cfd240635612d",
+          "prefix": "workflow.meda"
+        },
+        "typescript": {
+          "control": "import {type ApplicationResult} from \"./workflow\";\nexport function probe(): ApplicationResult { return {outcome: \"DomainRejected\"}; }\n",
+          "controlSha256": "a74517cb517e94d90836164e4aa696860efee2bf815fc4a415ff0b5e5a99b994",
+          "mutation": "import {type ApplicationResult} from \"./workflow\";\nexport function probe(): ApplicationResult { return {outcome: \"DomainRejectd\"}; }\n",
+          "mutationSha256": "945e3d8f8e65a2726f7f078fd96b315e7ea17c6443e914042ebc28da03240d56"
+        }
+      }
+    },
+    {
+      "controls": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": true,
+          "diagnostics": [],
+          "diagnosticsTruncated": false,
+          "exitCode": 0
+        }
+      },
+      "expectedMutationAccepted": {
+        "meda": true,
+        "typescript": false
+      },
+      "group": "asymmetry",
+      "id": "misspelled_host_error_code",
+      "interpretation": "The current Meda HostError.code field is Text; the conventional HostError uses ErrorCode. Wire allowlisting does not give Meda-created records a static enum guarantee.",
+      "mutations": {
+        "meda": {
+          "accepted": true,
+          "diagnostics": []
+        },
+        "typescript": {
+          "accepted": false,
+          "diagnostics": [
+            "client/static-probe.ts(2,61): error TS2820: Type '\"Timeuot\"' is not assignable to type 'ErrorCode'. Did you mean '\"Timeout\"'?"
+          ],
+          "diagnosticsTruncated": false,
+          "exitCode": 2
+        }
+      },
+      "passed": true,
+      "sources": {
+        "meda": {
+          "control": "operation probe() -> HostError effects [] { return HostError { code: \"Timeout\", remoteOutcome: \"Unknown\", fatal: false } }\n",
+          "controlSha256": "df96461a4adb010698a4b620120b840e65bdd48ae19a2a2662723ccc0d14d782",
+          "mutation": "operation probe() -> HostError effects [] { return HostError { code: \"Timeuot\", remoteOutcome: \"Unknown\", fatal: false } }\n",
+          "mutationSha256": "629b95e924ebe23330638accef93077adf488d7f0ed7ffde2885af65b806ca69",
+          "prefix": null
+        },
+        "typescript": {
+          "control": "import {type HostError} from \"./bindings\";\nexport function probe(): HostError { return {kind: \"Error\", code: \"Timeout\", remoteOutcome: \"Unknown\", fatal: false}; }\n",
+          "controlSha256": "1ba694224f63397d4ba5b74b6c056c330ca25c4e672583e35b3083a78bdad2d8",
+          "mutation": "import {type HostError} from \"./bindings\";\nexport function probe(): HostError { return {kind: \"Error\", code: \"Timeuot\", remoteOutcome: \"Unknown\", fatal: false}; }\n",
+          "mutationSha256": "337cc4e3d197f9d1f3eaaf768b5d666a8e028b2ace374d825351298aab454d1a"
+        }
+      }
+    }
+  ],
+  "compiler": {
+    "name": "TypeScript",
+    "oldSpaceMiB": 96,
+    "options": {
+      "exactOptionalPropertyTypes": true,
+      "forceConsistentCasingInFileNames": true,
+      "lib": [
+        "ES2022"
+      ],
+      "module": "CommonJS",
+      "moduleResolution": "Node",
+      "noEmit": true,
+      "noEmitOnError": true,
+      "noFallthroughCasesInSwitch": true,
+      "noImplicitReturns": true,
+      "noUncheckedIndexedAccess": true,
+      "outDir": "dist",
+      "rootDir": "client",
+      "skipLibCheck": true,
+      "strict": true,
+      "target": "ES2022",
+      "types": [
+        "node"
+      ]
+    },
+    "timeoutSeconds": 10,
+    "typeRoots": "pinned interop_d0/node_modules/@types",
+    "version": "5.9.3"
+  },
+  "passed": true,
+  "profile": "meda-direct-screen/1",
+  "schema": "meda-decision-static/1",
+  "scope": "Four matched defects and three explicit asymmetries. These are fixed checker probes, not productivity measurements or comprehensive language guarantees.",
+  "sourceLineCounts": {
+    "experiments/decision_screen/language.py": 298,
+    "experiments/decision_screen/workflow.meda": 124,
+    "experiments/gates/meda_core.py": 1048,
+    "experiments/interop_d0/client/bindings.ts": 117,
+    "experiments/interop_d0/client/domain.ts": 82,
+    "experiments/interop_d0/client/main.ts": 51,
+    "experiments/interop_d0/client/workflow.ts": 89
+  }
+}
