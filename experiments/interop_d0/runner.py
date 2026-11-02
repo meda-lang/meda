@@ -16,6 +16,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import tempfile
+import threading
 import time
 
 try:
@@ -136,6 +137,8 @@ def workflow_input(scenario):
         result["suppliedInput"] = scenario["suppliedIncludeIds"]
     if scenario.get("applicationAction") == "cancel":
         result["cancelAfterSubmit"] = True
+    if scenario.get("onMissingInput") == "wait":
+        result["waitForInput"] = True
     return result
 
 
@@ -190,10 +193,70 @@ def environment(scenario):
                     host.finish({"outcome": "RootTerminated", "fatal": True})
 
 
+class _NonJoiningActivity:
+    """Research-only local activity held beyond the host's join allowance.
+
+    The real worker process is still retired normally. This separate thread
+    occupies the host's local activity slot and deliberately ignores abort,
+    exercising Host.finish's actual bounded wait. Teardown releases it only
+    after publication (or an execution exception), then joins it.
+    """
+    def __init__(self, host):
+        self.host = host
+        self.release = threading.Event()
+        self.ready = threading.Event()
+        self.thread = None
+        self.owns_activity = False
+        self.active_at_publication = False
+
+    def start(self):
+        if self.thread is not None:
+            raise RuntimeError("Local activity fixture already started")
+
+        def hold_activity():
+            with self.host._activity:
+                if not self.host._active:
+                    self.host._active = True
+                    self.owns_activity = True
+            self.ready.set()
+            if not self.owns_activity:
+                return
+            try:
+                self.release.wait()
+            finally:
+                with self.host._activity:
+                    self.host._active = False
+                    self.host._activity.notify_all()
+
+        self.thread = threading.Thread(target=hold_activity,
+            name="meda-nonjoining-activity-fixture", daemon=True)
+        self.thread.start()
+        if not self.ready.wait(timeout=1) or not self.owns_activity:
+            raise RuntimeError("Local activity fixture could not acquire the idle slot")
+
+    def after_publication(self):
+        with self.host._activity:
+            self.active_at_publication = (self.owns_activity and self.host._active
+                and self.thread is not None and self.thread.is_alive())
+
+    def close(self):
+        self.release.set()
+        if self.thread is not None:
+            self.thread.join(timeout=1)
+            if self.thread.is_alive():
+                raise RuntimeError("Local activity fixture failed to retire")
+
+    def receipt(self):
+        return {"started": self.owns_activity,
+                "activeAtPublication": self.active_at_publication,
+                "joinedAfterRelease": self.thread is not None and not self.thread.is_alive()}
+
+
 class _ScenarioHooks:
     """Research-only ordering barriers; never packaged with the runtime."""
-    def __init__(self, proxies, scenario):
+    def __init__(self, proxies, scenario, local_activity=None):
         self.proxies, self.scenario = proxies, scenario
+        self.local_activity = local_activity
 
     def monitor(self, terminate, barriers):
         barrier = self.scenario.get("barrier")
@@ -212,12 +275,20 @@ class _ScenarioHooks:
         return False
 
     def after_call(self, operation, value, terminate, barriers):
+        if (operation == "submit" and value.get("state") == "InputRequired"
+                and self.scenario.get("barrier") == "root_deadline_before_input"):
+            barriers.append("input_required_received_before_deadline")
         if operation == "submit" and value.get("kind") == "Task" and self.scenario.get("barrier") in {
                 "abort_after_submit_before_poll", "abort_with_zero_normal_allowance"}:
+            if self.local_activity is not None:
+                self.local_activity.start()
+                barriers.append("local_activity_started_before_abort")
             barriers.append("root_closed_after_submit_before_source_response")
             terminate("root_abort")
 
     def after_publication(self, host, barriers):
+        if self.local_activity is not None:
+            self.local_activity.after_publication()
         if self.scenario.get("barrier") == "publication_before_abort":
             host.abort("RootTerminated")
             barriers.append("publication_committed_before_late_abort")
@@ -230,20 +301,28 @@ def run_client(host, input_value, *, proxies=None, scenario=None, worker_path=No
     if worker_command is None and not worker_path.is_file():
         raise RuntimeError("Compile the TypeScript client before running")
     proxies, scenario = proxies or {}, scenario or {}
-    if scenario.get("onMissingInput") == "wait":
-        raise UnsupportedScenario("Live input waiting is not implemented in the current client")
-    if scenario.get("localCleanup") == "worker_refuses_join":
-        raise UnsupportedScenario("A refusal-to-join fault fixture is not implemented")
     supported_barriers = {None, "abort_after_submit_before_poll", "publication_before_abort",
                           "close_before_observation_response", "abort_during_evidence_stream",
                           "zero_normal_allowance_after_final_receive", "root_deadline_before_request_deadline",
-                          "abort_with_zero_normal_allowance"}
+                          "abort_with_zero_normal_allowance", "root_deadline_before_input"}
     if scenario.get("barrier") not in supported_barriers:
         raise UnsupportedScenario("Unsupported ordering barrier")
+    local_activity = None
+    if scenario.get("localCleanup") == "worker_refuses_join":
+        if scenario.get("barrier") != "abort_after_submit_before_poll":
+            raise UnsupportedScenario("Local join fault requires the post-submit abort barrier")
+        local_activity = _NonJoiningActivity(host)
     command = worker_command or [_node(), "--max-old-space-size=128", str(worker_path)]
-    return _run_process(host, input_value, command, cwd=HERE,
-                        credential_sentinels=credential_sentinels, private_receipts=private_receipts,
-                        _hooks=_ScenarioHooks(proxies, scenario))
+    try:
+        result = _run_process(host, input_value, command, cwd=HERE,
+                            credential_sentinels=credential_sentinels, private_receipts=private_receipts,
+                            _hooks=_ScenarioHooks(proxies, scenario, local_activity))
+    finally:
+        if local_activity is not None:
+            local_activity.close()
+    if local_activity is not None:
+        result["localActivityFixture"] = local_activity.receipt()
+    return result
 
 
 def execute_workflow(scenario, *, worker_command=None, worker_path=None):

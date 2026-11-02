@@ -19,10 +19,13 @@ The recommendation is **library-first**, with further language expansion paused.
 - [x] Add a standalone application with application-owned report validation.
 - [x] Exercise built wheel/tarball artifacts from an external consumer directory.
 - [x] Check package APIs and the installed consumer in CI.
+- [x] Execute the missing input-deadline and local cleanup-failure workflow fixtures.
 
 See the [runtime guide](docs/runtime-library.md) and
 [verification record](results/runtime-library/README.md). Packages remain
 experimental and unpublished.
+The [fixture follow-up](docs/acceptance-workflow-fixtures.md) records the two
+new executions and the remaining acceptance backlog without closing the full gate.
 
 ## Next investment
 

@@ -1,0 +1,24 @@
+{
+  "kind": "interop_d0_workflow_fixture_replay",
+  "baselineCommit": "4c52f290a5a21fe27a8bbc7f83386653ab275696",
+  "startedAt": "2026-11-02T05:08:00.998160+00:00",
+  "finishedAt": "2026-11-02T05:09:08.688611+00:00",
+  "trials": 3,
+  "casesPerTrial": 2,
+  "rows": 6,
+  "executionCounts": {
+    "executed": 6
+  },
+  "assessmentCounts": {
+    "unverified": 6
+  },
+  "failedFrozenChecks": 0,
+  "sourceUnchangedDuringEveryTrial": true,
+  "sourceIdenticalAcrossTrials": true,
+  "receipts": {
+    "trial-1.json": "ea9827c270b75711616c97ed3ab8fa1b462a0bc403c20d78c423def37f2eb561",
+    "trial-2.json": "b71cc5ae287ce9773f7e3b419842ac93fe39eb272999d592595b3c7269c24e0e",
+    "trial-3.json": "7c4b193b4f13ce61e1904b020049b1aaa7d459f21ca617cfd7aba978e6b12008"
+  },
+  "interpretation": "Two newly executable workflow rows; frozen unmet obligations remain unverified. Not a complete D0 acceptance run."
+}

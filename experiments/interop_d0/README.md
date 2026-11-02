@@ -51,6 +51,9 @@ contract. `not_run` and `execution_error` never receive passing credit.
 The nine unimplemented Meda source checks and the controlled mutant/maintenance
 work remain explicit in the inventory. Unit methods, protocol stimuli, workflow
 rows, and independently satisfied acceptance cases are different counts.
+The [workflow fixture follow-up](../../docs/acceptance-workflow-fixtures.md)
+adds execution for waiting until the input deadline and a nonjoining local
+activity. Neither row establishes full acceptance.
 
 ## Boundaries
 

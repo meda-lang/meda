@@ -1,0 +1,95 @@
+{
+  "startedAt": "2026-11-02T05:06:44.067722+00:00",
+  "suites": [
+    {
+      "name": "gates",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/gates/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 23,
+      "elapsedSeconds": 3.9719797729994752
+    },
+    {
+      "name": "interop",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_d0/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 99,
+      "elapsedSeconds": 37.95109323000361
+    },
+    {
+      "name": "comparison",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_compare/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 15,
+      "elapsedSeconds": 9.841281242996047
+    },
+    {
+      "name": "decision-screen",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/decision_screen/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 15,
+      "elapsedSeconds": 0.7586422409949591
+    },
+    {
+      "name": "runtime",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "packages/runtime/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 23,
+      "elapsedSeconds": 1.2544592679987545
+    },
+    {
+      "name": "typescript-package",
+      "command": [
+        "npm",
+        "test",
+        "--prefix",
+        "packages/evidence-client"
+      ],
+      "exitCode": 0,
+      "testCount": 14,
+      "elapsedSeconds": 3.4386484310016385
+    }
+  ],
+  "finishedAt": "2026-11-02T05:07:41.284155+00:00",
+  "passed": true,
+  "totalTests": 189
+}

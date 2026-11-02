@@ -1,0 +1,20 @@
+test_bad_host_results_are_rejected_without_fabricating_success (test_language.LanguageTests.test_bad_host_results_are_rejected_without_fabricating_success) ... ok
+test_contracts_assertions_and_tests_cannot_call_effects (test_language.LanguageTests.test_contracts_assertions_and_tests_cannot_call_effects) ... ok
+test_declared_and_transitive_effect_bounds (test_language.LanguageTests.test_declared_and_transitive_effect_bounds) ... ok
+test_default_profile_remains_pure (test_language.LanguageTests.test_default_profile_remains_pure) ... ok
+test_domain_relationships_remain_for_source_to_validate (test_language.LanguageTests.test_domain_relationships_remain_for_source_to_validate) ... ok
+test_export_limits_and_json_copy (test_language.LanguageTests.test_export_limits_and_json_copy) ... ok
+test_fixed_names_cannot_be_redeclared (test_language.LanguageTests.test_fixed_names_cannot_be_redeclared) ... ok
+test_foreign_forged_and_retired_refs_cannot_dispatch (test_language.LanguageTests.test_foreign_forged_and_retired_refs_cannot_dispatch) ... ok
+test_native_calls_have_checked_labels_and_types (test_language.LanguageTests.test_native_calls_have_checked_labels_and_types) ... ok
+test_opaque_references_have_no_constructor_or_observers (test_language.LanguageTests.test_opaque_references_have_no_constructor_or_observers) ... ok
+test_protobuf_integral_json_numbers_decode_to_meda_int (test_language.LanguageTests.test_protobuf_integral_json_numbers_decode_to_meda_int) ... ok
+test_real_meda_ast_executes_five_direct_host_operations (test_language.LanguageTests.test_real_meda_ast_executes_five_direct_host_operations) ... ok
+test_canonical_runtime_and_compatibility_sources_are_frozen (test_source_snapshots.SourceSnapshotTests.test_canonical_runtime_and_compatibility_sources_are_frozen) ... ok
+test_runtime_inventory_excludes_generated_outputs (test_source_snapshots.SourceSnapshotTests.test_runtime_inventory_excludes_generated_outputs) ... ok
+test_runtime_only_change_invalidates_each_snapshot (test_source_snapshots.SourceSnapshotTests.test_runtime_only_change_invalidates_each_snapshot) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.666s
+
+OK
