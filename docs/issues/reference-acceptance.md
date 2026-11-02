@@ -14,8 +14,16 @@ plus 38 existing regressions; those counts do not override the acceptance result
   replay does not turn historically failed or incomplete receipts into passes.
 - Complete independently observed discovery accounting and cleanup timing where
   required. Keep source-continuation and authority-exposure scope explicit.
-- Implement or explicitly defer two missing workflow fixtures, nine Meda source
-  checks and four host/source mutant experiments.
+- The two missing workflow fixtures execute with the expected outcomes in
+  PR #18. Their full acceptance remains unverified; see
+  `docs/acceptance-workflow-fixtures.md`.
+- Four controlled host/TypeScript mutation cases now have executable fixtures;
+  see `docs/acceptance-mutations.md`. Keep their full acceptance statuses
+  separate from behavioral mutation detection. The frozen repeat-submit case
+  has an attribution mismatch: the host enforces the denial, but the inventory
+  lists application/independent-oracle attribution. Preserve that failure.
+- Nine Meda source checks remain deferred with language expansion. The two
+  Meda source-mutation arms also remain unexecuted.
 - Repeat a complete immutable acceptance run when closing the full gate. The
   original whole-tree check is false because one RSS unit test changed; runtime
   sources did not change. Preserve that record.

@@ -64,3 +64,10 @@ jobs:
           PY
       - name: Verify frozen maintenance candidates
         run: experiments/interop_d0/.venv/bin/python experiments/decision_screen/maintenance/collect.py --output experiments/decision_screen/generated-results/maintenance.json
+      - name: Check mutation detection and duplicate-submit containment
+        run: |
+          experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.acceptance_run \
+            --surface host_mutant --surface source_mutant \
+            --output results/acceptance-mutations/generated-ci.json
+          experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.mutation_screen \
+            results/acceptance-mutations/generated-ci.json

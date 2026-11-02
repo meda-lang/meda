@@ -48,12 +48,16 @@ every case obligation; `unverified` means execution lacks evidence for one or
 more obligations; `failed` means at least one observed check contradicts the
 contract. `not_run` and `execution_error` never receive passing credit.
 
-The nine unimplemented Meda source checks and the controlled mutant/maintenance
-work remain explicit in the inventory. Unit methods, protocol stimuli, workflow
+The nine unimplemented Meda source checks and deferred Meda mutation arms
+remain explicit in the inventory. Unit methods, protocol stimuli, workflow
 rows, and independently satisfied acceptance cases are different counts.
 The [workflow fixture follow-up](../../docs/acceptance-workflow-fixtures.md)
 adds execution for waiting until the input deadline and a nonjoining local
 activity. Neither row establishes full acceptance.
+The [mutation follow-up](../../docs/acceptance-mutations.md) executes the four
+host/TypeScript mutation cases with paired controls. Its bounded behavior
+screen preserves the frozen repeat-submit attribution failure and missing
+independent witnesses; it does not close acceptance.
 
 ## Boundaries
 

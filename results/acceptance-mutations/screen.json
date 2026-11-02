@@ -1,0 +1,65 @@
+{
+  "acceptanceClosed": false,
+  "behavioralScreenPassed": true,
+  "cases": [
+    {
+      "behaviorVerified": true,
+      "caseId": "W12-mutant-remove-grant",
+      "failedFrozenChecks": [],
+      "fullAcceptanceStatus": "unverified",
+      "knownAttributionMismatch": false,
+      "unverifiedChecks": [
+        "invariant.discovery_metered",
+        "invariant.no_late_application",
+        "invariant.no_secret_exposure"
+      ]
+    },
+    {
+      "behaviorVerified": true,
+      "caseId": "W12-mutant-remove-quota",
+      "failedFrozenChecks": [],
+      "fullAcceptanceStatus": "unverified",
+      "knownAttributionMismatch": false,
+      "unverifiedChecks": [
+        "invariant.discovery_metered",
+        "invariant.no_late_application",
+        "invariant.no_secret_exposure"
+      ]
+    },
+    {
+      "behaviorVerified": true,
+      "caseId": "W12-client-repeat-submit",
+      "failedFrozenChecks": [
+        "invariant.attribution_recorded"
+      ],
+      "fullAcceptanceStatus": "failed",
+      "knownAttributionMismatch": true,
+      "unverifiedChecks": [
+        "invariant.discovery_metered",
+        "invariant.no_late_application",
+        "invariant.no_secret_exposure",
+        "meda_source_execution"
+      ]
+    },
+    {
+      "behaviorVerified": true,
+      "caseId": "W12-wrong-domain-validator",
+      "failedFrozenChecks": [],
+      "fullAcceptanceStatus": "unverified",
+      "knownAttributionMismatch": false,
+      "unverifiedChecks": [
+        "invariant.discovery_metered",
+        "invariant.no_late_application",
+        "invariant.no_secret_exposure",
+        "meda_source_execution"
+      ]
+    }
+  ],
+  "fullAcceptanceStatusCounts": {
+    "failed": 1,
+    "unverified": 3
+  },
+  "kind": "bounded_mutation_screen",
+  "medaSourceArmExecuted": false,
+  "sourceUnchangedDuringRun": true
+}
