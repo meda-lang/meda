@@ -32,12 +32,14 @@ its allowed attribution layers. The actual admission denial belongs to
 `attribution_recorded` requirement as **failed**. The inventory is unchanged.
 Correct duplicate containment does not erase this specification mismatch.
 
-The bounded mutation screen demands the intended outcomes, exact dispatch/task/
-publication counts, the relevant independently checked invariant, and no other
-failed frozen checks. It explicitly reports the known attribution mismatch.
-This is a regression check for the four behaviors, not an acceptance waiver:
-its output retains the ordinary full-acceptance statuses and always records
-`acceptanceClosed: false`.
+The later [versioned attribution correction](acceptance-attribution-erratum.md)
+addresses this specification error without rewriting the inventory. The screen
+now requires an explicit `attribution-1` revision to use that correction and
+retains the original failed assessment alongside the revised unverified result.
+Every failed check under the selected revision rejects the screen; the earlier
+special exception is removed. Intended outcomes, exact dispatch/task/publication
+counts, attribution, and the independently checked invariant must pass.
+Missing broader evidence remains unverified and `acceptanceClosed` remains false.
 
 Independent observations for complete discovery accounting, source continuation,
 secret visibility, and cleanup timing remain incomplete. The nine language
@@ -54,7 +56,7 @@ experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.acceptance_run
   --surface host_mutant --surface source_mutant \
   --output results/acceptance-mutations/my-run.json
 experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.mutation_screen \
-  results/acceptance-mutations/my-run.json
+  results/acceptance-mutations/my-run.json --revision attribution-1
 ```
 
 Retained results and regression evidence are in the

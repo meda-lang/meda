@@ -1,0 +1,19 @@
+{
+  "finishedAt": "2026-11-02T07:19:54.369997+00:00",
+  "command": [
+    "experiments/interop_d0/.venv/bin/python",
+    "-m",
+    "unittest",
+    "experiments.interop_d0.tests.test_acceptance_revisions",
+    "experiments.interop_d0.tests.test_mutation_screen",
+    "experiments.interop_d0.tests.test_mutation_oracle",
+    "experiments.interop_d0.tests.test_oracle",
+    "experiments.interop_d0.tests.test_acceptance_inventory",
+    "experiments.interop_d0.tests.test_acceptance_run",
+    "-v"
+  ],
+  "exitCode": 0,
+  "tests": 54,
+  "elapsedSeconds": 0.2729965680046007,
+  "scope": "revision, mutation-screen, oracle, inventory, and dispatch regressions; no new protocol execution"
+}

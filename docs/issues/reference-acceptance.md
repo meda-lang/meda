@@ -21,7 +21,9 @@ plus 38 existing regressions; those counts do not override the acceptance result
   see `docs/acceptance-mutations.md`. Keep their full acceptance statuses
   separate from behavioral mutation detection. The frozen repeat-submit case
   has an attribution mismatch: the host enforces the denial, but the inventory
-  lists application/independent-oracle attribution. Preserve that failure.
+  lists application/independent-oracle attribution. The explicit `attribution-1`
+  erratum corrects only that layer in a derived inventory, preserving the original
+  failed assessment. See `docs/acceptance-attribution-erratum.md`.
 - Nine Meda source checks remain deferred with language expansion. The two
   Meda source-mutation arms also remain unexecuted.
 - Repeat a complete immutable acceptance run when closing the full gate. The
