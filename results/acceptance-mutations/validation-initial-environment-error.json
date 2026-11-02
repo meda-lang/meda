@@ -1,0 +1,53 @@
+{
+  "startedAt": "2026-11-02T05:30:20.411370+00:00",
+  "suites": [
+    {
+      "name": "gates",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/gates/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 23,
+      "elapsedSeconds": 4.362455158996454
+    },
+    {
+      "name": "interop",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_d0/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 120,
+      "elapsedSeconds": 62.09090338800161
+    },
+    {
+      "name": "comparison",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_compare/tests",
+        "-v"
+      ],
+      "exitCode": 1,
+      "testCount": 15,
+      "elapsedSeconds": 1.075497218000237
+    }
+  ],
+  "finishedAt": "2026-11-02T05:31:27.940420+00:00",
+  "passed": false,
+  "totalTests": 158
+}

@@ -49,7 +49,9 @@ two previously unrun workflow rows. Its receipts are separate from the focused
 replay above and the first pilot.
 
 Issue #11 remains open. Nine source checks remain deferred with language
-expansion; four mutation experiments remain executable work to implement.
+expansion. The [mutation follow-up](acceptance-mutations.md) executes the four
+host/TypeScript mutation cases, preserving the unexecuted Meda arms and the
+frozen repeat-submit attribution mismatch.
 Independent witnesses for the broader promises are still incomplete. A complete
 immutable 111-case candidate is required before closing that gate. Historical
 result files remain unchanged.

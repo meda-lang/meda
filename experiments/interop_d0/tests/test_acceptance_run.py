@@ -45,6 +45,15 @@ class AcceptanceRunTests(unittest.TestCase):
         self.assertEqual(row["executionStatus"], "not_run")
         self.assertNotIn("errorStage", row)
 
+    def test_mutation_execution_errors_keep_safe_specific_stage(self):
+        for surface in ("host_mutant", "source_mutant"):
+            with self.subTest(surface=surface), mock.patch.object(
+                    acceptance_run, "execute", side_effect=ValueError("private-token")):
+                row = acceptance_run.execute_case(self.case(surface))
+            self.assertEqual(row["executionStatus"], "execution_error")
+            self.assertEqual(row["errorStage"], surface + "_execution")
+            self.assertNotIn("private-token", json.dumps(row))
+
 
 if __name__ == "__main__":
     unittest.main()

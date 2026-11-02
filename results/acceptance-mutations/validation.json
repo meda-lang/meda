@@ -1,0 +1,99 @@
+{
+  "startedAt": "2026-11-02T05:30:20.411370+00:00",
+  "suites": [
+    {
+      "name": "gates",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/gates/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 23,
+      "elapsedSeconds": 4.362455158996454
+    },
+    {
+      "name": "interop",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_d0/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 120,
+      "elapsedSeconds": 62.09090338800161
+    },
+    {
+      "name": "comparison",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/interop_compare/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 15,
+      "elapsedSeconds": 10.106637673998193
+    },
+    {
+      "name": "decision-screen",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "experiments/decision_screen/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 15,
+      "elapsedSeconds": 0.8617282689956482
+    },
+    {
+      "name": "runtime",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "packages/runtime/tests",
+        "-v"
+      ],
+      "exitCode": 0,
+      "testCount": 23,
+      "elapsedSeconds": 1.2301897180004744
+    },
+    {
+      "name": "typescript-package",
+      "command": [
+        "npm",
+        "test",
+        "--prefix",
+        "packages/evidence-client"
+      ],
+      "exitCode": 0,
+      "testCount": 14,
+      "elapsedSeconds": 3.34765147199505
+    }
+  ],
+  "finishedAt": "2026-11-02T05:32:00.171576+00:00",
+  "passed": true,
+  "totalTests": 210,
+  "environment": {
+    "MEDA_COMPARE_TSC": "experiments/interop_d0/node_modules/typescript/lib/tsc.js"
+  },
+  "initialAttempt": "validation-initial-environment-error.json"
+}

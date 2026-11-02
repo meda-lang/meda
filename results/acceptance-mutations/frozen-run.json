@@ -1,0 +1,4176 @@
+{
+  "arms": [
+    "typescript",
+    "shared"
+  ],
+  "assessmentCounts": {
+    "failed": 1,
+    "unverified": 3
+  },
+  "compiler": {
+    "compiler": "TypeScript",
+    "dependencyDeclarationChecks": "skipped",
+    "elapsedSeconds": 0.7234282399949734,
+    "lib": [
+      "ES2022"
+    ],
+    "passed": true,
+    "peakRssBytesObserved": 190889984,
+    "rssLimitBytes": 268435456,
+    "sourceStrict": true,
+    "v8OldSpaceMiB": 96,
+    "version": "5.9.3",
+    "wallLimitSeconds": 10
+  },
+  "executionCounts": {
+    "executed": 4
+  },
+  "finishedAt": "2026-11-02T05:32:28.155438+00:00",
+  "inventoryCases": 111,
+  "kind": "d0_reference_pilot",
+  "maintenanceMeasured": false,
+  "medaExecuted": false,
+  "profile": "meda-interop-d0/1",
+  "runs": [
+    {
+      "assessment": {
+        "caseId": "W12-mutant-remove-grant",
+        "checks": [
+          {
+            "name": "mutation.identity",
+            "reason": "The receipt identifies the requested mutation surface and exact frozen defect.",
+            "status": "passed"
+          },
+          {
+            "name": "mutation.control",
+            "reason": "The canonical paired control satisfies the original policy under the same external fault or authority limits.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "mutation_detected"
+            ],
+            "expected": "mutation_detected",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "oracle"
+            ],
+            "expected": "oracle",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_task_ledger",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.mutation_oracle_result",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.independent_mutant_detection",
+            "reason": "Recompute the control and mutant policy verdicts from peer/proxy ledgers or the independently specified exact report; ignore detection flags.",
+            "status": "passed"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 0,
+            "submit": 1
+          },
+          "peerTaskCreations": 1,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded",
+            "independent_mutant_detection"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered"
+          ]
+        },
+        "mutationOracle": {
+          "controlValid": true,
+          "detected": true,
+          "mutation": "remove_operation_grant",
+          "ordinaryPolicy": {
+            "control": true,
+            "mutant": false
+          },
+          "repeatContained": null,
+          "sourceChecked": null
+        },
+        "normalized": {
+          "categories": [
+            "mutation_detected"
+          ],
+          "code": "ProbeComplete",
+          "conclusive": true,
+          "layer": "independent_oracle",
+          "phases": [
+            "oracle"
+          ],
+          "remoteOutcome": null
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "mutation_oracle_result",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W12-mutant-remove-grant",
+      "elapsedSeconds": 5.396272019002936,
+      "executionStatus": "executed",
+      "receipt": {
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "measuredWindow": {
+          "peers": {
+            "a2a": {
+              "end": 3,
+              "start": 0
+            },
+            "mcp": {
+              "end": 3,
+              "start": 3
+            }
+          },
+          "proxy": {
+            "a2a": {
+              "end": 4,
+              "start": 0
+            },
+            "mcp": {
+              "end": 4,
+              "start": 4
+            }
+          },
+          "trace": {
+            "end": 16,
+            "start": 7
+          }
+        },
+        "mutationControl": {
+          "cleanup": [],
+          "credentialLeakDetected": false,
+          "measuredWindow": {
+            "peers": {
+              "a2a": {
+                "end": 0,
+                "start": 0
+              },
+              "mcp": {
+                "end": 3,
+                "start": 3
+              }
+            },
+            "proxy": {
+              "a2a": {
+                "end": 0,
+                "start": 0
+              },
+              "mcp": {
+                "end": 4,
+                "start": 4
+              }
+            },
+            "trace": {
+              "end": 10,
+              "start": 7
+            }
+          },
+          "mutationPolicy": {
+            "grants": [
+              "cancel",
+              "observe",
+              "provideInput",
+              "readEvidence"
+            ],
+            "limits": {
+              "cleanup_requests": 2,
+              "max_requests": 16,
+              "normalRequests": 14
+            },
+            "operation": "submit"
+          },
+          "peerProcessesRetired": true,
+          "peers": {
+            "a2a": [],
+            "mcp": [
+              {
+                "event": "request",
+                "method": "tools/list",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "tools/call",
+                "operation": "readEvidence",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "documentId": "evidence-42",
+                "event": "evidence_read"
+              }
+            ]
+          },
+          "probeCalls": [
+            {
+              "operation": "submit",
+              "result": {
+                "code": "AuthorityDenied",
+                "fatal": false,
+                "kind": "Error",
+                "remoteOutcome": "NotStarted"
+              }
+            }
+          ],
+          "proxy": {
+            "a2a": [],
+            "mcp": [
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "requestBytes": 270,
+                "sequence": 0
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "responseBytes": 981,
+                "rpcResult": true,
+                "sequence": 1,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "requestBytes": 334,
+                "sequence": 2
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "responseBytes": 548,
+                "rpcResult": true,
+                "sequence": 3,
+                "status": 200
+              }
+            ]
+          },
+          "result": {
+            "outcome": "AuthorityDenied"
+          },
+          "setupCalls": [
+            {
+              "operation": "readEvidence",
+              "result": {
+                "kind": "Evidence",
+                "value": {
+                  "documentId": "evidence-42",
+                  "facts": [
+                    {
+                      "id": "f1",
+                      "value": "blue"
+                    },
+                    {
+                      "id": "f2",
+                      "value": "square"
+                    }
+                  ],
+                  "revision": 1
+                }
+              }
+            }
+          ],
+          "trace": [
+            {
+              "event": "root_open",
+              "sequence": 0
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/list",
+              "normalRequests": 1,
+              "protocol": "mcp",
+              "remainingInbound": 262144,
+              "remainingNormal": 13,
+              "request": 1,
+              "rootRemainingSeconds": 14.999797222997586,
+              "sequence": 1,
+              "totalRequests": 1
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/list",
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 2
+            },
+            {
+              "bytes": 981,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 981,
+              "method": "tools/list",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 3
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/call",
+              "normalRequests": 2,
+              "protocol": "mcp",
+              "remainingInbound": 261163,
+              "remainingNormal": 12,
+              "request": 2,
+              "rootRemainingSeconds": 14.9888696229973,
+              "sequence": 4,
+              "totalRequests": 2
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/call",
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 5
+            },
+            {
+              "bytes": 548,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 1529,
+              "method": "tools/call",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 6
+            },
+            {
+              "code": "AuthorityDenied",
+              "event": "call_rejected",
+              "operation": "submit",
+              "sequence": 7
+            },
+            {
+              "event": "root_close",
+              "sequence": 8
+            },
+            {
+              "event": "publication",
+              "outcome": "AuthorityDenied",
+              "sequence": 9,
+              "success": false
+            }
+          ],
+          "witnessesCapturedBeforePeerShutdown": true
+        },
+        "mutationExecution": {
+          "arm": "shared",
+          "canonicalMethodSha256": "fdd839cb2f42192a226678ce1dbd7e32938e213ca19ed05bd15ebd9c7b2ab305",
+          "kind": "host_mutant",
+          "method": "call",
+          "mutatedMethodSha256": "6170f60a756d2a97d6f3d025bd66c1b624112062dd11f8029d9c98369c537b82",
+          "mutation": "remove_operation_grant",
+          "replacements": [
+            {
+              "after": "",
+              "before": " or operation not in self.config.grants"
+            }
+          ],
+          "scope": "fixture_instance"
+        },
+        "mutationPolicy": {
+          "grants": [
+            "cancel",
+            "observe",
+            "provideInput",
+            "readEvidence"
+          ],
+          "limits": {
+            "cleanup_requests": 2,
+            "max_requests": 16,
+            "normalRequests": 14
+          },
+          "operation": "submit"
+        },
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "probeCalls": [
+          {
+            "operation": "submit",
+            "result": {
+              "artifact": {
+                "documentId": "evidence-42",
+                "revision": 1.0,
+                "selected": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ]
+              },
+              "kind": "Task",
+              "state": "Completed"
+            }
+          }
+        ],
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 298,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "ProbeComplete"
+        },
+        "setupCalls": [
+          {
+            "operation": "readEvidence",
+            "result": {
+              "kind": "Evidence",
+              "value": {
+                "documentId": "evidence-42",
+                "facts": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ],
+                "revision": 1
+              }
+            }
+          }
+        ],
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.999883645003138,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.991628756004502,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.983896604004258,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.977638021999155,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 298,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2496,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 14
+          },
+          {
+            "event": "publication",
+            "outcome": "ProbeComplete",
+            "sequence": 15,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true
+      },
+      "scenario": {
+        "hostGrant": false,
+        "hostMutation": "remove_operation_grant",
+        "operation": "submit",
+        "peerCredentialAllowsOperation": true
+      },
+      "surface": "host_mutant"
+    },
+    {
+      "assessment": {
+        "caseId": "W12-mutant-remove-quota",
+        "checks": [
+          {
+            "name": "mutation.identity",
+            "reason": "The receipt identifies the requested mutation surface and exact frozen defect.",
+            "status": "passed"
+          },
+          {
+            "name": "mutation.control",
+            "reason": "The canonical paired control satisfies the original policy under the same external fault or authority limits.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "mutation_detected"
+            ],
+            "expected": "mutation_detected",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "oracle"
+            ],
+            "expected": "oracle",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_wire_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.mutation_oracle_result",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.independent_mutant_detection",
+            "reason": "Recompute the control and mutant policy verdicts from peer/proxy ledgers or the independently specified exact report; ignore detection flags.",
+            "status": "passed"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 0
+          },
+          "peerTaskCreations": 0,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded",
+            "independent_mutant_detection"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered"
+          ]
+        },
+        "mutationOracle": {
+          "controlValid": true,
+          "detected": true,
+          "mutation": "remove_request_quota",
+          "ordinaryPolicy": {
+            "control": true,
+            "mutant": false
+          },
+          "repeatContained": null,
+          "sourceChecked": null
+        },
+        "normalized": {
+          "categories": [
+            "mutation_detected"
+          ],
+          "code": "ProbeComplete",
+          "conclusive": true,
+          "layer": "independent_oracle",
+          "phases": [
+            "oracle"
+          ],
+          "remoteOutcome": null
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "mutation_oracle_result",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W12-mutant-remove-quota",
+      "elapsedSeconds": 5.029994000004081,
+      "executionStatus": "executed",
+      "receipt": {
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "measuredWindow": {
+          "peers": {
+            "a2a": {
+              "end": 0,
+              "start": 0
+            },
+            "mcp": {
+              "end": 3,
+              "start": 0
+            }
+          },
+          "proxy": {
+            "a2a": {
+              "end": 0,
+              "start": 0
+            },
+            "mcp": {
+              "end": 4,
+              "start": 0
+            }
+          },
+          "trace": {
+            "end": 9,
+            "start": 1
+          }
+        },
+        "mutationControl": {
+          "cleanup": [],
+          "credentialLeakDetected": false,
+          "measuredWindow": {
+            "peers": {
+              "a2a": {
+                "end": 0,
+                "start": 0
+              },
+              "mcp": {
+                "end": 0,
+                "start": 0
+              }
+            },
+            "proxy": {
+              "a2a": {
+                "end": 0,
+                "start": 0
+              },
+              "mcp": {
+                "end": 0,
+                "start": 0
+              }
+            },
+            "trace": {
+              "end": 4,
+              "start": 1
+            }
+          },
+          "mutationPolicy": {
+            "grants": [
+              "cancel",
+              "observe",
+              "provideInput",
+              "readEvidence",
+              "submit"
+            ],
+            "limits": {
+              "cleanup_requests": 2,
+              "max_requests": 2,
+              "normalRequests": 0
+            },
+            "operation": "readEvidence"
+          },
+          "peerProcessesRetired": true,
+          "peers": {
+            "a2a": [],
+            "mcp": []
+          },
+          "probeCalls": [
+            {
+              "operation": "readEvidence",
+              "result": {
+                "code": "BudgetDenied",
+                "fatal": false,
+                "kind": "Error",
+                "remoteOutcome": "NotStarted"
+              }
+            }
+          ],
+          "proxy": {
+            "a2a": [],
+            "mcp": []
+          },
+          "result": {
+            "outcome": "BudgetDenied"
+          },
+          "setupCalls": [],
+          "trace": [
+            {
+              "event": "root_open",
+              "sequence": 0
+            },
+            {
+              "code": "BudgetDenied",
+              "event": "call_rejected",
+              "operation": "readEvidence",
+              "sequence": 1
+            },
+            {
+              "event": "root_close",
+              "sequence": 2
+            },
+            {
+              "event": "publication",
+              "outcome": "BudgetDenied",
+              "sequence": 3,
+              "success": false
+            }
+          ],
+          "witnessesCapturedBeforePeerShutdown": true
+        },
+        "mutationExecution": {
+          "arm": "shared",
+          "canonicalMethodSha256": "f049442d0fdd39e84733d8630ce0002c6fdd7a1d51edf3911ee24910e6979dcf",
+          "kind": "host_mutant",
+          "method": "_reserve",
+          "mutatedMethodSha256": "f0e377249969a1e7b51abea1085be9722685892b9d98039e66e6b7f603be8062",
+          "mutation": "remove_request_quota",
+          "replacements": [
+            {
+              "after": "if False and self.requests >= self.limits.max_requests:",
+              "before": "if self.requests >= self.limits.max_requests:"
+            },
+            {
+              "after": "if False and self.normal_requests >= self.limits.max_requests - self.limits.cleanup_requests:",
+              "before": "if self.normal_requests >= self.limits.max_requests - self.limits.cleanup_requests:"
+            }
+          ],
+          "scope": "fixture_instance"
+        },
+        "mutationPolicy": {
+          "grants": [
+            "cancel",
+            "observe",
+            "provideInput",
+            "readEvidence",
+            "submit"
+          ],
+          "limits": {
+            "cleanup_requests": 2,
+            "max_requests": 2,
+            "normalRequests": 0
+          },
+          "operation": "readEvidence"
+        },
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "probeCalls": [
+          {
+            "operation": "readEvidence",
+            "result": {
+              "kind": "Evidence",
+              "value": {
+                "documentId": "evidence-42",
+                "facts": [
+                  {
+                    "id": "f1",
+                    "value": "blue"
+                  },
+                  {
+                    "id": "f2",
+                    "value": "square"
+                  }
+                ],
+                "revision": 1
+              }
+            }
+          }
+        ],
+        "proxy": {
+          "a2a": [],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "ProbeComplete"
+        },
+        "setupCalls": [],
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": -1,
+            "request": 1,
+            "rootRemainingSeconds": 14.999519026998314,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": -2,
+            "request": 2,
+            "rootRemainingSeconds": 14.989347802998964,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "event": "root_close",
+            "sequence": 7
+          },
+          {
+            "event": "publication",
+            "outcome": "ProbeComplete",
+            "sequence": 8,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true
+      },
+      "scenario": {
+        "hostMutation": "remove_request_quota",
+        "normalRequests": 0,
+        "operation": "readEvidence"
+      },
+      "surface": "host_mutant"
+    },
+    {
+      "assessment": {
+        "caseId": "W12-client-repeat-submit",
+        "checks": [
+          {
+            "name": "mutation.identity",
+            "reason": "The receipt identifies the requested mutation surface and exact frozen defect.",
+            "status": "passed"
+          },
+          {
+            "name": "mutation.control",
+            "reason": "The canonical paired control satisfies the original policy under the same external fault or authority limits.",
+            "status": "passed"
+          },
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "admission_denied"
+            ],
+            "expected": "admission_denied",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "pre_dispatch"
+            ],
+            "expected": "pre_dispatch",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.peer_task_ledger",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_admission_log",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "failed"
+          },
+          {
+            "name": "invariant.unknown_not_refunded",
+            "reason": "The source attempts a second submit after a witnessed lost committed response; the host denies it and the peer still records exactly one task.",
+            "status": "passed"
+          },
+          {
+            "name": "typescript_source_execution",
+            "reason": "Paired TypeScript source hashes and equal strict compiler receipts accompany actual worker observations; no Meda execution is inferred.",
+            "status": "passed"
+          },
+          {
+            "name": "meda_source_execution",
+            "reason": "This experiment executes only the TypeScript arm; the frozen Meda source arm remains unrun.",
+            "status": "unverified"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 0,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "peerTaskCreations": 1,
+          "successfulPublications": 0
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "unknown_not_refunded"
+          ],
+          "failed": [
+            "attribution_recorded"
+          ],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered"
+          ]
+        },
+        "mutationOracle": {
+          "controlValid": true,
+          "detected": null,
+          "mutation": "repeat_after_unknown_submit",
+          "ordinaryPolicy": {
+            "control": true,
+            "mutant": true
+          },
+          "repeatContained": true,
+          "sourceChecked": true
+        },
+        "normalized": {
+          "categories": [
+            "admission_denied"
+          ],
+          "code": "BudgetDenied",
+          "conclusive": true,
+          "layer": "shared_host",
+          "phases": [
+            "pre_dispatch"
+          ],
+          "remoteOutcome": "NotStarted"
+        },
+        "passed": false,
+        "status": "failed",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "normalized_outcome",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "worker_exit_witness"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W12-client-repeat-submit",
+      "elapsedSeconds": 7.648426744999597,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 74,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 2508,
+              "credentialMatches": 0,
+              "entries": 17,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 613,
+              "credentialMatches": 0,
+              "entries": 6,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1298,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 0
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:49153/a2a",
+          "agentCardSha256": "9337bccf7572bb2fbc4a27b21c3ce6e76c10c2ea01c15b65f90327c4593864df",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:49417/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "mutationControl": {
+          "applicationChannelScan": {
+            "channels": [
+              {
+                "bytes": 75,
+                "credentialMatches": 0,
+                "entries": 1,
+                "name": "applicationFinish",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 0,
+                "credentialMatches": 0,
+                "entries": 0,
+                "name": "stderr",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 0,
+                "credentialMatches": 0,
+                "entries": 0,
+                "name": "unexpectedStdout",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 2424,
+                "credentialMatches": 0,
+                "entries": 16,
+                "name": "ordinaryHostTrace",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 613,
+                "credentialMatches": 0,
+                "entries": 6,
+                "name": "peerWitnesses",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 1298,
+                "credentialMatches": 0,
+                "entries": 9,
+                "name": "proxyWitnesses",
+                "referenceMatches": 0
+              }
+            ],
+            "complete": true,
+            "credentialSentinelCount": 8,
+            "referenceSentinelCount": 0
+          },
+          "bindingManifest": {
+            "a2aUrl": "https://127.0.0.1:36343/a2a",
+            "agentCardSha256": "d43d46c4d92ce0642860c8ea7ad5c0b1aee9625206107b33a1fbeef001d57245",
+            "limits": {
+              "cleanup_requests": 2,
+              "cleanup_seconds": 1,
+              "max_depth": 16,
+              "max_event_bytes": 16384,
+              "max_events": 16,
+              "max_inbound_bytes": 262144,
+              "max_pages": 2,
+              "max_polls": 3,
+              "max_request_bytes": 65536,
+              "max_requests": 16,
+              "max_response_bytes": 65536,
+              "poll_interval": 0.1,
+              "request_seconds": 2,
+              "root_seconds": 15
+            },
+            "mcpUrl": "https://127.0.0.1:50507/mcp",
+            "protocolPins": {
+              "A2A": "1.0",
+              "MCP": "2026-07-28"
+            },
+            "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+          },
+          "cleanup": [],
+          "credentialLeakDetected": false,
+          "peerProcessesRetired": true,
+          "peers": {
+            "a2a": [
+              {
+                "event": "request",
+                "method": "GET",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "SendMessage",
+                "operation": "submit",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "contextId": "context-1",
+                "event": "created",
+                "principal": "alice",
+                "taskId": "task-1",
+                "tenant": "tenant-a"
+              }
+            ],
+            "mcp": [
+              {
+                "event": "request",
+                "method": "tools/list",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "tools/call",
+                "operation": "readEvidence",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "documentId": "evidence-42",
+                "event": "evidence_read"
+              }
+            ]
+          },
+          "proxy": {
+            "a2a": [
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 1,
+                "requestBytes": 0,
+                "sequence": 0
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 1,
+                "responseBytes": 669,
+                "rpcResult": false,
+                "sequence": 1,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "submit",
+                "protocol": "a2a",
+                "request": 2,
+                "requestBytes": 371,
+                "sequence": 2
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "submit",
+                "protocol": "a2a",
+                "request": 2,
+                "responseBytes": 124,
+                "rpcResult": true,
+                "sequence": 3,
+                "status": 200
+              },
+              {
+                "afterUpstreamResponse": true,
+                "event": "response_dropped",
+                "operation": "submit",
+                "protocol": "a2a",
+                "request": 2,
+                "sequence": 4
+              }
+            ],
+            "mcp": [
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "requestBytes": 270,
+                "sequence": 0
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "responseBytes": 981,
+                "rpcResult": true,
+                "sequence": 1,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "requestBytes": 334,
+                "sequence": 2
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "responseBytes": 548,
+                "rpcResult": true,
+                "sequence": 3,
+                "status": 200
+              }
+            ]
+          },
+          "result": {
+            "fatal": false,
+            "outcome": "TransportFailure",
+            "remoteOutcome": "Unknown"
+          },
+          "trace": [
+            {
+              "event": "root_open",
+              "sequence": 0
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/list",
+              "normalRequests": 1,
+              "protocol": "mcp",
+              "remainingInbound": 262144,
+              "remainingNormal": 13,
+              "request": 1,
+              "rootRemainingSeconds": 14.950304384998162,
+              "sequence": 1,
+              "totalRequests": 1
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/list",
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 2
+            },
+            {
+              "bytes": 981,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 981,
+              "method": "tools/list",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 3
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/call",
+              "normalRequests": 2,
+              "protocol": "mcp",
+              "remainingInbound": 261163,
+              "remainingNormal": 12,
+              "request": 2,
+              "rootRemainingSeconds": 14.939561955994577,
+              "sequence": 4,
+              "totalRequests": 2
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/call",
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 5
+            },
+            {
+              "bytes": 548,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 1529,
+              "method": "tools/call",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 6
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "__card",
+              "normalRequests": 3,
+              "protocol": "a2a",
+              "remainingInbound": 260615,
+              "remainingNormal": 11,
+              "request": 3,
+              "rootRemainingSeconds": 14.927835383998172,
+              "sequence": 7,
+              "totalRequests": 3
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "__card",
+              "protocol": "a2a",
+              "request": 3,
+              "sequence": 8
+            },
+            {
+              "bytes": 669,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 2198,
+              "method": "__card",
+              "notifications": 0,
+              "protocol": "a2a",
+              "request": 3,
+              "sequence": 9
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "SendMessage",
+              "normalRequests": 4,
+              "protocol": "a2a",
+              "remainingInbound": 259946,
+              "remainingNormal": 10,
+              "request": 4,
+              "rootRemainingSeconds": 14.920153742001276,
+              "sequence": 10,
+              "totalRequests": 4
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "SendMessage",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 11
+            },
+            {
+              "bytes": 0,
+              "cleanup": false,
+              "code": "TransportFailure",
+              "event": "transport_error",
+              "inboundBytes": 2198,
+              "remoteOutcome": "Unknown",
+              "request": 4,
+              "sequence": 12
+            },
+            {
+              "code": "TransportFailure",
+              "event": "call_rejected",
+              "operation": "submit",
+              "sequence": 13
+            },
+            {
+              "event": "root_close",
+              "sequence": 14
+            },
+            {
+              "event": "publication",
+              "outcome": "TransportFailure",
+              "sequence": 15,
+              "success": false
+            }
+          ],
+          "witnessesCapturedBeforePeerShutdown": true,
+          "worker": {
+            "applicationFinish": {
+              "fatal": false,
+              "outcome": "TransportFailure",
+              "remoteOutcome": "Unknown"
+            },
+            "barriers": [],
+            "calls": [
+              {
+                "id": 1,
+                "kind": "Evidence",
+                "operation": "readEvidence"
+              },
+              {
+                "code": "TransportFailure",
+                "fatal": false,
+                "id": 2,
+                "kind": "Error",
+                "operation": "submit",
+                "remoteOutcome": "Unknown"
+              }
+            ],
+            "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+            "elapsedSeconds": 0.09399410000332864,
+            "finishFrames": 1,
+            "hostFinishElapsedSeconds": 0.00018124400230590254,
+            "outputTruncated": false,
+            "peakRssBytesObserved": 26804224,
+            "responsesAfterFatal": 0,
+            "retired": true,
+            "retirementAfterRequestSeconds": null,
+            "retirementObservedAfterStartSeconds": 0.09371549999923445,
+            "retirementRequestedAfterStartSeconds": null,
+            "returncode": 0,
+            "stderr": [],
+            "stderrBytes": 0,
+            "supervisorJoined": true,
+            "termination": "normal",
+            "unexpectedStdout": []
+          }
+        },
+        "mutationExecution": {
+          "arm": "typescript",
+          "changedFiles": [
+            "workflow.ts"
+          ],
+          "compiler": {
+            "control": {
+              "compiler": "TypeScript",
+              "elapsedSeconds": 0.8784643380058696,
+              "options": {
+                "exactOptionalPropertyTypes": true,
+                "forceConsistentCasingInFileNames": true,
+                "lib": [
+                  "ES2022"
+                ],
+                "module": "CommonJS",
+                "moduleResolution": "Node",
+                "noEmitOnError": true,
+                "noFallthroughCasesInSwitch": true,
+                "noImplicitReturns": true,
+                "noUncheckedIndexedAccess": true,
+                "outDir": "dist",
+                "rootDir": "client",
+                "skipLibCheck": true,
+                "strict": true,
+                "target": "ES2022",
+                "types": [
+                  "node"
+                ]
+              },
+              "passed": true,
+              "peakRssBytesObserved": 193740800,
+              "rssLimitBytes": 268435456,
+              "sourceStrict": true,
+              "v8OldSpaceMiB": 96,
+              "version": "5.9.3",
+              "wallLimitSeconds": 10
+            },
+            "mutant": {
+              "compiler": "TypeScript",
+              "elapsedSeconds": 0.8243223329991451,
+              "options": {
+                "exactOptionalPropertyTypes": true,
+                "forceConsistentCasingInFileNames": true,
+                "lib": [
+                  "ES2022"
+                ],
+                "module": "CommonJS",
+                "moduleResolution": "Node",
+                "noEmitOnError": true,
+                "noFallthroughCasesInSwitch": true,
+                "noImplicitReturns": true,
+                "noUncheckedIndexedAccess": true,
+                "outDir": "dist",
+                "rootDir": "client",
+                "skipLibCheck": true,
+                "strict": true,
+                "target": "ES2022",
+                "types": [
+                  "node"
+                ]
+              },
+              "passed": true,
+              "peakRssBytesObserved": 193818624,
+              "rssLimitBytes": 268435456,
+              "sourceStrict": true,
+              "v8OldSpaceMiB": 96,
+              "version": "5.9.3",
+              "wallLimitSeconds": 10
+            }
+          },
+          "kind": "source_mutant",
+          "mutation": "repeat_after_unknown_submit",
+          "sourceSha256": {
+            "control": {
+              "bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+              "domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+              "main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+              "workflow.ts": "e31424b14960b68e4d174e8261dafcfe9f7ee78046a3611d1b553c0719b9e5b5"
+            },
+            "mutant": {
+              "bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+              "domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+              "main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+              "workflow.ts": "c80742b6e363a450ef318ac7c9c8a982e96d89b30d8ff6fb02b4c5b4f3061b87"
+            }
+          }
+        },
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "afterUpstreamResponse": true,
+              "event": "response_dropped",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "sequence": 4
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "fatal": false,
+          "outcome": "BudgetDenied",
+          "remoteOutcome": "NotStarted"
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.965680649002024,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.956060955002613,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.94875492600113,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.941902653998113,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 0,
+            "cleanup": false,
+            "code": "TransportFailure",
+            "event": "transport_error",
+            "inboundBytes": 2198,
+            "remoteOutcome": "Unknown",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "code": "TransportFailure",
+            "event": "call_rejected",
+            "operation": "submit",
+            "sequence": 13
+          },
+          {
+            "code": "BudgetDenied",
+            "event": "call_rejected",
+            "operation": "submit",
+            "sequence": 14
+          },
+          {
+            "event": "root_close",
+            "sequence": 15
+          },
+          {
+            "event": "publication",
+            "outcome": "BudgetDenied",
+            "sequence": 16,
+            "success": false
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "fatal": false,
+            "outcome": "BudgetDenied",
+            "remoteOutcome": "NotStarted"
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "code": "TransportFailure",
+              "fatal": false,
+              "id": 2,
+              "kind": "Error",
+              "operation": "submit",
+              "remoteOutcome": "Unknown"
+            },
+            {
+              "code": "BudgetDenied",
+              "fatal": false,
+              "id": 3,
+              "kind": "Error",
+              "operation": "submit",
+              "remoteOutcome": "NotStarted"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.06794979800179135,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.00015704799443483353,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26734592,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.06774961500195786,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "dropResponseAfterPeerCommit": "submit",
+        "sourceMutation": "repeat_after_unknown_submit"
+      },
+      "surface": "source_mutant"
+    },
+    {
+      "assessment": {
+        "caseId": "W12-wrong-domain-validator",
+        "checks": [
+          {
+            "name": "mutation.identity",
+            "reason": "The receipt identifies the requested mutation surface and exact frozen defect.",
+            "status": "passed"
+          },
+          {
+            "name": "mutation.control",
+            "reason": "The canonical paired control satisfies the original policy under the same external fault or authority limits.",
+            "status": "passed"
+          },
+          {
+            "name": "observation.application_channel_scan",
+            "reason": "Scan covers named emitted channels; trusted RPC transport is excluded and source-internal visibility is a separate obligation.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "mutation_detected"
+            ],
+            "expected": "mutation_detected",
+            "name": "outcomeCategory",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": [
+              "oracle"
+            ],
+            "expected": "oracle",
+            "name": "phase",
+            "reason": "Derived from result, call observations, and trace; ambiguity is retained.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.readEvidence",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.submit",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.observe",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.provideInput",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 0,
+            "expected": {
+              "max": 0,
+              "min": 0
+            },
+            "name": "count.cleanupCancel",
+            "reason": "Committed host dispatches; SendMessage classification requires matching independent proxy forwards.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.peerTaskCreations",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "actual": 1,
+            "expected": {
+              "max": 1,
+              "min": 1
+            },
+            "name": "count.successfulPublications",
+            "reason": "Peer creation ledger or host publication events, excluding no unrecorded setup.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.normalized_outcome",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.host_trace",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.report",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.independent_domain_oracle",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "witness.mutation_oracle_result",
+            "reason": "Required observation is present.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.one_terminal",
+            "reason": "Count every terminal publication event, including unsuccessful terminals.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.no_late_application",
+            "reason": "Reject observed late dispatch/success/response; full source-continuation ordering is not recorded.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.no_secret_exposure",
+            "reason": "Credential leakage is checked when reported; a clean receipt scan alone does not cover reference tokens or all source-visible values.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.discovery_metered",
+            "reason": "Discovery admission is cross-checked; remaining request/byte/time ledger observations are needed for full metering proof.",
+            "status": "unverified"
+          },
+          {
+            "name": "invariant.attribution_recorded",
+            "reason": "Attribution is inferred from the observed result and call phase, not the source language label.",
+            "status": "passed"
+          },
+          {
+            "name": "invariant.independent_mutant_detection",
+            "reason": "Recompute the control and mutant policy verdicts from peer/proxy ledgers or the independently specified exact report; ignore detection flags.",
+            "status": "passed"
+          },
+          {
+            "name": "typescript_source_execution",
+            "reason": "Paired TypeScript source hashes and equal strict compiler receipts accompany actual worker observations; no Meda execution is inferred.",
+            "status": "passed"
+          },
+          {
+            "name": "meda_source_execution",
+            "reason": "This experiment executes only the TypeScript arm; the frozen Meda source arm remains unrun.",
+            "status": "unverified"
+          }
+        ],
+        "counts": {
+          "businessDispatches": {
+            "cancel": 0,
+            "cleanupCancel": 0,
+            "observe": 1,
+            "provideInput": 0,
+            "readEvidence": 1,
+            "submit": 1
+          },
+          "peerTaskCreations": 1,
+          "successfulPublications": 1
+        },
+        "invariants": {
+          "checked": [
+            "one_terminal",
+            "attribution_recorded",
+            "independent_mutant_detection"
+          ],
+          "failed": [],
+          "unverified": [
+            "no_late_application",
+            "no_secret_exposure",
+            "discovery_metered"
+          ]
+        },
+        "mutationOracle": {
+          "controlValid": true,
+          "detected": true,
+          "mutation": "accept_wrong_report",
+          "ordinaryPolicy": {
+            "control": true,
+            "mutant": false
+          },
+          "repeatContained": null,
+          "sourceChecked": true
+        },
+        "normalized": {
+          "categories": [
+            "mutation_detected"
+          ],
+          "code": "Success",
+          "conclusive": true,
+          "layer": "independent_oracle",
+          "phases": [
+            "oracle"
+          ],
+          "remoteOutcome": null
+        },
+        "passed": false,
+        "status": "unverified",
+        "witnesses": {
+          "available": [
+            "cleanup_witness",
+            "fault_proxy_log",
+            "host_admission_log",
+            "host_trace",
+            "independent_domain_oracle",
+            "mutation_oracle_result",
+            "normalized_outcome",
+            "normalized_task_observation",
+            "peer_task_ledger",
+            "peer_wire_log",
+            "report",
+            "worker_exit_witness"
+          ],
+          "missing": []
+        }
+      },
+      "caseId": "W12-wrong-domain-validator",
+      "elapsedSeconds": 6.862566005002009,
+      "executionStatus": "executed",
+      "receipt": {
+        "applicationChannelScan": {
+          "channels": [
+            {
+              "bytes": 160,
+              "credentialMatches": 0,
+              "entries": 1,
+              "name": "applicationFinish",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "stderr",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 0,
+              "credentialMatches": 0,
+              "entries": 0,
+              "name": "unexpectedStdout",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 3552,
+              "credentialMatches": 0,
+              "entries": 23,
+              "name": "ordinaryHostTrace",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 902,
+              "credentialMatches": 0,
+              "entries": 9,
+              "name": "peerWitnesses",
+              "referenceMatches": 0
+            },
+            {
+              "bytes": 1873,
+              "credentialMatches": 0,
+              "entries": 13,
+              "name": "proxyWitnesses",
+              "referenceMatches": 0
+            }
+          ],
+          "complete": true,
+          "credentialSentinelCount": 8,
+          "referenceSentinelCount": 1
+        },
+        "bindingManifest": {
+          "a2aUrl": "https://127.0.0.1:36485/a2a",
+          "agentCardSha256": "b518fac84809a67c90171fc7058e6351f7cfb1b40b3e079c348789fd18ac90d7",
+          "limits": {
+            "cleanup_requests": 2,
+            "cleanup_seconds": 1,
+            "max_depth": 16,
+            "max_event_bytes": 16384,
+            "max_events": 16,
+            "max_inbound_bytes": 262144,
+            "max_pages": 2,
+            "max_polls": 3,
+            "max_request_bytes": 65536,
+            "max_requests": 16,
+            "max_response_bytes": 65536,
+            "poll_interval": 0.1,
+            "request_seconds": 2,
+            "root_seconds": 15
+          },
+          "mcpUrl": "https://127.0.0.1:44859/mcp",
+          "protocolPins": {
+            "A2A": "1.0",
+            "MCP": "2026-07-28"
+          },
+          "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+        },
+        "cleanup": [],
+        "credentialLeakDetected": false,
+        "mutationControl": {
+          "applicationChannelScan": {
+            "channels": [
+              {
+                "bytes": 29,
+                "credentialMatches": 0,
+                "entries": 1,
+                "name": "applicationFinish",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 0,
+                "credentialMatches": 0,
+                "entries": 0,
+                "name": "stderr",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 0,
+                "credentialMatches": 0,
+                "entries": 0,
+                "name": "unexpectedStdout",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 3558,
+                "credentialMatches": 0,
+                "entries": 23,
+                "name": "ordinaryHostTrace",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 902,
+                "credentialMatches": 0,
+                "entries": 9,
+                "name": "peerWitnesses",
+                "referenceMatches": 0
+              },
+              {
+                "bytes": 1873,
+                "credentialMatches": 0,
+                "entries": 13,
+                "name": "proxyWitnesses",
+                "referenceMatches": 0
+              }
+            ],
+            "complete": true,
+            "credentialSentinelCount": 8,
+            "referenceSentinelCount": 1
+          },
+          "bindingManifest": {
+            "a2aUrl": "https://127.0.0.1:59737/a2a",
+            "agentCardSha256": "9e69aa82a53d6d9489fc05c2153f2fec0228eece3041c2fcdc82231eb4076229",
+            "limits": {
+              "cleanup_requests": 2,
+              "cleanup_seconds": 1,
+              "max_depth": 16,
+              "max_event_bytes": 16384,
+              "max_events": 16,
+              "max_inbound_bytes": 262144,
+              "max_pages": 2,
+              "max_polls": 3,
+              "max_request_bytes": 65536,
+              "max_requests": 16,
+              "max_response_bytes": 65536,
+              "poll_interval": 0.1,
+              "request_seconds": 2,
+              "root_seconds": 15
+            },
+            "mcpUrl": "https://127.0.0.1:32933/mcp",
+            "protocolPins": {
+              "A2A": "1.0",
+              "MCP": "2026-07-28"
+            },
+            "toolDescriptorSha256": "f5d7567e465ef67658367bc6c809c87ea74a6e7efda9b99a233aec2ce0634c11"
+          },
+          "cleanup": [],
+          "credentialLeakDetected": false,
+          "peerProcessesRetired": true,
+          "peers": {
+            "a2a": [
+              {
+                "event": "request",
+                "method": "GET",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "SendMessage",
+                "operation": "submit",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "contextId": "context-1",
+                "event": "created",
+                "principal": "alice",
+                "taskId": "task-1",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "GET",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "GetTask",
+                "operation": "observe",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "observed",
+                "state": "TASK_STATE_COMPLETED",
+                "taskId": "task-1"
+              }
+            ],
+            "mcp": [
+              {
+                "event": "request",
+                "method": "tools/list",
+                "operation": "discover",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "event": "request",
+                "method": "tools/call",
+                "operation": "readEvidence",
+                "principal": "alice",
+                "tenant": "tenant-a"
+              },
+              {
+                "documentId": "evidence-42",
+                "event": "evidence_read"
+              }
+            ]
+          },
+          "proxy": {
+            "a2a": [
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 1,
+                "requestBytes": 0,
+                "sequence": 0
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 1,
+                "responseBytes": 669,
+                "rpcResult": false,
+                "sequence": 1,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "submit",
+                "protocol": "a2a",
+                "request": 2,
+                "requestBytes": 371,
+                "sequence": 2
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "submit",
+                "protocol": "a2a",
+                "request": 2,
+                "responseBytes": 124,
+                "rpcResult": true,
+                "sequence": 3,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 3,
+                "requestBytes": 0,
+                "sequence": 4
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "a2a",
+                "request": 3,
+                "responseBytes": 669,
+                "rpcResult": false,
+                "sequence": 5,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "observe",
+                "protocol": "a2a",
+                "request": 4,
+                "requestBytes": 70,
+                "sequence": 6
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "observe",
+                "protocol": "a2a",
+                "request": 4,
+                "responseBytes": 289,
+                "rpcResult": true,
+                "sequence": 7,
+                "status": 200
+              },
+              {
+                "event": "response_mutated",
+                "mutation": "wrong_value",
+                "operation": "observe",
+                "protocol": "a2a",
+                "request": 4,
+                "sequence": 8
+              }
+            ],
+            "mcp": [
+              {
+                "event": "forward",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "requestBytes": 270,
+                "sequence": 0
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "discover",
+                "protocol": "mcp",
+                "request": 1,
+                "responseBytes": 981,
+                "rpcResult": true,
+                "sequence": 1,
+                "status": 200
+              },
+              {
+                "event": "forward",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "requestBytes": 334,
+                "sequence": 2
+              },
+              {
+                "complete": true,
+                "event": "upstream_response",
+                "operation": "readEvidence",
+                "protocol": "mcp",
+                "request": 2,
+                "responseBytes": 548,
+                "rpcResult": true,
+                "sequence": 3,
+                "status": 200
+              }
+            ]
+          },
+          "result": {
+            "outcome": "DomainRejected"
+          },
+          "trace": [
+            {
+              "event": "root_open",
+              "sequence": 0
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/list",
+              "normalRequests": 1,
+              "protocol": "mcp",
+              "remainingInbound": 262144,
+              "remainingNormal": 13,
+              "request": 1,
+              "rootRemainingSeconds": 14.957184719001816,
+              "sequence": 1,
+              "totalRequests": 1
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/list",
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 2
+            },
+            {
+              "bytes": 981,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 981,
+              "method": "tools/list",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 1,
+              "sequence": 3
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "tools/call",
+              "normalRequests": 2,
+              "protocol": "mcp",
+              "remainingInbound": 261163,
+              "remainingNormal": 12,
+              "request": 2,
+              "rootRemainingSeconds": 14.946495164003863,
+              "sequence": 4,
+              "totalRequests": 2
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "tools/call",
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 5
+            },
+            {
+              "bytes": 548,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 1529,
+              "method": "tools/call",
+              "notifications": 0,
+              "protocol": "mcp",
+              "request": 2,
+              "sequence": 6
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "__card",
+              "normalRequests": 3,
+              "protocol": "a2a",
+              "remainingInbound": 260615,
+              "remainingNormal": 11,
+              "request": 3,
+              "rootRemainingSeconds": 14.93532713699824,
+              "sequence": 7,
+              "totalRequests": 3
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "__card",
+              "protocol": "a2a",
+              "request": 3,
+              "sequence": 8
+            },
+            {
+              "bytes": 669,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 2198,
+              "method": "__card",
+              "notifications": 0,
+              "protocol": "a2a",
+              "request": 3,
+              "sequence": 9
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "SendMessage",
+              "normalRequests": 4,
+              "protocol": "a2a",
+              "remainingInbound": 259946,
+              "remainingNormal": 10,
+              "request": 4,
+              "rootRemainingSeconds": 14.92772540000442,
+              "sequence": 10,
+              "totalRequests": 4
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "SendMessage",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 11
+            },
+            {
+              "bytes": 124,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 2322,
+              "method": "SendMessage",
+              "notifications": 0,
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 12
+            },
+            {
+              "event": "task_observed",
+              "reference": 1,
+              "sequence": 13,
+              "state": "Working"
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "__card",
+              "normalRequests": 5,
+              "protocol": "a2a",
+              "remainingInbound": 259822,
+              "remainingNormal": 9,
+              "request": 5,
+              "rootRemainingSeconds": 14.919113779003965,
+              "sequence": 14,
+              "totalRequests": 5
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "__card",
+              "protocol": "a2a",
+              "request": 5,
+              "sequence": 15
+            },
+            {
+              "bytes": 669,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 2991,
+              "method": "__card",
+              "notifications": 0,
+              "protocol": "a2a",
+              "request": 5,
+              "sequence": 16
+            },
+            {
+              "cleanup": false,
+              "cleanupCount": 0,
+              "event": "admitted",
+              "method": "GetTask",
+              "normalRequests": 6,
+              "protocol": "a2a",
+              "remainingInbound": 259153,
+              "remainingNormal": 8,
+              "request": 6,
+              "rootRemainingSeconds": 14.91227954000351,
+              "sequence": 17,
+              "totalRequests": 6
+            },
+            {
+              "cleanup": false,
+              "event": "dispatch",
+              "method": "GetTask",
+              "protocol": "a2a",
+              "request": 6,
+              "sequence": 18
+            },
+            {
+              "bytes": 293,
+              "cleanup": false,
+              "event": "received",
+              "inboundBytes": 3284,
+              "method": "GetTask",
+              "notifications": 0,
+              "protocol": "a2a",
+              "request": 6,
+              "sequence": 19
+            },
+            {
+              "event": "task_observed",
+              "reference": 1,
+              "sequence": 20,
+              "state": "Completed"
+            },
+            {
+              "event": "root_close",
+              "sequence": 21
+            },
+            {
+              "event": "publication",
+              "outcome": "DomainRejected",
+              "sequence": 22,
+              "success": false
+            }
+          ],
+          "witnessesCapturedBeforePeerShutdown": true,
+          "worker": {
+            "applicationFinish": {
+              "outcome": "DomainRejected"
+            },
+            "barriers": [],
+            "calls": [
+              {
+                "id": 1,
+                "kind": "Evidence",
+                "operation": "readEvidence"
+              },
+              {
+                "id": 2,
+                "kind": "Task",
+                "operation": "submit",
+                "state": "Working"
+              },
+              {
+                "artifactSha256": "8a872cdd7cc866ff41a47adad299b11448ef7b32aef0c730d7211ac948d17e9a",
+                "id": 3,
+                "kind": "Task",
+                "operation": "observe",
+                "state": "Completed"
+              }
+            ],
+            "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+            "elapsedSeconds": 0.10443765800300753,
+            "finishFrames": 1,
+            "hostFinishElapsedSeconds": 0.0004170789979980327,
+            "outputTruncated": false,
+            "peakRssBytesObserved": 26787840,
+            "responsesAfterFatal": 0,
+            "retired": true,
+            "retirementAfterRequestSeconds": null,
+            "retirementObservedAfterStartSeconds": 0.10373261399945477,
+            "retirementRequestedAfterStartSeconds": null,
+            "returncode": 0,
+            "stderr": [],
+            "stderrBytes": 0,
+            "supervisorJoined": true,
+            "termination": "normal",
+            "unexpectedStdout": []
+          }
+        },
+        "mutationExecution": {
+          "arm": "typescript",
+          "changedFiles": [
+            "domain.ts"
+          ],
+          "compiler": {
+            "control": {
+              "compiler": "TypeScript",
+              "elapsedSeconds": 0.773890525000752,
+              "options": {
+                "exactOptionalPropertyTypes": true,
+                "forceConsistentCasingInFileNames": true,
+                "lib": [
+                  "ES2022"
+                ],
+                "module": "CommonJS",
+                "moduleResolution": "Node",
+                "noEmitOnError": true,
+                "noFallthroughCasesInSwitch": true,
+                "noImplicitReturns": true,
+                "noUncheckedIndexedAccess": true,
+                "outDir": "dist",
+                "rootDir": "client",
+                "skipLibCheck": true,
+                "strict": true,
+                "target": "ES2022",
+                "types": [
+                  "node"
+                ]
+              },
+              "passed": true,
+              "peakRssBytesObserved": 193220608,
+              "rssLimitBytes": 268435456,
+              "sourceStrict": true,
+              "v8OldSpaceMiB": 96,
+              "version": "5.9.3",
+              "wallLimitSeconds": 10
+            },
+            "mutant": {
+              "compiler": "TypeScript",
+              "elapsedSeconds": 0.7995842699965579,
+              "options": {
+                "exactOptionalPropertyTypes": true,
+                "forceConsistentCasingInFileNames": true,
+                "lib": [
+                  "ES2022"
+                ],
+                "module": "CommonJS",
+                "moduleResolution": "Node",
+                "noEmitOnError": true,
+                "noFallthroughCasesInSwitch": true,
+                "noImplicitReturns": true,
+                "noUncheckedIndexedAccess": true,
+                "outDir": "dist",
+                "rootDir": "client",
+                "skipLibCheck": true,
+                "strict": true,
+                "target": "ES2022",
+                "types": [
+                  "node"
+                ]
+              },
+              "passed": true,
+              "peakRssBytesObserved": 192978944,
+              "rssLimitBytes": 268435456,
+              "sourceStrict": true,
+              "v8OldSpaceMiB": 96,
+              "version": "5.9.3",
+              "wallLimitSeconds": 10
+            }
+          },
+          "kind": "source_mutant",
+          "mutation": "accept_wrong_report",
+          "sourceSha256": {
+            "control": {
+              "bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+              "domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+              "main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+              "workflow.ts": "e31424b14960b68e4d174e8261dafcfe9f7ee78046a3611d1b553c0719b9e5b5"
+            },
+            "mutant": {
+              "bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+              "domain.ts": "4b4c72ecbb8243510354c5cb1a10dd3cb534510b2e593796b8dcbc9e2538445d",
+              "main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+              "workflow.ts": "e31424b14960b68e4d174e8261dafcfe9f7ee78046a3611d1b553c0719b9e5b5"
+            }
+          }
+        },
+        "peerProcessesRetired": true,
+        "peers": {
+          "a2a": [
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "SendMessage",
+              "operation": "submit",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "contextId": "context-1",
+              "event": "created",
+              "principal": "alice",
+              "taskId": "task-1",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GET",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "GetTask",
+              "operation": "observe",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "observed",
+              "state": "TASK_STATE_COMPLETED",
+              "taskId": "task-1"
+            }
+          ],
+          "mcp": [
+            {
+              "event": "request",
+              "method": "tools/list",
+              "operation": "discover",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "event": "request",
+              "method": "tools/call",
+              "operation": "readEvidence",
+              "principal": "alice",
+              "tenant": "tenant-a"
+            },
+            {
+              "documentId": "evidence-42",
+              "event": "evidence_read"
+            }
+          ]
+        },
+        "proxy": {
+          "a2a": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "requestBytes": 0,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 1,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "requestBytes": 371,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "submit",
+              "protocol": "a2a",
+              "request": 2,
+              "responseBytes": 124,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "requestBytes": 0,
+              "sequence": 4
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "a2a",
+              "request": 3,
+              "responseBytes": 669,
+              "rpcResult": false,
+              "sequence": 5,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "requestBytes": 70,
+              "sequence": 6
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "responseBytes": 289,
+              "rpcResult": true,
+              "sequence": 7,
+              "status": 200
+            },
+            {
+              "event": "response_mutated",
+              "mutation": "wrong_value",
+              "operation": "observe",
+              "protocol": "a2a",
+              "request": 4,
+              "sequence": 8
+            }
+          ],
+          "mcp": [
+            {
+              "event": "forward",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "requestBytes": 270,
+              "sequence": 0
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "discover",
+              "protocol": "mcp",
+              "request": 1,
+              "responseBytes": 981,
+              "rpcResult": true,
+              "sequence": 1,
+              "status": 200
+            },
+            {
+              "event": "forward",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "requestBytes": 334,
+              "sequence": 2
+            },
+            {
+              "complete": true,
+              "event": "upstream_response",
+              "operation": "readEvidence",
+              "protocol": "mcp",
+              "request": 2,
+              "responseBytes": 548,
+              "rpcResult": true,
+              "sequence": 3,
+              "status": 200
+            }
+          ]
+        },
+        "result": {
+          "outcome": "Success",
+          "report": {
+            "documentId": "evidence-42",
+            "revision": 1,
+            "selected": [
+              {
+                "id": "f1",
+                "value": "invented"
+              },
+              {
+                "id": "f2",
+                "value": "square"
+              }
+            ]
+          }
+        },
+        "trace": [
+          {
+            "event": "root_open",
+            "sequence": 0
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/list",
+            "normalRequests": 1,
+            "protocol": "mcp",
+            "remainingInbound": 262144,
+            "remainingNormal": 13,
+            "request": 1,
+            "rootRemainingSeconds": 14.96587457699934,
+            "sequence": 1,
+            "totalRequests": 1
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/list",
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 2
+          },
+          {
+            "bytes": 981,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 981,
+            "method": "tools/list",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 1,
+            "sequence": 3
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "tools/call",
+            "normalRequests": 2,
+            "protocol": "mcp",
+            "remainingInbound": 261163,
+            "remainingNormal": 12,
+            "request": 2,
+            "rootRemainingSeconds": 14.952223339998454,
+            "sequence": 4,
+            "totalRequests": 2
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "tools/call",
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 5
+          },
+          {
+            "bytes": 548,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 1529,
+            "method": "tools/call",
+            "notifications": 0,
+            "protocol": "mcp",
+            "request": 2,
+            "sequence": 6
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 3,
+            "protocol": "a2a",
+            "remainingInbound": 260615,
+            "remainingNormal": 11,
+            "request": 3,
+            "rootRemainingSeconds": 14.938696101999085,
+            "sequence": 7,
+            "totalRequests": 3
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 8
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2198,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 3,
+            "sequence": 9
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "SendMessage",
+            "normalRequests": 4,
+            "protocol": "a2a",
+            "remainingInbound": 259946,
+            "remainingNormal": 10,
+            "request": 4,
+            "rootRemainingSeconds": 14.931841974997951,
+            "sequence": 10,
+            "totalRequests": 4
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "SendMessage",
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 11
+          },
+          {
+            "bytes": 124,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2322,
+            "method": "SendMessage",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 4,
+            "sequence": 12
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 13,
+            "state": "Working"
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "__card",
+            "normalRequests": 5,
+            "protocol": "a2a",
+            "remainingInbound": 259822,
+            "remainingNormal": 9,
+            "request": 5,
+            "rootRemainingSeconds": 14.923814118003065,
+            "sequence": 14,
+            "totalRequests": 5
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "__card",
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 15
+          },
+          {
+            "bytes": 669,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 2991,
+            "method": "__card",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 5,
+            "sequence": 16
+          },
+          {
+            "cleanup": false,
+            "cleanupCount": 0,
+            "event": "admitted",
+            "method": "GetTask",
+            "normalRequests": 6,
+            "protocol": "a2a",
+            "remainingInbound": 259153,
+            "remainingNormal": 8,
+            "request": 6,
+            "rootRemainingSeconds": 14.917925763002131,
+            "sequence": 17,
+            "totalRequests": 6
+          },
+          {
+            "cleanup": false,
+            "event": "dispatch",
+            "method": "GetTask",
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 18
+          },
+          {
+            "bytes": 293,
+            "cleanup": false,
+            "event": "received",
+            "inboundBytes": 3284,
+            "method": "GetTask",
+            "notifications": 0,
+            "protocol": "a2a",
+            "request": 6,
+            "sequence": 19
+          },
+          {
+            "event": "task_observed",
+            "reference": 1,
+            "sequence": 20,
+            "state": "Completed"
+          },
+          {
+            "event": "root_close",
+            "sequence": 21
+          },
+          {
+            "event": "publication",
+            "outcome": "Success",
+            "sequence": 22,
+            "success": true
+          }
+        ],
+        "witnessesCapturedBeforePeerShutdown": true,
+        "worker": {
+          "applicationFinish": {
+            "outcome": "Success",
+            "report": {
+              "documentId": "evidence-42",
+              "revision": 1,
+              "selected": [
+                {
+                  "id": "f1",
+                  "value": "invented"
+                },
+                {
+                  "id": "f2",
+                  "value": "square"
+                }
+              ]
+            }
+          },
+          "barriers": [],
+          "calls": [
+            {
+              "id": 1,
+              "kind": "Evidence",
+              "operation": "readEvidence"
+            },
+            {
+              "id": 2,
+              "kind": "Task",
+              "operation": "submit",
+              "state": "Working"
+            },
+            {
+              "artifactSha256": "8a872cdd7cc866ff41a47adad299b11448ef7b32aef0c730d7211ac948d17e9a",
+              "id": 3,
+              "kind": "Task",
+              "operation": "observe",
+              "state": "Completed"
+            }
+          ],
+          "containment": "sampled_rss_and_wall_supervision_not_os_sandbox",
+          "elapsedSeconds": 0.09817142500105547,
+          "finishFrames": 1,
+          "hostFinishElapsedSeconds": 0.0002558369960752316,
+          "outputTruncated": false,
+          "peakRssBytesObserved": 26750976,
+          "responsesAfterFatal": 0,
+          "retired": true,
+          "retirementAfterRequestSeconds": null,
+          "retirementObservedAfterStartSeconds": 0.09786079500190681,
+          "retirementRequestedAfterStartSeconds": null,
+          "returncode": 0,
+          "stderr": [],
+          "stderrBytes": 0,
+          "supervisorJoined": true,
+          "termination": "normal",
+          "unexpectedStdout": []
+        }
+      },
+      "scenario": {
+        "a2aStates": [
+          "WORKING",
+          "COMPLETED"
+        ],
+        "reportMutation": "wrong_value",
+        "sourceMutation": "accept_wrong_report"
+      },
+      "surface": "source_mutant"
+    }
+  ],
+  "selectedCases": 4,
+  "sourceSha256": {
+    "../../packages/runtime/pyproject.toml": "1867b2ec0b78eda97b17f84e0d0ea8454c0fce25363adca0e954bad7e9ad3cbf",
+    "../../packages/runtime/src/meda_runtime/__init__.py": "2ecd76ab556e6fd1add52574687c722eb175a73f65e390c25f5c11f4cb54c2f3",
+    "../../packages/runtime/src/meda_runtime/__main__.py": "59df5a71bb2d18cb73656138b7d2f0a9663ec7ab33655ab48b8dbdf917aab4ea",
+    "../../packages/runtime/src/meda_runtime/api.py": "2e499fdad79d996143264951872b486dfb8b57bbbb9bbaabdb94c8ec0b43defb",
+    "../../packages/runtime/src/meda_runtime/host.py": "8d43155a3596090b1b55c87a1a03b4f2905c1b0d0cef1892da83307ae34d8f44",
+    "../../packages/runtime/src/meda_runtime/supervisor.py": "6f9458ec89dbc6630bdf6aced933143334f10ba5a053a96e8f47b178c224a9c7",
+    "../../packages/runtime/src/meda_runtime/transport.py": "84cf084715310a16408f83c3491fbc43e10e3d5185b67d5f4c1b93f09cb2ce7d",
+    ".gitignore": "5d894134adc1ee0216042533cddc6128acd0fca8be98821324ef05e87b4ab2a2",
+    "CONTRACT.md": "6e74e92d5f5821d3687d96b1e086e22e918c891d236aa11b0397b0ae2e3c5fdb",
+    "README.md": "9e09e4f4042779b8759a3e54a43790dc19f4ead4e03bc21c56427f70d4b1c8c4",
+    "acceptance.json": "724e5626054ced2ac444fcf759371fca43f5f91d1efcff09b2e67d205b2d9a8d",
+    "acceptance_adapters.py": "4f5a3c83dbaed9eadcb05d9ebd0f004b3c3be59e496f2a4e969c1959cd803096",
+    "acceptance_host.py": "e2f7a896916398488287e6a4755ee9fcd97758f4df20158b02b46cf2b67b0be4",
+    "acceptance_mutations_host.py": "da18cccca31767e8ce5b521ceb3cdf6480df27cadec8d2207cc341fc9bd212c1",
+    "acceptance_mutations_source.py": "99fd531481a2c66ea9004963e3c435c26dbb95b95f2888a06f37d997d803d17c",
+    "acceptance_peers.py": "11b314e085b49db91c541dd4e4694f41dae5e776fa052b167612945f0b2ea638",
+    "acceptance_run.py": "61e95fa60e444d7d38e9c8c0dd55ac60c73024b6f9941c4dfe53a19d8328c6fd",
+    "candidate-manifest.json": "16ad9778c93ab0e30fddd5e62f054a4c27913b52b7bf3b82f9591cbf3ba4f115",
+    "client/bindings.ts": "016cec6745eabbdd6489e454458a9492ea3ef17ec36d47fe5eeffb18b8783512",
+    "client/domain.ts": "4e19117a2a1057c065b7ecc095376a9b358779908c2d0a9ef453d620694bc416",
+    "client/main.ts": "0dae4ee710734511e2ec53c037726eef3e21246df51b4ec1c0db30993b951373",
+    "client/workflow.ts": "e31424b14960b68e4d174e8261dafcfe9f7ee78046a3611d1b553c0719b9e5b5",
+    "dependency-provenance.json": "e165882ed7a34c18f11699c81008d935f37809ec2f91deea5dea12d5ca2c1015",
+    "fault_proxy.py": "a782ee5818dd33a7e77e9769d2d6709346b8204a058d75d7d79c2f54eede9753",
+    "freeze.py": "d04e0a4d629a92bcbdabcb984f443bf3806e4567a3aca5f941b7936d371143d2",
+    "host.py": "d0d05376018175503a6c3f5565a5fd3c20cae1454031e0216322729eeaa92bd8",
+    "mutation_screen.py": "c93b38c56f1767318925eaa87bb2426b1b8e685c2f715596125605d478c91e66",
+    "oracle.py": "6405ddadaf0faf1c9817791241041ff9d9ed0b26beac794de28acf803a0bb65f",
+    "package-lock.json": "f4e844a493a50d8abc19154854ab3c2c3ea897eea8f045a3bfeac4cfb892e8c3",
+    "package.json": "601fa2c5aebfa976a7793a7a3705a064003163eea54c795ed38496a94390a69b",
+    "requirements.lock": "bfd9796a42c87a2d9ca2c87713e2a5dafedad32a12ba39a94990f0e3e9fd6c6b",
+    "runner.py": "ae5748c0c2a9e6317589cfb1706aa9f2dccac6725112b66d41e3d3d679f7ec47",
+    "sdk_peers.py": "a3df09c82b03c60d5fa34a5c7590757cb404f99a2866b45afbfa07a7e0b66f8b",
+    "specification-sources.json": "70e2cf4b584bb2ea2ad28e148b3f92cd33eae24c97208f1da216c5ece64fe818",
+    "support.py": "d517452a7d98ca2d7c2a999ced9adf0bae24d086ef620f2aac40bd413596fec3",
+    "tests/test_acceptance_adapters.py": "b61587518d204b7001b88fb454d8b55dd664a2ec23acd6a477e332f3aaf4a4d8",
+    "tests/test_acceptance_inventory.py": "412df4b03d0fae78a9b2c99d909d172614dc7b66837a52fcddb3e83536baf864",
+    "tests/test_acceptance_peers.py": "99080227f3d8847481902d6a7a630237afc1ab5e4f880f51b17865ebac75ab47",
+    "tests/test_acceptance_run.py": "849e4be9ae368c1813d5ab8d768c7868d2c46d87dde17d1880a2e5da78bbe502",
+    "tests/test_cancel_refusal.py": "66991fd642bd89befa82f3f47ed8f077a8413ac0a58f9ed41a813cb954e2b41c",
+    "tests/test_host.py": "59caa9862bf0bfdb2dbdb3c926c518a3f71bd13576bcaec1586bfe21113db368",
+    "tests/test_host_mutations.py": "8bacc1ea29f5970af6131cfb2f0bd939b6345df6b11d73c4f2015077bbccdd2f",
+    "tests/test_mutation_oracle.py": "35effdb87fd57a00fede3f756479f751f871575553d0d15190cc4ab6ed065198",
+    "tests/test_mutation_screen.py": "fb215993d26e9e66ba698c091a459d641efe6591d3a2ecef933f6aaecaab9b92",
+    "tests/test_oracle.py": "3f1224410235d180786ac069188c6f482d6f91ee44f37fc1188893532a84daf5",
+    "tests/test_runner.py": "46af335034042fdc5428d1bf033835f46dfc22591769c4851a14cb12d0c68e8f",
+    "tests/test_sdk_peers.py": "5df89585fcdb6ed6290dbd637d6f86bddef823cc34a7bf6058624fcefc63c6ff",
+    "tests/test_source_mutations.py": "2de86628c5f0af7d7495955ec80678842089c56340a37a11db69457e886e4f1f",
+    "tests/test_typescript.py": "8179d367740303278e8ede7d70b2e3e668c084e7c611e9a1d34fd400bffe9f49",
+    "tests/test_workflow_fixtures.py": "75bf826a9a8c5591f77c3e14875ec632248c83897d0fe5f95498b3b416606d22",
+    "transport.py": "e4f11796c63062103c28587f0b67f95c4b6ab56cf28adadf04fc6242fa4a6e19",
+    "tsconfig.json": "71455dd49751ce5173800ceaa7973748ac3e2f3d05482173af64c1d3d73edfef"
+  },
+  "sourceUnchangedDuringRun": true,
+  "startedAt": "2026-11-02T05:32:03.205502+00:00"
+}

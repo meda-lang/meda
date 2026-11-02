@@ -57,8 +57,8 @@ This follow-up does not claim a new complete 111-case run.
 | --- | --- | --- |
 | Reference source checks | `W10-meda-construct_task_ref`, `W10-meda-read_task_ref_field`, `W10-meda-update_task_ref`, `W10-meda-serialize_task_ref`, `W10-meda-decode_task_ref` | Deferred with language expansion; do not count the narrower decision-screen probes as these cases |
 | Effect source checks | `W12-meda-transitive_undeclared_effect`, `W12-meda-pure_contract_host_call`, `W12-meda-declared_bound_laundering`, `W12-meda-valid-effect-control` | Deferred with language expansion; retain the original requirements |
-| Host mutants | `W12-mutant-remove-grant`, `W12-mutant-remove-quota` | Next bounded runtime packet: show an independent observer detects removed enforcement |
-| Application mutants | `W12-client-repeat-submit`, `W12-wrong-domain-validator` | Implement with frozen baseline controls and separate mutant receipts |
+| Host mutants | `W12-mutant-remove-grant`, `W12-mutant-remove-quota` | Executable in the later [mutation follow-up](acceptance-mutations.md), with independent observations and paired controls |
+| Application mutants | `W12-client-repeat-submit`, `W12-wrong-domain-validator` | TypeScript arms executable in the [mutation follow-up](acceptance-mutations.md); Meda arms remain unexecuted |
 
 The missing independent witnesses remain separate work. Issue #11 stays open;
 these executions neither establish general MCP/A2A conformance nor production

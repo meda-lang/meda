@@ -1,0 +1,88 @@
+test_bridge_cli_is_usable_from_outside (test_clients.ClientsTest.test_bridge_cli_is_usable_from_outside) ...
+  test_bridge_cli_is_usable_from_outside (test_clients.ClientsTest.test_bridge_cli_is_usable_from_outside) (arm='typescript') ... FAIL
+test_common_boundary_rejects_inexact_or_malformed_values (test_clients.ClientsTest.test_common_boundary_rejects_inexact_or_malformed_values) ... ok
+test_same_actual_clients_and_frozen_source_digests (test_clients.ClientsTest.test_same_actual_clients_and_frozen_source_digests) ... ERROR
+test_source_change_invalidates_cached_compile (test_clients.ClientsTest.test_source_change_invalidates_cached_compile) ...
+  test_source_change_invalidates_cached_compile (test_clients.ClientsTest.test_source_change_invalidates_cached_compile) (arm='typescript') ... ERROR
+test_typecheck_probes_are_matched_and_include_positive_control (test_clients.ClientsTest.test_typecheck_probes_are_matched_and_include_positive_control) ... ERROR
+test_authorized_flow_and_exact_trace_metadata (test_host.HostTests.test_authorized_flow_and_exact_trace_metadata) ... ok
+test_call_budget_and_pending_remote_work (test_host.HostTests.test_call_budget_and_pending_remote_work) ... ok
+test_cancel_is_not_completion (test_host.HostTests.test_cancel_is_not_completion) ... ok
+test_empty_grant_and_zero_budget_deny_without_dispatch (test_host.HostTests.test_empty_grant_and_zero_budget_deny_without_dispatch) ... ok
+test_host_denials_cannot_dispatch (test_host.HostTests.test_host_denials_cannot_dispatch) ... ok
+test_input_validation_and_constructor_limits (test_host.HostTests.test_input_validation_and_constructor_limits) ... ok
+test_invalid_peer_data_stays_a_typed_error (test_host.HostTests.test_invalid_peer_data_stays_a_typed_error) ... ok
+test_lost_submission_is_unknown_without_retry (test_host.HostTests.test_lost_submission_is_unknown_without_retry) ... ok
+test_nonterminal_and_terminal_states_are_not_conflated (test_host.HostTests.test_nonterminal_and_terminal_states_are_not_conflated) ... ok
+test_remote_task_can_be_reattached_but_authority_is_current (test_host.HostTests.test_remote_task_can_be_reattached_but_authority_is_current) ... ok
+
+======================================================================
+ERROR: test_same_actual_clients_and_frozen_source_digests (test_clients.ClientsTest.test_same_actual_clients_and_frozen_source_digests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/tests/test_clients.py", line 22, in test_same_actual_clients_and_frozen_source_digests
+    checked = compile_client(arm)
+              ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 159, in compile_client
+    compiled = _prepare(arm, path)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 131, in _prepare
+    compiler = resolve_tsc() if arm == "typescript" else MEDA_CLI
+               ^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 108, in resolve_tsc
+    raise ClientError("infrastructure", "Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js")
+clients.ClientError: infrastructure: Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js
+
+======================================================================
+ERROR: test_source_change_invalidates_cached_compile (test_clients.ClientsTest.test_source_change_invalidates_cached_compile) (arm='typescript')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/tests/test_clients.py", line 78, in test_source_change_invalidates_cached_compile
+    first = compile_client(arm, path)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 159, in compile_client
+    compiled = _prepare(arm, path)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 131, in _prepare
+    compiler = resolve_tsc() if arm == "typescript" else MEDA_CLI
+               ^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 108, in resolve_tsc
+    raise ClientError("infrastructure", "Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js")
+clients.ClientError: infrastructure: Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js
+
+======================================================================
+ERROR: test_typecheck_probes_are_matched_and_include_positive_control (test_clients.ClientsTest.test_typecheck_probes_are_matched_and_include_positive_control)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/tests/test_clients.py", line 63, in test_typecheck_probes_are_matched_and_include_positive_control
+    probes = checker_probes()
+             ^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 225, in checker_probes
+    "arms": {arm: check_source(arm, text) for arm, text in paired.items()}}
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 192, in check_source
+    provenance = compile_client(arm, path)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 159, in compile_client
+    compiled = _prepare(arm, path)
+               ^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 131, in _prepare
+    compiler = resolve_tsc() if arm == "typescript" else MEDA_CLI
+               ^^^^^^^^^^^^^
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/clients.py", line 108, in resolve_tsc
+    raise ClientError("infrastructure", "Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js")
+clients.ClientError: infrastructure: Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js
+
+======================================================================
+FAIL: test_bridge_cli_is_usable_from_outside (test_clients.ClientsTest.test_bridge_cli_is_usable_from_outside) (arm='typescript')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/scratch/bf91ba952a37/meda/experiments/interop_compare/tests/test_clients.py", line 90, in test_bridge_cli_is_usable_from_outside
+    self.assertEqual(0, result.returncode, result.stdout + result.stderr)
+AssertionError: 0 != 2 : {"error": "infrastructure", "message": "Install pinned TypeScript 5.9.3 locally or set MEDA_COMPARE_TSC to tsc.js"}
+
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.010s
+
+FAILED (failures=1, errors=3)

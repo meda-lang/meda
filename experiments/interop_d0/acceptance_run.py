@@ -29,6 +29,8 @@ _EXECUTION_STAGES = {
     "host_probe": "host_probe_execution",
     "adapter_probe": "adapter_probe_execution",
     "peer_probe": "peer_probe_execution",
+    "host_mutant": "host_mutant_execution",
+    "source_mutant": "source_mutant_execution",
 }
 
 
@@ -45,6 +47,12 @@ def execute(case):
     if surface == "peer_probe":
         from .acceptance_peers import execute_peer_probe
         return execute_peer_probe(case["scenario"])
+    if surface == "host_mutant":
+        from .acceptance_mutations_host import execute_host_mutant
+        return execute_host_mutant(case["scenario"])
+    if surface == "source_mutant":
+        from .acceptance_mutations_source import execute_source_mutant
+        return execute_source_mutant(case["scenario"])
     raise runner.UnsupportedScenario("No executable implementation for " + surface)
 
 

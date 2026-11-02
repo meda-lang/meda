@@ -14,6 +14,7 @@ useful partial execution from being reported as complete acceptance coverage.
 from __future__ import annotations
 
 from collections import Counter
+import re
 
 
 REPORT = {"documentId": "evidence-42", "revision": 1,
@@ -159,6 +160,14 @@ def normalize_outcome(observed):
     semantic phase. Observed proxy mutations narrow it only where the receipt
     actually identifies the mutation that reached the adapter.
     """
+    mutation = _mutation_evidence(observed)
+    if mutation and mutation["detected"] is True:
+        # Keep the actual application/host result in the receipt. This is the
+        # independent experiment verdict, never an outcome supplied by a mutant.
+        result = observed.get("result")
+        return {"code": result.get("outcome") if isinstance(result, dict) else None,
+                "remoteOutcome": None, "categories": ["mutation_detected"],
+                "phases": ["oracle"], "layer": "independent_oracle", "conclusive": True}
     probe_result = _probe_normalization(observed)
     if probe_result is not None:
         return probe_result
@@ -274,6 +283,148 @@ def _counts(observed):
             "successfulPublications": publications}
 
 
+def _checked_source_pair(execution):
+    """Require paired strict compilation and precisely one changed source file.
+
+    These are compiler receipts, not a claim that metadata proves execution.
+    Mutation detection additionally requires the actual worker and peer ledgers.
+    """
+    hashes, compilers = execution.get("sourceSha256"), execution.get("compiler")
+    if execution.get("arm") != "typescript" or not isinstance(hashes, dict) or not isinstance(compilers, dict):
+        return False
+    before, after = hashes.get("control"), hashes.get("mutant")
+    if not isinstance(before, dict) or not isinstance(after, dict) or not before or before.keys() != after.keys():
+        return False
+    if not all(isinstance(value, str) and re.fullmatch(r"[0-9a-f]{64}", value)
+               for side in (before, after) for value in side.values()):
+        return False
+    changed = sorted(key for key in before if before[key] != after[key])
+    target = {"repeat_after_unknown_submit": "workflow.ts", "accept_wrong_report": "domain.ts"}.get(execution.get("mutation"))
+    if changed != [target] or execution.get("changedFiles") != changed:
+        return False
+    control, mutant = compilers.get("control"), compilers.get("mutant")
+    if not isinstance(control, dict) or not isinstance(mutant, dict):
+        return False
+    options = control.get("options")
+    if not isinstance(options, dict) or options != mutant.get("options"):
+        return False
+    if not all(options.get(key) is True for key in ("strict", "noImplicitReturns", "noUncheckedIndexedAccess", "exactOptionalPropertyTypes", "noEmitOnError")):
+        return False
+    return all(side.get("compiler") == "TypeScript" and side.get("version") == "5.9.3"
+               and side.get("passed") is True and side.get("sourceStrict") is True
+               for side in (control, mutant))
+
+
+def _mutation_evidence(observed):
+    """Recompute the mutation verdict from the control and independent ledgers.
+
+    The mutation name chooses the original policy to check; it is never evidence
+    that the defect ran. Missing or truncated observations cannot kill a mutant.
+    No runtime, client validator, or runner implementation is imported here.
+    """
+    execution = observed.get("mutationExecution")
+    if not isinstance(execution, dict):
+        return None
+    mutation, kind = execution.get("mutation"), execution.get("kind")
+    if (kind, mutation) not in {("host_mutant", "remove_operation_grant"),
+            ("host_mutant", "remove_request_quota"),
+            ("source_mutant", "repeat_after_unknown_submit"),
+            ("source_mutant", "accept_wrong_report")}:
+        return None
+    source_checked = _checked_source_pair(execution) if kind == "source_mutant" else None
+    evidence = {"mutation": mutation, "controlValid": None, "detected": None,
+                "ordinaryPolicy": {"control": None, "mutant": None},
+                "sourceChecked": source_checked, "repeatContained": None}
+    raw_control = observed.get("mutationControl")
+    if not isinstance(raw_control, dict):
+        return evidence
+    control, errors = _measured(raw_control)
+    # evaluate_case may have already applied the mutant's window. Do not apply
+    # it again: callers pass the measured receipt here.
+    pair = (control, observed)
+    if errors or any(_events(side.get("trace")) is None or
+            _all_protocol_events(side, "peers") is None or
+            _all_protocol_events(side, "proxy") is None for side in pair):
+        return evidence
+    if any(_has(side["trace"], "witness_limit") or
+           _has(_all_protocol_events(side, "peers"), "witness_limit") or
+           _has(_all_protocol_events(side, "proxy"), "witness_limit") for side in pair):
+        return evidence
+    control_counts, mutant_counts = _counts(control), _counts(observed)
+
+    def events(side, protocol, event, **fields):
+        return [row for row in side["peers"][protocol] if row.get("event") == event
+                and all(row.get(key) == value for key, value in fields.items())]
+
+    def forwards(side, protocol, operation):
+        return [row for row in side["proxy"][protocol] if row.get("event") == "forward"
+                and row.get("operation") == operation]
+
+    def probe_result(side, operation):
+        calls = _events(side.get("probeCalls"))
+        if calls is None or len(calls) != 1 or calls[0].get("operation") != operation:
+            return {}
+        value = calls[0].get("result")
+        return value if isinstance(value, dict) else {}
+
+    if kind == "host_mutant":
+        policy = observed.get("mutationPolicy")
+        if execution.get("arm") != "shared" or not isinstance(policy, dict) or not _exact(policy, control.get("mutationPolicy")):
+            return evidence
+        operation = "submit" if mutation == "remove_operation_grant" else "readEvidence"
+        if policy.get("operation") != operation:
+            return evidence
+        before, after = probe_result(control, operation), probe_result(observed, operation)
+        denial = "AuthorityDenied" if operation == "submit" else "BudgetDenied"
+        policy_valid = isinstance(policy.get("grants"), list) and all(isinstance(grant, str) for grant in policy["grants"])
+        if operation == "submit":
+            policy_valid = policy_valid and operation not in policy["grants"]
+            control_zero = control_counts["peerTaskCreations"] == 0 and not forwards(control, "a2a", operation)
+            violation = mutant_counts["businessDispatches"][operation] == 1 and mutant_counts["peerTaskCreations"] == 1 and len(forwards(observed, "a2a", operation)) == 1 and after.get("kind") == "Task"
+        else:
+            limits = policy.get("limits")
+            policy_valid = policy_valid and operation in policy["grants"] and isinstance(limits, dict) and type(limits.get("normalRequests")) is int and limits["normalRequests"] == 0 and type(limits.get("max_requests")) is int and type(limits.get("cleanup_requests")) is int and limits["max_requests"] == limits["cleanup_requests"]
+            control_zero = not events(control, "mcp", "evidence_read") and not forwards(control, "mcp", operation)
+            violation = mutant_counts["businessDispatches"][operation] == 1 and len(events(observed, "mcp", "evidence_read", documentId="evidence-42")) == 1 and len(forwards(observed, "mcp", operation)) == 1 and after.get("kind") == "Evidence"
+        if not policy_valid:
+            return evidence
+        control_valid = before.get("kind") == "Error" and before.get("code") == denial and _has(control["trace"], "call_rejected", operation=operation, code=denial) and control_counts["businessDispatches"][operation] == 0 and control_zero
+        evidence.update(controlValid=control_valid, detected=control_valid and violation,
+                        ordinaryPolicy={"control": control_valid, "mutant": not violation})
+        return evidence
+
+    if source_checked is not True:
+        return evidence
+    workers = [side.get("worker") for side in pair]
+    if any(not isinstance(worker, dict) or worker.get("retired") is not True or
+           worker.get("returncode") != 0 or _events(worker.get("calls")) is None for worker in workers):
+        return evidence
+    if mutation == "accept_wrong_report":
+        results = [side.get("result") for side in pair]
+        if any(not isinstance(result, dict) for result in results):
+            return evidence
+        # Both arms must receive the same external fault through the independent
+        # proxy; the ordinary mutant publication still fails exact report checks.
+        if not all(_has(side["proxy"]["a2a"], "response_mutated", mutation="wrong_value") for side in pair):
+            return evidence
+        control_valid = results[0].get("outcome") == "DomainRejected" and control_counts["successfulPublications"] == 0 and workers[0]["calls"] and workers[0]["calls"][-1].get("state") == "Completed"
+        violation = results[1].get("outcome") == "Success" and isinstance(results[1].get("report"), dict) and not _exact(results[1]["report"], REPORT) and mutant_counts["successfulPublications"] == 1
+        evidence.update(controlValid=bool(control_valid), detected=bool(control_valid and violation),
+                        ordinaryPolicy={"control": bool(control_valid), "mutant": not violation})
+    else:
+        submissions = [[call for call in worker["calls"] if call.get("operation") == "submit"] for worker in workers]
+        if not submissions[0] or not submissions[1]:
+            return evidence
+        initial_unknown = all(calls[0].get("kind") == "Error" and calls[0].get("remoteOutcome") == "Unknown" for calls in submissions)
+        committed_once = all(count["businessDispatches"]["submit"] == 1 and count["peerTaskCreations"] == 1 for count in (control_counts, mutant_counts))
+        lost = all(_has(side["proxy"]["a2a"], "response_dropped", operation="submit", afterUpstreamResponse=True) and _has(side["trace"], "transport_error", remoteOutcome="Unknown") for side in pair)
+        control_valid = initial_unknown and committed_once and lost and len(submissions[0]) == 1
+        denied = len(submissions[1]) == 2 and submissions[1][1].get("kind") == "Error" and submissions[1][1].get("code") == "BudgetDenied" and _has(observed["trace"], "call_rejected", operation="submit", code="BudgetDenied")
+        evidence.update(controlValid=control_valid, repeatContained=control_valid and denied,
+                        ordinaryPolicy={"control": control_valid, "mutant": control_valid and denied})
+    return evidence
+
+
 def evaluate_case(case, observed):
     """Return checked, failed, and unverified obligations for one immutable case.
 
@@ -285,6 +436,7 @@ def evaluate_case(case, observed):
     expected = case["expected"]
     normalized = normalize_outcome(observed)
     counts = _counts(observed)
+    mutation = _mutation_evidence(observed)
     checks = []
 
     def check(name, status, reason, **details):
@@ -295,6 +447,15 @@ def evaluate_case(case, observed):
 
     if window_errors:
         check("measurement_window", "unverified", "; ".join(window_errors))
+    if case.get("surface") in {"host_mutant", "source_mutant"}:
+        execution = observed.get("mutationExecution")
+        execution = execution if isinstance(execution, dict) else {}
+        expected_mutation = case["scenario"].get("hostMutation", case["scenario"].get("sourceMutation"))
+        condition("mutation.identity", execution.get("kind") == case["surface"] and
+                  execution.get("mutation") == expected_mutation,
+                  "The receipt identifies the requested mutation surface and exact frozen defect.")
+        condition("mutation.control", mutation["controlValid"] if mutation else None,
+                  "The canonical paired control satisfies the original policy under the same external fault or authority limits.")
 
     channel_scan = observed.get("applicationChannelScan")
     if isinstance(channel_scan, dict):
@@ -356,6 +517,10 @@ def evaluate_case(case, observed):
         available.add("peer_continuation_input")
     if isinstance(result.get("report"), dict):
         available.add("report")
+    if mutation is not None and mutation["detected"] is not None:
+        available.add("mutation_oracle_result")
+        if mutation["mutation"] == "accept_wrong_report":
+            available.add("independent_domain_oracle")
     if _events(observed.get("cleanup")) is not None and isinstance(worker.get("retired"), bool):
         available.add("cleanup_witness")
     if isinstance(worker.get("retired"), bool) and isinstance(worker.get("returncode"), int):
@@ -403,6 +568,12 @@ def evaluate_case(case, observed):
             # Independent literal fixture, never import the application's domain validator.
             value = None if "report" not in result else _exact(result["report"], REPORT) and result.get("outcome") == "Success"
             reason = "Compare the entire report, including field set and selected ID order, to the independent fixture."
+        elif invariant == "independent_mutant_detection":
+            value = mutation["detected"] if mutation else None
+            reason = "Recompute the control and mutant policy verdicts from peer/proxy ledgers or the independently specified exact report; ignore detection flags."
+        elif invariant == "unknown_not_refunded" and mutation is not None and mutation["mutation"] == "repeat_after_unknown_submit":
+            value = mutation["repeatContained"]
+            reason = "The source attempts a second submit after a witnessed lost committed response; the host denies it and the peer still records exactly one task."
         elif invariant == "attribution_recorded":
             value = None if not normalized["conclusive"] or normalized["layer"] is None else normalized["layer"] in case["attribution"]
             reason = "Attribution is inferred from the observed result and call phase, not the source language label."
@@ -493,12 +664,18 @@ def evaluate_case(case, observed):
         if _has(ledger, "witness_limit"):
             check("complete." + name, "unverified", "Witness capacity was reached; receipt coverage is incomplete.")
     # Static cases cannot acquire execution credit from runtime-like receipts.
-    if case.get("surface") in {"source_check", "source_mutant"}:
+    if case.get("surface") == "source_mutant":
+        condition("typescript_source_execution", mutation["sourceChecked"] if mutation else None,
+                  "Paired TypeScript source hashes and equal strict compiler receipts accompany actual worker observations; no Meda execution is inferred.")
+        if "meda" in case.get("arms", []):
+            check("meda_source_execution", "unverified", "This experiment executes only the TypeScript arm; the frozen Meda source arm remains unrun.")
+    elif case.get("surface") == "source_check":
         check("static_execution", "unverified", "An actual checked effectful Meda compiler receipt is required.")
     statuses = {item["status"] for item in checks}
     status = "failed" if "failed" in statuses else "unverified" if "unverified" in statuses else "passed"
     return {"caseId": case["id"], "status": status, "passed": status == "passed",
             "normalized": normalized, "counts": counts, "checks": checks,
+            **({"mutationOracle": mutation} if mutation is not None else {}),
             "invariants": {"checked": [key for key, value in invariant_results.items() if value == "passed"],
                            "failed": [key for key, value in invariant_results.items() if value == "failed"],
                            "unverified": [key for key, value in invariant_results.items() if value == "unverified"]},
