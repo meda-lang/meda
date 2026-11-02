@@ -45,5 +45,22 @@ jobs:
           experiments/interop_d0/.venv/bin/python -m experiments.decision_screen.run --output experiments/decision_screen/generated-results/baseline.json
           experiments/interop_d0/.venv/bin/python -m experiments.decision_screen.static_checks > experiments/decision_screen/generated-results/static-checks.json
           python -c 'import json; assert json.load(open("experiments/decision_screen/generated-results/static-checks.json"))["passed"]'
+      - name: Exercise input deadline and nonjoining cleanup fixtures
+        run: |
+          experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.acceptance_run \
+            --case W02-wait-deadline --case W04-cleanup-cannot-join \
+            --output results/acceptance-workflow-fixtures/generated-ci.json
+          python - <<'PY'
+          import json
+          with open("results/acceptance-workflow-fixtures/generated-ci.json") as source:
+              result = json.load(source)
+          assert result["sourceUnchangedDuringRun"]
+          assert result["executionCounts"] == {"executed": 2}
+          assert {row["caseId"]: row["receipt"]["result"]["outcome"] for row in result["runs"]} == {
+              "W02-wait-deadline": "Timeout", "W04-cleanup-cannot-join": "CleanupFailure"}
+          assert all(row["receipt"]["result"].get("fatal") is True for row in result["runs"])
+          assert all(check["status"] != "failed" for row in result["runs"]
+                     for check in row["assessment"]["checks"])
+          PY
       - name: Verify frozen maintenance candidates
         run: experiments/interop_d0/.venv/bin/python experiments/decision_screen/maintenance/collect.py --output experiments/decision_screen/generated-results/maintenance.json

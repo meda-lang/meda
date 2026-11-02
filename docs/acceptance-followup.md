@@ -44,7 +44,12 @@ visibility.
 
 ## Remaining work
 
-Issue #11 remains open. The next useful packet should add the missing independent
-witnesses or explicitly narrow the promises, implement or defer the remaining
-fixtures and mutants, and only then run a complete immutable 111-case candidate.
-Historical result files remain unchanged.
+The [workflow fixture follow-up](acceptance-workflow-fixtures.md) implements the
+two previously unrun workflow rows. Its receipts are separate from the focused
+replay above and the first pilot.
+
+Issue #11 remains open. Nine source checks remain deferred with language
+expansion; four mutation experiments remain executable work to implement.
+Independent witnesses for the broader promises are still incomplete. A complete
+immutable 111-case candidate is required before closing that gate. Historical
+result files remain unchanged.

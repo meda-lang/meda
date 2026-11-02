@@ -1,0 +1,32 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @meda/evidence-client@0.1.0-alpha.0 test
+> npm run build && node --test tests/*.test.cjs
+
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm.
+
+> @meda/evidence-client@0.1.0-alpha.0 build
+> tsc -p tsconfig.json
+
+✔ public package exports contain bindings and worker, not an application validator (1.947384ms)
+✔ evidence profile decoders match nonempty host bounds and reject malformed values (1.060508ms)
+✔ forged, restored, foreign and retired references cannot dispatch (0.774447ms)
+✔ close during exchange rejects late response without issuing another reference (0.258419ms)
+✔ bindings reject unknown host states and preserve typed delivery errors (0.313623ms)
+✔ worker success uses correlated protocol and emits exactly one finish (63.458943ms)
+✔ wrong response correlation fails without leaking exceptions (62.234387ms)
+✔ concurrent host calls are rejected (63.348314ms)
+✔ unawaited host call cannot publish application success (58.886775ms)
+✔ multiple initial frames and unsolicited response are rejected (117.695686ms)
+✔ oversized incomplete frame is rejected before a newline arrives (64.861782ms)
+✔ invalid UTF-8, malformed JSON and partial EOF reject (186.213705ms)
+✔ oversized outgoing result and exception text produce only bounded generic failure (124.2453ms)
+✔ published declaration types accept a real consumer and reject forged authority (1544.448639ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2375.837439

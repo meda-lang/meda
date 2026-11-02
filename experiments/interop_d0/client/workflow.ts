@@ -7,6 +7,7 @@ export interface WorkflowInput {
   readonly requestClarification: boolean;
   readonly suppliedInput?: readonly string[];
   readonly cancelAfterSubmit: boolean;
+  readonly waitForInput: boolean;
 }
 export type ApplicationOutcome = "Success" | "NeedsInput" | "DomainRejected" |
   "AuthorizationRequired" | "RemoteFailed" | "RemoteCanceled" | "RemoteRejected" |
@@ -20,16 +21,18 @@ export interface ApplicationResult {
 
 export function decodeInput(value: unknown): WorkflowInput | null {
   if (!record(value) || Object.keys(value).some((key) => !["documentId", "includeIds",
-    "requestClarification", "suppliedInput", "cancelAfterSubmit"].includes(key))) return null;
+    "requestClarification", "suppliedInput", "cancelAfterSubmit", "waitForInput"].includes(key))) return null;
   const documentId = value.documentId ?? "evidence-42";
   const includeIds = decodeIds(value.includeIds ?? ["f1", "f2"]);
   const suppliedInput = value.suppliedInput === undefined ? undefined : decodeIds(value.suppliedInput);
   if (typeof documentId !== "string" || documentId.length === 0 || [...documentId].length > 256 ||
       includeIds === null || suppliedInput === null ||
       (value.requestClarification !== undefined && typeof value.requestClarification !== "boolean") ||
-      (value.cancelAfterSubmit !== undefined && typeof value.cancelAfterSubmit !== "boolean")) return null;
+      (value.cancelAfterSubmit !== undefined && typeof value.cancelAfterSubmit !== "boolean") ||
+      (value.waitForInput !== undefined && typeof value.waitForInput !== "boolean")) return null;
   return Object.freeze({documentId, includeIds, requestClarification: value.requestClarification === true,
     cancelAfterSubmit: value.cancelAfterSubmit === true,
+    waitForInput: value.waitForInput === true,
     ...(suppliedInput === undefined ? {} : {suppliedInput})});
 }
 
@@ -72,7 +75,16 @@ export async function runWorkflow(host: HostApi, input: WorkflowInput): Promise<
       case "Rejected": return {outcome: "RemoteRejected"};
       case "AuthRequired": return {outcome: "AuthorizationRequired"};
       case "InputRequired":
-        if (continued || input.suppliedInput === undefined) return {outcome: "NeedsInput"};
+        if (continued) return {outcome: "NeedsInput"};
+        if (input.suppliedInput === undefined) {
+          if (input.waitForInput) {
+            // Research fixture: no answer arrives. Keep the worker alive so the
+            // real supervisor, not a fabricated application result, closes it.
+            // This does not add an interactive input provider to the package.
+            await new Promise<never>(() => { setInterval(() => {}, 1_000); });
+          }
+          return {outcome: "NeedsInput"};
+        }
         continued = true;
         selectedIds = input.suppliedInput;
         task = await host.provideInput(task.ref, selectedIds);
