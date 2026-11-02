@@ -56,8 +56,10 @@ adds execution for waiting until the input deadline and a nonjoining local
 activity. Neither row establishes full acceptance.
 The [mutation follow-up](../../docs/acceptance-mutations.md) executes the four
 host/TypeScript mutation cases with paired controls. Its bounded behavior
-screen preserves the frozen repeat-submit attribution failure and missing
-independent witnesses; it does not close acceptance.
+screen supports an explicit [attribution erratum](../../docs/acceptance-attribution-erratum.md),
+preserving the original failed assessment alongside the revised unverified result.
+Every failed selected check is rejected; missing independent witnesses remain
+unverified and acceptance stays open.
 
 ## Boundaries
 

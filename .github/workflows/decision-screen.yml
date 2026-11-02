@@ -70,4 +70,4 @@ jobs:
             --surface host_mutant --surface source_mutant \
             --output results/acceptance-mutations/generated-ci.json
           experiments/interop_d0/.venv/bin/python -m experiments.interop_d0.mutation_screen \
-            results/acceptance-mutations/generated-ci.json
+            results/acceptance-mutations/generated-ci.json --revision attribution-1

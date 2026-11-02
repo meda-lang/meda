@@ -1,0 +1,38 @@
+{
+  "kind": "attribution_erratum_reassessment",
+  "createdAt": "2026-11-02T07:20:16.521137+00:00",
+  "sourceReceipt": "results/acceptance-mutations/frozen-run.json",
+  "sourceReceiptSha256": "120aa684dc023ce97085bb67c3097edb6225b9aabfdeed85b94cab3c25742e25",
+  "sourceReceiptUnchanged": true,
+  "protocolCallsExecuted": false,
+  "runs": [
+    {
+      "revision": "original",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "experiments.interop_d0.mutation_screen",
+        "results/acceptance-mutations/frozen-run.json",
+        "--revision",
+        "original"
+      ],
+      "exitCode": 1,
+      "expectedExitCode": 1,
+      "summary": "original.json"
+    },
+    {
+      "revision": "attribution-1",
+      "command": [
+        "experiments/interop_d0/.venv/bin/python",
+        "-m",
+        "experiments.interop_d0.mutation_screen",
+        "results/acceptance-mutations/frozen-run.json",
+        "--revision",
+        "attribution-1"
+      ],
+      "exitCode": 0,
+      "expectedExitCode": 0,
+      "summary": "attribution-1.json"
+    }
+  ]
+}

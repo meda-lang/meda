@@ -21,6 +21,7 @@ The recommendation is **library-first**, with further language expansion paused.
 - [x] Check package APIs and the installed consumer in CI.
 - [x] Execute the missing input-deadline and local cleanup-failure workflow fixtures.
 - [x] Exercise controlled host and TypeScript mutations with independent checks.
+- [x] Version the repeat-submit attribution correction and remove the CI failure exception.
 
 See the [runtime guide](docs/runtime-library.md) and
 [verification record](results/runtime-library/README.md). Packages remain
@@ -28,7 +29,8 @@ experimental and unpublished.
 The [fixture follow-up](docs/acceptance-workflow-fixtures.md) records the two
 new executions and the remaining acceptance backlog without closing the full gate.
 The [mutation follow-up](docs/acceptance-mutations.md) keeps behavior checks
-separate from full acceptance, including a retained attribution mismatch.
+separate from full acceptance. The [attribution erratum](docs/acceptance-attribution-erratum.md)
+corrects one expectation explicitly while retaining the original failed assessment.
 
 ## Next investment
 

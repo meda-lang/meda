@@ -1,0 +1,10 @@
+{
+  "schema": "meda-acceptance-erratum/1",
+  "id": "attribution-1",
+  "baseInventorySha256": "724e5626054ced2ac444fcf759371fca43f5f91d1efcff09b2e67d205b2d9a8d",
+  "caseId": "W12-client-repeat-submit",
+  "field": "attribution",
+  "before": ["application", "independent_oracle"],
+  "after": ["shared_host"],
+  "reason": "The source mutant attempts a second submission after unknown delivery. The canonical shared host denies that attempt before dispatch. Attribution describes the observed enforcement layer, not the location of the injected defect. No scenario, outcome, phase, count, invariant, witness, or resource limit changes."
+}
