@@ -1,6 +1,6 @@
 {
   "profile": "meda-interop-d0/1",
-  "resolvedOn": "2026-10-25",
+  "resolvedOn": "2026-11-19",
   "status": "resolved_and_import_checked; protocol workflow acceptance is separate",
   "targetEnvironment": {
     "python": "3.12.14",
@@ -8,7 +8,7 @@
     "system": "Linux",
     "machine": "x86_64",
     "binaryWheelMinimumGlibc": "2.34",
-    "node": "v24.22.1",
+    "node": "v24.22.3",
     "npm": "11.9.0",
     "pip": "25.0.1"
   },
@@ -244,10 +244,10 @@
     },
     {
       "name": "opentelemetry-api",
-      "version": "1.45.1",
-      "filename": "opentelemetry_api-1.45.1-py3-none-any.whl",
-      "url": "https://files.pythonhosted.org/packages/1e/41/f7dcf80b81ee8e71c1a2b59f14208bc723edbd89ed027a73b175abf6348e/opentelemetry_api-1.45.1-py3-none-any.whl",
-      "sha256": "b31553efa588ae44bc306f863c785c5333a9ecc091248c6ee68b4b6c87fdedfb",
+      "version": "1.45.2",
+      "filename": "opentelemetry_api-1.45.2-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/a9/2d/610db864d7513158cebb8f36cc88e67e73bd6c7aa1905ef18d89e1281c81/opentelemetry_api-1.45.2-py3-none-any.whl",
+      "sha256": "2cbd737377e710ee740d261c94e93fa0f08e6d037c18f17513cc0a2d94479a34",
       "direct": false
     },
     {
@@ -276,10 +276,10 @@
     },
     {
       "name": "pyasn1",
-      "version": "0.6.4",
-      "filename": "pyasn1-0.6.4-py3-none-any.whl",
-      "url": "https://files.pythonhosted.org/packages/9a/3b/6163796d69c3977d1e4287bea4a6979161cbbdd170ebb430511e8e1999ce/pyasn1-0.6.4-py3-none-any.whl",
-      "sha256": "deda9277cfd454080ec40b207fb6df82206a3a2688735233cdcd8d3d565f088b",
+      "version": "0.6.5",
+      "filename": "pyasn1-0.6.5-py3-none-any.whl",
+      "url": "https://files.pythonhosted.org/packages/19/1f/3eefd5c84c35cae44549ce1c7f7e58f7945b34f5a6bce07a135438522073/pyasn1-0.6.5-py3-none-any.whl",
+      "sha256": "4017b0fce125096b8573b39c989fdb1a4b19cf761e683398184550fea0e66587",
       "direct": false
     },
     {
@@ -482,7 +482,7 @@
     }
   ],
   "lockSha256": {
-    "requirements.lock": "bfd9796a42c87a2d9ca2c87713e2a5dafedad32a12ba39a94990f0e3e9fd6c6b",
+    "requirements.lock": "8e68a6f3727b7e3aa8552017c29b1342bf166bc0b0258b09b0d8925334bd3b2e",
     "package-lock.json": "f4e844a493a50d8abc19154854ab3c2c3ea897eea8f045a3bfeac4cfb892e8c3"
   },
   "verification": {
